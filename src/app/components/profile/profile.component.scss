@@ -1,0 +1,28 @@
+@import './../../../assets/scss/colours';
+
+* {
+    color: $white
+}
+.outer-container {
+    background-color: $darkBlue;
+    padding: 9.6rem;
+}
+.inner-container {
+    max-width: 96rem;
+    margin: 0 auto;
+    display: flex;
+
+    .left {
+        width: 50%;
+        margin-right: 0.5rem;
+    }
+    .right {
+        width: 50%;
+        margin-left: 0.5rem;
+        margin-top: 0.4rem;
+    }
+}
+
+p {
+    color: $grey;
+}

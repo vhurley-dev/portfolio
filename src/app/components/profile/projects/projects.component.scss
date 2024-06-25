@@ -1,0 +1,35 @@
+@import './../../../../assets/scss/colours';
+
+a {color: $white}
+.container {
+    .project {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4rem;
+        img {
+            width: 10rem;
+            max-width: 10rem;
+            min-width: 10rem;
+            height: 5rem;
+            margin-right: 1.6rem;
+            border-radius: 0.5rem;
+            box-shadow: 0px 3px 15px rgba(100,100,100,0.6);
+        }
+        .description {
+            .title {
+                display: flex;
+                justify-content: flex-start;
+
+                .icon {
+                    position: relative;
+                    top: -0.4rem;
+                    margin-left: 0.4rem;
+                }
+            }
+            .technology {
+                display: flex;
+                margin-top: 2.4rem;
+            }
+        }
+    }
+}
