@@ -1,0 +1,55 @@
+@import '../../../../assets/scss/colours';
+
+.container {
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+.left {
+    width: 10rem;
+    min-width: 10rem;
+    padding-right: 1.6rem;
+}
+
+.date {
+    .date-from {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .seperator {
+        margin-left: 0.8rem;
+        width: 1.2rem;
+        height: 0.1rem;
+        background-color: $grey;
+    }
+}
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    .seperator {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 1rem;
+        background-color: $pink;
+        margin: 0.8rem;
+    }
+}
+.technology {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2.4rem;
+}
+
+.large-link {
+    margin-top: 2.4rem;
+    margin-right: 0.8rem;
+    position: relative;
+    &:after {
+        content: '\2197';
+        margin-left: 0.8rem;
+        position: absolute;
+        top: -0.4rem;
+        font-size: 1.8rem;
+    }
+}

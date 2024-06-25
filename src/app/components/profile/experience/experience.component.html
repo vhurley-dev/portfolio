@@ -1,0 +1,25 @@
+<div class="container"*ngFor="let experience of experiences">
+    <div class="left">
+        <div class="date">
+            <div class="date-from">
+                <h6>{{experience.date.from}}</h6>
+                <div class="seperator"></div>
+            </div>
+            <h6>{{experience.date.to}}</h6>
+        </div>
+    </div>
+    <div class="right">
+        <div class="title">
+            <h5>{{ experience.title }}</h5>
+            <div class="seperator"></div>
+            <h5>{{ experience.company }}</h5>
+        </div>
+        <p class="description">{{experience.description}}</p>
+        <div class="technology">
+            <ng-content *ngFor="let tech of experience.tech">
+                <app-tech-tag [techTag]="tech"></app-tech-tag>
+            </ng-content>
+        </div>
+    </div>
+</div>
+<h5 class="large-link">View full CV</h5>

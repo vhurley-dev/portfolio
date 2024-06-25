@@ -1,0 +1,4 @@
+<div class="add-task clearfix">
+    <input #taskInput (keydown.enter)="addTask(taskInput)" placeholder="What do you need to do?" />
+    <button (click)="addTask(taskInput)">Add</button>
+</div>

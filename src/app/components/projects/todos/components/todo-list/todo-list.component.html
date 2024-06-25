@@ -1,0 +1,22 @@
+
+<p class="task-count">2/5 complete</p>
+<div class="tasks">
+    <div class="task-list-tabs">
+        <div class="tab show">All</div>
+        <div class="tab">Outstanding</div>
+        <div class="tab">Complete</div>
+    </div>
+    <ul class="task-list">
+        <li *ngFor="let task of tasks" class="task">
+            <div class="task-desc">
+                <input type="checkbox" [checked]="task.completed" />
+                <icon name="ph:circle" class="icon" [ngClass]="task.completed? 'show' : 'hide'"></icon>
+                <icon name="ph:check-circle" class="icon icon-green" [ngClass]="task.completed? 'hide' : 'show'"></icon>
+                <span [ngClass]="{'line-through': task.completed}">{{ task.title }}</span>
+            </div>
+            <div class="icons">
+                <icon name="ph:trash" class="icon icon-red"></icon>
+            </div>
+        </li>
+    </ul>
+</div>
