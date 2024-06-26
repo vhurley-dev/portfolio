@@ -1,0 +1,75 @@
+@import '../../../../../assets/scss/colours';
+
+.container {
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+.left {
+    width: 10rem;
+    min-width: 10rem;
+    padding-right: 1.6rem;
+}
+
+.date {
+    .date-from {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .seperator {
+        margin-left: 0.8rem;
+        width: 1.2rem;
+        height: 0.1rem;
+        background-color: $grey;
+    }
+}
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    .seperator {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 1rem;
+        background-color: $pink;
+        margin: 0.8rem;
+    }
+}
+.technology {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2.4rem;
+}
+
+// a.large-link {
+//     margin-top: 2.4rem;
+//     margin-right: 0.8rem;
+//     padding-bottom: 0.4rem;
+//     position: relative;
+//     color: white;
+//     font-size: 1.6rem;
+//     font-weight: 600;
+//     text-decoration: none;
+//     transition: all 0.3s;
+
+//     .icon-hover {
+//         transition: all 0.3s;
+//         position: relative;
+//         top: 0;
+//         left: 0;
+//         color: $white;
+//     }
+//     &:hover,
+//     &:focus {
+//         color: $pink;
+
+//         icon {
+//             position: relative;
+//             top: -3px;
+//             left: 3px;
+//             color: $pink;
+//         }
+//     }
+
+
+// }

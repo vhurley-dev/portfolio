@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { IconComponent, IconModule } from '../../../../../projects/icon/src/public-api';
+import { IconModule } from '../../../../../projects/icon/src/public-api';
 
 @Component({
   selector: 'app-todos',
