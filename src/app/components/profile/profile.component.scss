@@ -3,6 +3,12 @@
 * {
     color: $white
 }
+
+h4 {
+    max-width: 24rem;
+    color: $grey;
+}
+
 .outer-container {
     background-color: $darkBlue;
     padding: 9.6rem;
