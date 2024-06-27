@@ -1,7 +1,7 @@
 @import './../../../assets/scss/colours';
 
 * {
-    color: $white
+    color: $white;
 }
 
 h4 {
@@ -11,21 +11,42 @@ h4 {
 
 .outer-container {
     background-color: $darkBlue;
-    padding: 9.6rem;
+    padding: 0 9.6rem 9.6rem 9.6rem;
 }
 .inner-container {
     max-width: 96rem;
     margin: 0 auto;
     display: flex;
 
+    .left,
+    .right {
+        padding-top: 9.6rem;
+    }
+
     .left {
         width: 50%;
         margin-right: 0.5rem;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: calc(100vh - 9.6rem);
     }
     .right {
         width: 50%;
         margin-left: 0.5rem;
         margin-top: 0.4rem;
+
+        #about {
+            scroll-margin-top: 10rem;
+        }
+        #experience,
+        #projects,
+        #technology {
+            scroll-margin-top: 10.4rem;
+        }
+        .section {
+            margin-bottom: 10rem;
+        }
     }
 }
 
