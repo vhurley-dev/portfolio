@@ -1,6 +1,48 @@
 <ul>
-    <li>ABOUT</li>
-    <li>EXPERIENCE</li>
-    <li>PROJECTS</li>
-    <li>TECHNOLOGY</li>
+    <li [routerLink]="['']" 
+        fragment="#about" 
+        [class.active]="(activeFragment | async)==='about'">
+        <a href="#about"  >
+            <span class="nav-indicator"></span>
+            <span class="nav-item">about</span>
+        </a>
+    </li>
+    <li [routerLink]="['']" 
+        fragment="#experience" 
+        [class.active]="(activeFragment | async)==='experience'">
+        <a href="#experience"  >
+            <span class="nav-indicator"></span>
+            <span class="nav-item">experience</span>
+        </a>
+    </li>
+    <li [routerLink]="['']" 
+        fragment="#projects" 
+        [class.active]="(activeFragment | async)==='projects'">
+        <a href="#projects"  >
+            <span class="nav-indicator"></span>
+            <span class="nav-item">projects</span>
+        </a>
+    </li>
+    <li [routerLink]="['']" 
+        fragment="#technology" 
+        [class.active]="(activeFragment | async)==='technology'">
+        <a href="#technology"  >
+            <span class="nav-indicator"></span>
+            <span class="nav-item">technology</span>
+        </a>
+    </li>
 </ul>
+
+<!-- This works except for applying active class, need to look into-->
+<!-- <ul>
+    <ng-content *ngFor="let section of sections | keyvalue">
+        <li [routerLink]="['']" 
+            fragment="#{{section.value}}" 
+            [class.active]="(activeFragment | async)==='{{section.value}}'">
+            <a href="#{{section.value}}"  >
+                <span class="nav-indicator"></span>
+                <span class="nav-item">{{section.value}}</span>
+            </a>
+        </li>
+    </ng-content>
+</ul> -->
