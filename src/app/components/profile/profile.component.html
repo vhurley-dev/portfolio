@@ -8,14 +8,23 @@
             <app-navigation></app-navigation>
         </div>
         <div class="right">
-            <p *ngFor="let intro of profile.intros" class="p-large">{{intro}}</p>
-            <h3>{{section.EXPERIENCE}}</h3>
-            <app-experience [experiences]="profile.experiences" ></app-experience>
-            <h3>{{section.TECHNOLOGY}}</h3>
-            <app-technology [technologies]="profile.technologies"></app-technology>
-            <h3>{{section.PROJECTS}}</h3>
-            <app-projects [projects]="profile.projects"></app-projects>
+            <div id="{{section.ABOUT}}" class="section">
+                <p *ngFor="let intro of profile.intros" class="p-large">{{intro}}</p>
+            </div>
+            <div class="section">
+                <h3 id="{{section.EXPERIENCE}}">{{section.EXPERIENCE}}</h3>
+                <app-experience [experiences]="profile.experiences" ></app-experience>
+            </div>
+            <div class="section">
+                <h3 id="{{section.PROJECTS}}">{{section.PROJECTS}}</h3>
+                <app-projects [projects]="profile.projects"></app-projects>
+            </div>
+            <div class="section">
+                <h3 id="{{section.TECHNOLOGY}}">{{section.TECHNOLOGY}}</h3>
+                <app-technology [technologies]="profile.technologies"></app-technology>
+            </div>
             <app-build-info [buildInfo]="profile.buildInfo"></app-build-info>
+                
         </div>
     </div>
 </div>
