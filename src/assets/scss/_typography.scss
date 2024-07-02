@@ -67,12 +67,12 @@ a.large-link {
     font-size: 1.6rem;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all 0.15s ease;
 
     .icon-hover {
-        transition: all 0.3s;
+        transition: all 0.15s ease;
         position: relative;
-        top: 0;
+        top: 0.4rem;
         left: 0;
         color: $white;
     }
@@ -80,10 +80,10 @@ a.large-link {
     &:focus {
         color: $pink;
 
-        icon {
+        .icon-hover {
             position: relative;
-            top: -3px;
-            left: 3px;
+            top: 0.2rem;
+            left: 0.2rem;
             color: $pink;
         }
     }

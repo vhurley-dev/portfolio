@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { TechnologyComponent } from './components/technology/technology.component';
@@ -25,11 +25,20 @@ export class ProfileComponent {
   profileService = inject(ProfileService);
   profile: Profile;
   section: typeof SectionEnums = SectionEnums;
+  top:any;
+  left:any;
+  expand=false;
 
- constructor() {
-  this.profileService.getProfile().subscribe((res: Profile) => {
-    this.profile = {...res};
-  });
+  constructor() {
+    this.profileService.getProfile().subscribe((res: Profile) => {
+      this.profile = {...res};
+    });
+  }
+
+  @HostListener('document:mousemove', ['$event'])
+  onMousemove($event: any) {
+    this.top=($event.pageY - 10)+ "px";
+    this.left= ($event.pageX - 10)+ "px";
  }
 
 }

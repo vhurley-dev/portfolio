@@ -13,6 +13,7 @@ export interface Experience {
     dateFrom: string;
     dateTo: string;
     company: string;
+    companyUrl: string;
     title: string;
     description: string[];
     tech: string[];
