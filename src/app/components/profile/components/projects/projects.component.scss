@@ -1,34 +1,64 @@
 @import './../../../../../styles.scss';
 
-a {color: $white}
 .container {
-    .project {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 4rem;
-        img {
-            width: 10rem;
-            max-width: 10rem;
-            min-width: 10rem;
-            height: 5rem;
-            margin-right: 1.6rem;
-            border-radius: 0.5rem;
-            box-shadow: 0px 3px 15px rgba(100,100,100,0.6);
-        }
-        .description {
-            .title {
-                display: flex;
-                justify-content: flex-start;
+    .project-outer {
+        padding:  2.4rem 2.4rem 0.8rem 2.4rem;
+        margin: 0 -2.4rem 1.6rem -2.4rem;
+        transition: all 0.15s ease;
+        border: 0.1rem solid transparent;
+        cursor: pointer;
 
-                .icon {
+        .project {
+            display: flex;
+            justify-content: space-between;
+            img {
+                width: 10rem;
+                max-width: 10rem;
+                min-width: 10rem;
+                height: 5rem;
+                margin-right: 1.6rem;
+                border-radius: 0.5rem;
+                box-shadow: 0px 0.3rem 1.5rem rgba(100,100,100,0.6);
+            }
+            .description {
+                position: relative;
+                top: -0.8rem;
+                p {
+                    margin-top: 0.8rem
+                }
+                .technology {
+                    display: flex;
+                    margin-top: 2.4rem;
+                }
+                h5 {
+                    transition: all 0.15s ease;
+                }
+                icon {
+                    transition: top 0.15s ease, left 0.15s ease;
                     position: relative;
-                    top: -0.4rem;
-                    margin-left: 0.4rem;
+                    top: 0.4rem;
+                    left: 0;
                 }
             }
-            .technology {
-                display: flex;
-                margin-top: 2.4rem;
+        }
+        &:hover,
+        &:focus {
+            background-color: rgba($lightGrey, 0.025);
+            box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+            border-radius: 0.8rem;
+            border-top: 0.1rem solid rgba($white, 0.1);
+            border-left: 0.1rem solid rgba($white, 0.1);
+            .project {
+                .description {
+                    h5 {
+                        color: $pink;
+                        
+                        icon {
+                            top: 0.2rem;
+                            left: 0.2rem;
+                        }
+                    }
+                }
             }
         }
     }
