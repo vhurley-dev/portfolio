@@ -12,11 +12,19 @@ h4 {
 .outer-container {
     background-color: $darkBlue;
     padding: 0 9.6rem 9.6rem 9.6rem;
+
+    @media only screen and (max-width: 600px) {
+        padding: 0 4rem 0 4rem;
+    }
 }
 .inner-container {
     max-width: 96rem;
     margin: 0 auto;
     display: flex;
+
+    @media only screen and (max-width: 1114px) {
+        display: block;
+    }
 
     .left,
     .right {
@@ -30,11 +38,28 @@ h4 {
         position: sticky;
         top: 0;
         height: calc(100vh - 9.6rem);
+
+        @media only screen and (max-width: 1114px) {
+            width: 100%;
+            position: static;
+            height: auto;
+            margin-right: 0;
+        }
+
+        @media only screen and (max-width: 600px) {
+            padding-top: 4rem;
+        }
     }
     .right {
         width: 55%;
         margin-left: 0.5rem;
         margin-top: 0.4rem;
+        @media only screen and (max-width: 1114px) {
+            width: 100%;
+            padding-top: 0;
+            margin-left: 0;
+            margin-top: 8ch;
+        }
 
         #about {
             scroll-margin-top: 10rem;
