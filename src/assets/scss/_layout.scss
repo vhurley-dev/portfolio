@@ -1,11 +1,24 @@
+@import '../scss/colours';
 html {
     font-size: 62.5%; /* Sets up the base as 10px */
   }
 
 body, * {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-    font-size: 1.4rem;
-    scroll-behavior: smooth;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  scroll-behavior: smooth;
+
+  // Scrollbar
+  ::-webkit-scrollbar {
+    width: 1.2rem;
+    background-color: $lightGrey;
+  }
+  ::-webkit-scrollbar-thumb {
+    border: 0.2rem solid $lightGrey;
+    border-radius: 0.6rem;
+    background: -webkit-radial-gradient($midBlue, $darkBlue);
+  }
+
 }
