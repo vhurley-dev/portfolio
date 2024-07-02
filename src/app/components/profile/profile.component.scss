@@ -13,7 +13,7 @@ h4 {
     background-color: $darkBlue;
     padding: 0 9.6rem 9.6rem 9.6rem;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
         padding: 0 4rem 0 4rem;
     }
 }
@@ -46,7 +46,7 @@ h4 {
             margin-right: 0;
         }
 
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 700px) {
             padding-top: 4rem;
         }
     }
