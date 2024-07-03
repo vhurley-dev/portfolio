@@ -6,7 +6,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ProfileService } from './profile.service';
 import { CommonModule } from '@angular/common';
 import { Profile } from './interfaces/profile.model';
-import { SectionEnums } from './enums.ts/sections.enum';
+import { SectionEnums } from './enums/sections.enum';
 import { BuildInfoComponent } from './components/build-info/build-info.component';
 
 @Component({

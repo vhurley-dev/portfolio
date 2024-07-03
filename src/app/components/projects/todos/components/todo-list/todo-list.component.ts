@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, WritableSignal, computed, signal } from '@angular/core';
 import { IconModule } from '../../../../../../../projects/icon/src/public-api';
+import { Task, TasksFilter } from '../../interfaces/task.model';
 
 
 @Component({
@@ -11,10 +12,41 @@ import { IconModule } from '../../../../../../../projects/icon/src/public-api';
   styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
-  tasks = [
-    { title: 'Style the task list', completed: true },
-    { title: 'Create add task functionality', completed: false },
-    { title: 'Create delete task button', completed: false }, 
-    { title: 'Add filters', completed: false }
-  ]
+  @Input() tasks: WritableSignal<Task[]>;
+  filter = signal(TasksFilter.All);
+  filters = TasksFilter;
+  filteredTasks = computed(() => {
+    switch(this.filter()) {
+      case TasksFilter.All: return this.tasks();
+      case TasksFilter.Outstanding: return this.tasks().filter(taskItem => {
+        return !taskItem.completed;
+      });
+      case TasksFilter.Completed: return this.tasks().filter(taskItem => {
+        return taskItem.completed;
+      })
+    }
+  });
+  changeFilter(filter: TasksFilter) {
+    this.filter.set(filter);
+  }
+  completedTasksCount = computed(() => {
+    return this.tasks().filter(task =>
+      task.completed).length;
+  })
+
+  toggleTask(task: Task) {
+    const updatedTasks = this.tasks().map(taskItem => 
+      taskItem.title === task.title ? {...taskItem,
+        completed: !taskItem.completed} : taskItem
+      );
+      this.tasks.set(updatedTasks);
+  }
+  deleteTask(taskTitle: string, index: number) {
+    const updatedTasks = this.tasks().map(taskItem => 
+      taskItem.title === taskTitle ? {...taskItem,
+        completed: false} : taskItem
+    );
+    this.tasks.set(updatedTasks);
+    this.tasks().splice(index, 1);
+  }
 }
