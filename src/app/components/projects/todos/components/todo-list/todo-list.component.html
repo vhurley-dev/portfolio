@@ -1,22 +1,24 @@
 
-<p class="task-count">2/5 complete</p>
+<p class="task-count">{{completedTasksCount()}} / {{tasks().length}}</p>
 <div class="tasks">
     <div class="task-list-tabs">
-        <div class="tab show">All</div>
-        <div class="tab">Outstanding</div>
-        <div class="tab">Complete</div>
+        <div class="tab" [ngClass]="{'active': filter() === filters.All}" (click)="changeFilter(filters.All)">All</div>
+        <div class="tab" [ngClass]="{'active': filter() === filters.Outstanding}" (click)="changeFilter(filters.Outstanding)">Outstanding</div>
+        <div class="tab" [ngClass]="{'active': filter() === filters.Completed}" (click)="changeFilter(filters.Completed)">Completed</div>
     </div>
     <ul class="task-list">
-        <li *ngFor="let task of tasks" class="task">
-            <div class="task-desc">
-                <input type="checkbox" [checked]="task.completed" />
-                <icon name="ph:circle" class="icon" [ngClass]="task.completed? 'show' : 'hide'"></icon>
-                <icon name="ph:check-circle" class="icon icon-green" [ngClass]="task.completed? 'hide' : 'show'"></icon>
-                <span [ngClass]="{'line-through': task.completed}">{{ task.title }}</span>
-            </div>
-            <div class="icons">
-                <icon name="ph:trash" class="icon icon-red"></icon>
-            </div>
-        </li>
+        @for (task of filteredTasks(); track $index) {
+            <li class="task">
+                <div class="task-desc"(click)="toggleTask(task)">
+                    <input type="checkbox" [checked]="task.completed"/>
+                    <icon name="ph:circle" class="icon" [ngClass]="task.completed? 'hide' : 'show'"></icon>
+                    <icon name="ph:check-circle" class="icon icon-green" [ngClass]="task.completed? 'show' : 'hide'"></icon>
+                    <span [ngClass]="{'line-through': task.completed}">{{ task.title }}</span>
+                </div>
+                <div class="icons">
+                    <icon name="ph:trash" class="icon icon-red" (click)="deleteTask(task.title, $index)"></icon>
+                </div>
+            </li>
+        }
     </ul>
 </div>
