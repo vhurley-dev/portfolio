@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, WritableSignal,} from '@angular/core';
+import { Task } from '../../interfaces/task.model';
 
 @Component({
   selector: 'app-todo-add',
@@ -8,8 +9,16 @@ import { Component } from '@angular/core';
   styleUrl: './todo-add.component.scss'
 })
 export class TodoAddComponent {
+@Input() tasksList: WritableSignal<Task[]>;
 
-  addTask(taskInput: HTMLInputElement) {
-    console.log('task added');
+  addTask(titleInput: HTMLInputElement) {
+    if (titleInput.value) {
+      const newTask = {
+        title: titleInput.value,
+        completed: false
+      };
+      this.tasksList.set([...this.tasksList(), newTask]);
+    }
+    titleInput.value = '';
   }
 }
