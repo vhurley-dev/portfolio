@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SectionEnums } from '../../enums.ts/sections.enum';
+import { SectionEnums } from '../../enums/sections.enum';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { share } from 'rxjs';
