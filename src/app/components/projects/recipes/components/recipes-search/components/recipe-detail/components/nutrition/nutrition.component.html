@@ -1,0 +1,41 @@
+<div class="container">
+    <h5>Nutrition</h5>
+    <div class="nutrition-info">
+        <p class="cals">{{nutrition.macros.ENERC_KCAL.quantity / nutrition.yield | number: '1.0-0'}} {{nutrition.macros.ENERC_KCAL.unit}} per serving</p>
+        <div class="nutrition-macros">
+            <div class="nutrition-circle">
+                <div class="nutrition-score" [ngStyle]="proteinStyle"></div>
+                <div class="nutrition-box prot">
+                    <div class="nutrition-box-text">
+                        <div class="label">{{nutrition.macros.PROCNT.label}}</div>
+                        <div class="value">{{proteinWeight | number: '1.0-0'}}{{nutrition.macros.PROCNT.unit}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="nutrition-circle">
+                <div class="nutrition-score" [ngStyle]="carbStyle"></div>
+                <div class="nutrition-box carb">
+                    <div class="nutrition-box-text">
+                        <div class="label">{{nutrition.macros.CHOCDF.label}}</div>
+                        <div class="value">{{carbWeight | number: '1.0-0'}}{{nutrition.macros.CHOCDF.unit}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="nutrition-circle">
+                <div class="nutrition-score" [ngStyle]="fatStyle"></div>
+                <div class="nutrition-score" ></div>
+                <div class="nutrition-box fat">
+                    <div class="nutrition-box-text">
+                        <div class="label">{{nutrition.macros.FAT.label}}</div>
+                        <div class="value">{{fatWeight | number: '1.0-0'}}{{nutrition.macros.FAT.unit}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="full-breakdown-container">
+            <div class="item" *ngFor="let item of nutrition.macros">
+                <div class="item-name">{{item.label}}</div>
+            </div>
+        </div>
+    </div>
+</div>

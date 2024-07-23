@@ -1,0 +1,17 @@
+<div class="header">
+    <a (click)="backClick()"><icon name="ph:arrow-left" class="icon-green" size="24"></icon></a>
+    <div class="logo">
+        <icon name="ph:chef-hat" size="32"></icon>
+        <h1>Get Cooking</h1>
+    </div>
+    <icon name="ph:list" class="icon-green" size="24" (click)="toggleMenu()"></icon>
+</div>
+
+<div class="menu" [class.show]="showMenu" (wheel)="blockScroll($event)">
+    <icon name="ph:x" size="24" (click)="toggleMenu()"></icon>
+    <ul>
+        <li routerLink="/" (click)="toggleMenu()">Portfolio</li>
+        <li routerLink="/recipes" (click)="toggleMenu()">Recipe Search</li>
+        <li routerLink="/recipes/calculator" (click)="toggleMenu()">Recipe Calculator</li>
+    </ul>
+</div>
