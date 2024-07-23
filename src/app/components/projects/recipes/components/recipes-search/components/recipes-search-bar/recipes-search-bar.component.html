@@ -1,0 +1,43 @@
+<div class="container">
+    <h5>Search recipes</h5>
+    <div class="search">
+        <input type="text" (keyup.enter)="searchRecipes($event)" placeholder="Search recipes">
+        <div class="filter-button" (click)="toggleFilters()">
+            <icon name="ph:sliders-horizontal" class="icon-white" size="32"></icon>
+        </div>
+    </div>
+    <div class="results-found">
+        <h5>Showing {{data?.from}} - {{data?.to}} of {{data?.count}} results for {{searchTerm}}</h5>
+    </div>
+</div>
+
+<div class="filters" [class.show]="filtersOpen">
+    <icon name="ph:x" size="24" class="icon-green icon-close" (click)="toggleFilters()"></icon>
+    <h5>Search filters</h5>
+    <form [formGroup]="filtersForm" (ngSubmit)="applyFilters()">
+        <div class=form-group>
+            <p>Number of ingredients</p>
+            <div class="input-group">
+                <div class="single-input">
+                    <label for="ingredients-min">min</label>
+                    <input type="number" formControlName="ingredientsMin" id="ingredients-min" min="1" />
+                </div>
+                <div class="single-input">
+                    <label for="ingredients-max">max</label>
+                    <input type="number" formControlName="ingredientsMax" id="ingredients-max" min="1" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <p>Diet type</p>
+            <div class="input-group">
+                <div class="custom-select">
+                    <select id="diet-type" formControlName="diet">
+                        <option *ngFor="let dietType of dietOptions" [ngValue]="dietType">{{ dietType }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button type="submit">Apply filters</button>
+    </form>
+</div>

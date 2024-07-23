@@ -58,11 +58,11 @@
           "tech": ["Angular", "Signals"]
         },
         {
-          "title": "Todo list project using signals",
-          "description": "A little app that lets you add, edit, delete, mark as complete, filter and count your todo list items. Built in Angular using signals.",
+          "title": "Recipe calculator",
+          "description": "A little app that lets you select ingredients to add to your recipe and gives you a visual indicator of whether this recipe fits your personal macros.",
           "img": "./assets/img/todos.png",
-          "projectUrl": "/todos",
-          "tech": ["Angular", "Signals"]
+          "projectUrl": "/recipes",
+          "tech": ["Angular"]
         }
     ],
     "buildInfo": {
