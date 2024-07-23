@@ -1,0 +1,153 @@
+@import '../../../../../../../../assets/scss/colours';
+
+* {
+    color: $darkBlue;
+}
+.container {
+    text-align: center;
+    h5 {
+        font-weight: 600;
+    }
+    .search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.6rem;
+        input {
+            padding: 1.2rem;
+            border: 0.2rem solid $lightGrey;
+            border-radius: 0.8rem;
+            width: 100%;
+            margin-right: 2.4rem;
+            color: $darkBlue;
+            &::-webkit-input-placeholder {
+                color: $grey;
+            }
+            &:focus {
+                border: 0.2rem solid $darkBlue;
+                outline: none;
+            }
+        }
+        .filter-button {
+            background-color: $green;
+            width: 5.4rem;
+            height: 4.4rem;
+            border-radius: 0.8rem;
+            border: 0 solid transparent;
+            cursor: pointer;
+            .icon-white {
+                color: $pureWhite;
+                position: relative;
+                top: 0.5rem;
+            }
+        }
+    }
+    .results-found {
+        text-align: left;
+        margin-bottom: 1.6rem;
+    }
+}
+
+.filters {
+    display: none;
+    visibility: hidden;
+    padding: 4rem;
+    height: 100vh;
+    width: calc(100vw - 1.2rem);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $pureWhite;
+    z-index: 1;
+
+    &.show {
+        display: block;
+        visibility: visible;
+    }
+
+    h5 {
+        font-weight: 600;
+        margin-bottom: 2.4rem;
+    }
+
+    .icon-close {
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+    }
+    .icon-green {
+        color: $green;
+    }
+
+    form {
+        max-width: 100%;
+        p {
+            color: $green;
+            margin-bottom: 1.6rem;
+        }
+
+        label {
+            color: $grey;
+            margin-right: 1.6rem;
+        }
+        input,
+        select {
+            padding: 0.8rem;
+            border: 1px solid $grey;
+            border-radius: 0.8rem;
+            color: $grey;
+
+            &:focus {
+                outline: none;
+                border: 0.1rem solid $green;
+            }
+        }
+        input {
+            min-width: 0;
+            max-width: none;
+
+        }
+        .custom-select {
+            width: 100%;
+            select {
+                width: 100%;
+                font-size: 1.6rem;
+
+                option {
+                    appearance: none;
+                    width: 100%;
+                    font-size: 1.6rem;
+                    padding: 0.8rem;
+                    background-color: #fff;
+                    border: none;
+                    border-radius: 0.8rem;
+                    color: $grey;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $green;
+                        color: $pureWhite;
+                    }
+                }
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 1.6rem;
+
+            .input-group {
+                max-width: 100%;
+                display: flex;
+                justify-content: space-between;
+                gap: 0.8rem;
+    
+                .single-input {
+                    display: flex;
+                    align-items: center;
+                    max-width: calc(50% - 0.8rem);
+                }
+            }
+        }
+    }
+}
+

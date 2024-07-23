@@ -1,0 +1,40 @@
+@import '../../../../../../../../../../assets/scss/colours';
+
+.container-outer {
+    padding: 2.4rem 0;
+    h5 {
+        font-weight: 600;
+        margin-bottom: 2.4rem;
+    }
+    
+    .container-inner {
+        box-shadow: 0 0.1rem 0.5rem rgba($darkBlue, 0.1);
+        padding: 0.8rem;
+        border-radius: 0.8rem;
+        
+        .ingredient {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            
+            .description {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+            
+            .ingredient-name {
+                text-transform: lowercase;
+            }
+            
+            img {
+                width: 5rem;
+                height: 5rem;
+                margin-right: 1.6rem;
+                border-radius: 0.8rem;
+            }
+        }
+    }
+}

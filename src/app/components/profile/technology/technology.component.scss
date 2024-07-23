@@ -1,0 +1,45 @@
+@import './../../../../assets/scss/colours';
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.technology {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1.6rem;
+    width: 50%;
+
+    &:nth-child(odd) {
+        padding-right: 0.8rem;
+    }
+    &:nth-child(even) {
+        padding-left: 0.8rem;
+    }
+}
+.tech-name {
+    margin-right: 1.6rem;
+    width: 8.2rem;
+    max-width: 8.2rem;
+    min-width: 8.2rem;
+}
+.tech-scale {
+    flex: 1;
+    position: relative;
+    max-width: 50%;
+    .tech-max,
+    .tech-score {
+        height: 1.6rem;
+        min-height: 1.6rem;
+        border-radius: 1rem;
+    }
+    .tech-max {
+        background-color: rgba($pink, 0.15);
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        position: absolute;
+    }
+    .tech-score {
+        background-color: $pink;
+    }
+}
