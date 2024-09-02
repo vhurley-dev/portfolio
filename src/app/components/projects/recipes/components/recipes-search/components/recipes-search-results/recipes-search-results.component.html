@@ -11,5 +11,5 @@
             <a class="title" [routerLink]="['/recipes', recipe._links.self.href, recipe.recipe.images.REGULAR.url]">{{recipe.recipe.label}}</a>
         </div>
     </ng-content>
-    <button *ngIf="recipes._links && recipes._links.href" class="button-next" (click)="loadNext(recipes._links.next.href)"><span>Next page</span><icon name="ph:caret-right" size="16"></icon></button>
+    <button *ngIf="recipes._links && recipes._links.next && recipes._links.next.href" class="button-next" (click)="loadNext(recipes._links.next.href)"><span>Next page</span><icon name="ph:caret-right" size="16"></icon></button>
 </div>
