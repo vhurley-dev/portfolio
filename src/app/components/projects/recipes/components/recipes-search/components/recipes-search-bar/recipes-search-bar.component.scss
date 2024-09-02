@@ -51,18 +51,29 @@
 .filters {
     display: none;
     visibility: hidden;
-    padding: 4rem;
     height: 100vh;
-    width: calc(100vw - 1.2rem);
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: $pureWhite;
     z-index: 1;
 
     &.show {
-        display: block;
+        display: flex;
         visibility: visible;
+    }
+    .filter-bg {
+        background-color: rgba(#000000, 0.3);
+        width: 100%;
+    }
+
+    .filter-content {
+        width: 100%;
+        max-width: 70rem;
+        padding: 4rem;
+        background-color: $pureWhite;
+        box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+
     }
 
     h5 {
