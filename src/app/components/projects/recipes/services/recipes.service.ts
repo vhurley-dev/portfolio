@@ -15,23 +15,25 @@ export class RecipesService {
 
   getRecipes(searchTerm: string, filters:any) {
     const url = 'https://api.edamam.com/api/recipes/v2?';
-    let ingredientsRange: any = "";
-
-    // set ingredients range param value
-    if (filters.ingredientsMin.value && filters.ingredientsMax.value) {
-      ingredientsRange = `${filters.ingredientsMin.value}-${filters.ingredientsMax.value}`
-    } else if (filters.ingredientsMin.value !== "" && filters.ingredientsMax.value === "") {
-      ingredientsRange = `${filters.ingredientsMin.value}+`
-    } else if (filters.ingredientsMin.value === "" && filters.ingredientsMax.value !== "") {
-      ingredientsRange = `${filters.ingredientsMax.value}`
-    } else { ingredientsRange = "1+"}
     
     let params = new HttpParams()
       .set("type",this.type)
       .set("app_id",this.appId)
       .set("app_key",this.appKey)
       .set("q",searchTerm)
-      .set("ingr", ingredientsRange)
+
+    // set ingredients range param value
+    if (filters.ingredientsMin.value && filters.ingredientsMax.value) {
+      params = params.append('ingr', `${filters.ingredientsMin.value}-${filters.ingredientsMax.value}`)
+    } else if (filters.ingredientsMin.value !== "" && filters.ingredientsMax.value === "") {
+      params = params.append('ingr', `${filters.ingredientsMin.value}+`)
+    } else if (filters.ingredientsMin.value === "" && filters.ingredientsMax.value !== "") {
+      params = params.append('ingr', `${filters.ingredientsMax.value}`)
+    } 
+    // set diet type param value
+    if(filters.dietType.value) {
+      params = params.append('diet', `${filters.dietType.value}`);
+    }
     return this.http.get(url, {params: params})
   }
 

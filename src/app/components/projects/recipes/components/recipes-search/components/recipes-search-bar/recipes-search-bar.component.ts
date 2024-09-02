@@ -2,12 +2,12 @@ import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { RecipesService } from '../../../../services/recipes.service';
 import { CommonModule } from '@angular/common';
 import { IconModule } from '../../../../../../../../../projects/icon/src/lib/icon/icon.module';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recipes-search-bar',
   standalone: true,
-  imports: [CommonModule, IconModule, ReactiveFormsModule ],
+  imports: [CommonModule, IconModule, ReactiveFormsModule, FormsModule ],
   templateUrl: './recipes-search-bar.component.html',
   styleUrl: './recipes-search-bar.component.scss'
 })
@@ -22,16 +22,11 @@ export class RecipesSearchBarComponent {
   filtersForm = new FormGroup({
     ingredientsMin: new FormControl(''),
     ingredientsMax: new FormControl(''),
-    dietTypes: new FormControl(''),
+    dietType: new FormControl(''),
   })
   
   searchRecipes(searchTerm: any) {
-    if(searchTerm.target) {
-      this.searchTerm = searchTerm.target.value;
-    } else {
-      this.searchTerm = searchTerm
-    }
-    this.recipeService.getRecipes(this.searchTerm, this.filtersForm.controls).subscribe((res) => {
+    this.recipeService.getRecipes(searchTerm, this.filtersForm.controls).subscribe((res) => {
       this.data = {...res};
       this.searchResults.emit(this.data);
     });
@@ -42,8 +37,8 @@ export class RecipesSearchBarComponent {
     this.filterOpen.emit(this.filtersOpen);
   }
 
-  applyFilters() {
-    this.searchRecipes("omlette");
+  applyFilters(searchTerm: any) {
+    this.searchRecipes(searchTerm);
     this.toggleFilters();
   }
 }
