@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { RecipesAPI } from '../APIs/api-keys';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,10 @@ export class RecipesService {
 
   constructor(private http: HttpClient) { }
   data: any;
-  url: 'https://api.edamam.com/api/recipes/v2?';
-  type = 'public';
-  appId ='35faafbb';
-  appKey = '567236b23820e6ee287d06d72d3fb10f'; 
+  url: RecipesAPI.URL;
+  type = RecipesAPI.TYPE;
+  appId = RecipesAPI.APP_ID;
+  appKey = RecipesAPI.APP_KEY; 
 
   getRecipes(searchTerm: string, filters:any) {
     const url = 'https://api.edamam.com/api/recipes/v2?';
