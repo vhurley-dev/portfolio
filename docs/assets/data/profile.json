@@ -1,0 +1,73 @@
+{
+    "name": "Victoria Hurley",
+    "jobTitle": "Frontend Software Engineer",
+    "strapLine": "Developing web apps that are engaging and accessible",
+    "intros": [
+        "I journeyed into web development by ways of Wordpress, initially creating sites using pre-built themes for fun. As with many developers, curiosity got the better of me and I wanted to find out how things worked and what more could be done. I started coding with HTML, CSS and JavaScript and from there found my way into Angular development.",
+        "I have worked for a RegTech company who offer a subscription service to a regulatory compliance app for insurance companies.",
+        "Since March 2022 I have been working on a projects for British Airways, including managing bookings, getting ready to travel, the seatmap and cabin upgrades."
+    ],
+    "experiences":[
+        {
+            "dateFrom": "Mar 2022",
+            "dateTo": "present",
+            "company": "Leighton",
+            "companyUrl": "https://leighton.com",
+            "title": "Frontend Software Engineer",
+            "description": [
+                "I am currently employed by Leighton and have been out on contract with British Airways consistently since joining the team. At BA I have been involved in a variety of projects including building apps with Angular and AWS (predonminantly front end but also assisting in back end tasks), page redesign projects and accessibility improvement."
+            ],
+            "tech": ["Angular", "AWS", "Nest.js", "TypeScript", "JavaScript", "Jest", "Jasmine", "Pact", "Terraform"]
+        },
+        {
+            "dateFrom": "Sept 2018",
+            "dateTo": "Feb 2022",
+            "company": "REG Technologies",
+            "companyUrl": "https://reg.uk.com/",
+            "title": "Frontend Software Engineer",
+            "description": [
+                "At REG technologies as part of the development team I helped build, maintain and design their subscription app. This app is used to assist regulated businesses in the insurance sector towards being compliant. I worked on developing many new features including document exchange, dashboards and the international regulators project."
+            ],
+            "tech": ["Angular", "Azure", "TypeScript", "SCSS", "Bootstrap"]
+        }
+    ],
+    "technologies": [
+        {"technology": "Angular", "score": "80%"},
+        {"technology": "AWS", "score": "50%"},
+        {"technology": "Azure", "score": "50%"},
+        {"technology": "CSS", "score": "80%"},
+        {"technology": "Git", "score": "60%"},
+        {"technology": "HTML", "score": "80%"},
+        {"technology": "Jasmine", "score": "40%"},
+        {"technology": "JavaScript", "score": "80%"},
+        {"technology": "Jest", "score": "40%"},
+        {"technology": "JQuery", "score": "60%"},
+        {"technology": "Nest.js", "score": "30%"},
+        {"technology": "Pact", "score": "30%"},
+        {"technology": "Terraform", "score": "30%"},
+        {"technology": "TypeScript", "score": "75%"},
+        {"technology": "SCSS", "score": "80%"},
+        {"technology": "XSLT", "score": "70%"}
+    ],
+    "projects": [
+        {
+          "title": "Todo list project using signals",
+          "description": "A little app that lets you add, edit, delete, mark as complete, filter and count your todo list items. Built in Angular using signals.",
+          "img": "./assets/img/todos.png",
+          "projectUrl": "/todos",
+          "tech": ["Angular", "Signals"]
+        },
+        {
+          "title": "Recipe calculator",
+          "description": "A little app that lets you select ingredients to add to your recipe and gives you a visual indicator of whether this recipe fits your personal macros.",
+          "img": "./assets/img/todos.png",
+          "projectUrl": "/recipes",
+          "tech": ["Angular"]
+        }
+    ],
+    "buildInfo": {
+        "intro": "This portfolio was built with Angular 18 in Visual Studio Code and deployed with GitHub.",
+        "repoText": "View the repo",
+        "repoUrl": "https://github.com/vhurley-dev/portfolio"
+    }
+}
