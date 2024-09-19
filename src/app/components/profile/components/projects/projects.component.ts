@@ -14,6 +14,6 @@ import { Project } from '../../interfaces/profile.model';
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
-  imgagesUrl: string = './../../../../assets/img/';
+  imgagesUrl: string = './assets/img/';
   @Input() projects: Project[];
 }
