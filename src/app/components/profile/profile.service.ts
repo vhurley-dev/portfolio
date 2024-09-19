@@ -10,6 +10,6 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
   getProfile() {
-    return (this.http.get<Profile>('../../../assets/data/profile.json'));
+    return (this.http.get<Profile>('./assets/data/profile.json'));
   }
 }
