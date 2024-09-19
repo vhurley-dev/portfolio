@@ -60,7 +60,7 @@
         {
           "title": "Recipe calculator",
           "description": "A little app that lets you select ingredients to add to your recipe and gives you a visual indicator of whether this recipe fits your personal macros.",
-          "img": "./assets/img/todos.png",
+          "img": "./assets/img/get-cooking.png",
           "projectUrl": "/recipes",
           "tech": ["Angular"]
         }
