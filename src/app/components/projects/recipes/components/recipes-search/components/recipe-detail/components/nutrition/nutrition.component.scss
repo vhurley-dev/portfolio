@@ -1,0 +1,80 @@
+@import '../../../../../../../../../../assets/scss/colours';
+
+.container {
+    margin: 2.4rem 0;
+    padding-bottom: 0.8rem;
+}
+h5 {
+    font-weight: 600;
+    margin-bottom: 2.4rem;
+}
+
+.nutrition-info {
+    box-shadow: 0 0.1rem 0.5rem rgba($darkBlue, 0.1);
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+
+    .cals {
+        text-align: right;
+        margin-bottom: 1.6rem;
+        color: $grey;
+    }
+
+    .nutrition-macros {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @media only screen and (max-width: 440px) {
+            display: block;
+        }
+    }
+
+    .nutrition-circle {
+        width: 10rem;
+        height: 10rem;
+        margin-bottom: 1.6rem;
+        position: relative;
+
+        &:not(:last-of-type) {
+            margin-right: 1.6rem;
+        }
+
+        @media only screen and (max-width: 440px) {
+            margin-left: auto;
+            margin-right: auto;
+
+            &:not(:last-of-type) {
+                margin-right: auto;
+            }
+        }
+    
+        .nutrition-score {
+            width: 10rem;
+            height: 10rem;
+            border-radius:50%;
+            // background: -webkit-linear-gradient(right, $midBlue 0%, $midBlue 50%, rgba($midBlue, 0.2) 50%, rgba($midBlue, 0.2) 100%);
+            position: absolute;
+        }
+
+        .nutrition-box {
+            text-align: center;
+            background-color: $pureWhite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8rem;
+            height: 8rem;
+            border-radius:50%;
+
+            .nutrition-box-text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $grey;
+            }
+        }
+    }
+}

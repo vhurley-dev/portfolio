@@ -1,0 +1,91 @@
+@import './../../../assets/scss/colours';
+
+* {
+    color: $white;
+}
+
+h4 {
+    max-width: 24rem;
+    color: $grey;
+}
+
+.outer-container {
+    background-color: $darkBlue;
+    padding: 0 9.6rem 9.6rem 9.6rem;
+
+    @media only screen and (max-width: 700px) {
+        padding: 0 4rem 0 4rem;
+    }
+}
+.inner-container {
+    max-width: 96rem;
+    margin: 0 auto;
+    display: flex;
+
+    @media only screen and (max-width: 1114px) {
+        display: block;
+    }
+
+    .left,
+    .right {
+        padding-top: 9.6rem;
+    }
+
+    .left {
+        width: 45%;
+        margin-right: 0.5rem;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: calc(100vh - 9.6rem);
+
+        @media only screen and (max-width: 1114px) {
+            width: 100%;
+            position: static;
+            height: auto;
+            margin-right: 0;
+        }
+
+        @media only screen and (max-width: 700px) {
+            padding-top: 4rem;
+        }
+    }
+    .right {
+        width: 55%;
+        margin-left: 0.5rem;
+        margin-top: 0.4rem;
+        @media only screen and (max-width: 1114px) {
+            width: 100%;
+            padding-top: 0;
+            margin-left: 0;
+            margin-top: 8ch;
+        }
+
+        #about {
+            scroll-margin-top: 10rem;
+        }
+        #experience,
+        #projects,
+        #technology {
+            scroll-margin-top: 10.4rem;
+        }
+        .section {
+            margin-bottom: 10rem;
+        }
+    }
+}
+
+p {
+    color: $grey;
+}
+
+// cursor css
+.cursor:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(90rem at 109rem 15rem, $lightBlue, transparent 70%);
+}
