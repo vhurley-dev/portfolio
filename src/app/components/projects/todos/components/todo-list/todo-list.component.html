@@ -1,0 +1,24 @@
+
+<p class="task-count">{{completedTasksCount()}} / {{tasks().length}}</p>
+<div class="tasks">
+    <div class="task-list-tabs">
+        <div class="tab" [ngClass]="{'active': filter() === filters.All}" (click)="changeFilter(filters.All)">All</div>
+        <div class="tab" [ngClass]="{'active': filter() === filters.Outstanding}" (click)="changeFilter(filters.Outstanding)">Outstanding</div>
+        <div class="tab" [ngClass]="{'active': filter() === filters.Completed}" (click)="changeFilter(filters.Completed)">Completed</div>
+    </div>
+    <ul class="task-list">
+        @for (task of filteredTasks(); track $index) {
+            <li class="task">
+                <div class="task-desc"(click)="toggleTask(task)">
+                    <input type="checkbox" [checked]="task.completed"/>
+                    <icon name="ph:circle" class="icon" [ngClass]="task.completed? 'hide' : 'show'"></icon>
+                    <icon name="ph:check-circle" class="icon icon-green" [ngClass]="task.completed? 'show' : 'hide'"></icon>
+                    <span [ngClass]="{'line-through': task.completed}">{{ task.title }}</span>
+                </div>
+                <div class="icons">
+                    <icon name="ph:trash" class="icon icon-red" (click)="deleteTask(task.title, $index)"></icon>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

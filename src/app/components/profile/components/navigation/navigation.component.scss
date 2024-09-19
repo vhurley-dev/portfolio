@@ -1,0 +1,53 @@
+@import '../../../../../assets/scss/colours';
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 8rem 0 0 0;
+    width: max-content;
+
+    li {
+        font-weight: 500;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        
+        a {
+            color: $grey;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 1.2rem 0;
+
+            .nav-indicator {
+                min-width: 3.2rem;
+                width: 3.2rem;
+                margin-right: 1.6rem;
+                height: 0.2rem;
+                background-color: $grey;
+                transition-property: all;
+                transition-timing-function: cubic-bezier(.4,0,.2,1);
+                transition-duration: .15s;
+            }
+            .nav-item {
+                font-size: 1.2rem;
+            }
+        }
+
+        &:hover,
+        &.active {
+            a {
+                color: $white;
+
+                .nav-indicator {
+                    background-color: $white;
+                    width: 6.4rem;
+                    min-width: 6.4rem;
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 1114px) {
+        display: none;
+    }
+}

@@ -1,0 +1,45 @@
+@import './../../../../../../assets/scss/colours';
+.add-task {
+    width:100%;
+    margin-bottom: 3.2rem;
+    input {
+        // float: left;
+        border-radius: 2.5rem 0 0 2.5rem;
+        border: 0px solid transparent;
+        font-family: "Poppins", 'Open-sans';
+        font-size: 1.6rem;
+        font-weight: 400;
+        background-color: rgba($grey, 0.2);
+        color: $darkBlue;
+        padding: 1.2rem 0 1.2rem 2.4rem;
+        width: calc(100% - 8.1rem);
+        &::-webkit-input-placeholder {
+            color: $grey;
+        }
+        &:focus {
+            border: 0px solid transparent;
+            outline: none;
+
+        }
+    }
+    button {
+        // overflow: hidden;
+        position: absolute;
+        float: right;
+        border: 0;
+        padding: 0 2.4rem;
+        cursor: pointer;
+        height: 4.8rem;
+        font-family: "Poppins", 'Open-sans';
+        font-size: 1.6rem;
+        color: $white;
+        text-transform: uppercase;
+        background: $green;
+        border-radius: 0 2.5rem 2.5rem 0;
+    }
+}
+.clearfix:after {
+    content:"";
+    display:block;
+    clear:both;
+}

@@ -1,0 +1,20 @@
+<div class="container">
+    <ng-container *ngFor="let project of projects">
+    <div class="project-outer">
+            <div class="project">
+                <img src={{project.img}} alt="" [routerLink]="project.projectUrl">
+                <div class="description">
+                    <a [routerLink]="project.projectUrl">
+                        <h5>{{project.title}}<icon name="ph:arrow-up-right" size="18"></icon></h5>
+                    </a>
+                    <p>{{project.description}}</p>
+                    <div class="technology">
+                        <ng-content *ngFor="let tech of project.tech">
+                            <app-tech-tag [techTag]="tech"></app-tech-tag>
+                        </ng-content>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

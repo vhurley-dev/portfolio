@@ -1,0 +1,10 @@
+@import './../../../../assets/scss/colours';
+.tech-tag {
+    border-radius: 3.5rem;
+    background-color: rgba($pink, 0.15);
+    color: $pink;
+    padding: 0.8rem 1.6rem;
+    margin: 0  1.2rem 1.2rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
