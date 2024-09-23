@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { Location } from '@angular/common';
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { IconModule } from '../../../../../projects/icon/src/public-api';
@@ -12,10 +13,19 @@ import { Task } from './interfaces/task.model';
   styleUrl: './todos.component.scss'
 })
 export class TodosComponent {
+  constructor(private _location: Location) {}
+  showMenu: boolean = false;
   tasks = signal<Task[]>([
-    { title: 'Style the task list', completed: true },
-    { title: 'Create add task functionality', completed: false },
-    { title: 'Create delete task button', completed: true }, 
-    { title: 'Add filters', completed: false }
+    { title: 'Walk my beautiful dog', completed: true },
+    { title: 'Book an adventure holiday', completed: false },
+    { title: 'Call mum and see if shes up for an adventure holiday', completed: true }, 
+    { title: 'Ride a camel in the desert', completed: false }
   ])
+
+  backClick() {
+    this._location.back();
+  }
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
 }

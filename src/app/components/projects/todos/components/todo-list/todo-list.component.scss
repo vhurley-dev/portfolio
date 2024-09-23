@@ -48,10 +48,13 @@
     .task {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 1.6rem;
         .task-desc {
+            display: flex;
+            justify-content: start;
             cursor: pointer;
             span {
-                margin-left: 0.8rem;
+                padding: 0 0.8rem;
             }
             .line-through {
                 color: $grey;
@@ -60,16 +63,16 @@
         }
         .icon {
             position: relative;
-            top: 0.5rem;
             cursor: pointer;
         }
         .icons {
-            display: inline-block;
-            align-content: end;
+            display: flex;
+            justify-content: space-between;
+            //min-width: 5.6rem; //add this in when edit functionality is added and icon is shown
+            align-items: start;
 
             .icon {
                 position: relative;
-                top: 0.5rem;
             }
         }
     }
@@ -80,6 +83,9 @@
 }
 .icon-green {
     color: $green;
+}
+.icon-blue {
+    color: $darkBlue;
 }
 
 input[type=checkbox] {
