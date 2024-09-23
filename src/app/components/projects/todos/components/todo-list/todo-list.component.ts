@@ -49,4 +49,9 @@ export class TodoListComponent {
     this.tasks.set(updatedTasks);
     this.tasks().splice(index, 1);
   }
+  // icon is in place in html to trigger edit function
+  // To do: Edit functionality
+  // editTask(taskTitle: String, index: number) {
+  //   alert(`Editing task ${index}: ${taskTitle} isn't available just yet.`)
+  // }
 }

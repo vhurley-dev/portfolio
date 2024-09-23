@@ -1,10 +1,13 @@
 @import './../../../../assets/scss/colours';
 .header {
     width: 100%;
-    padding: 0.8rem;
+    padding: 0.8rem 4rem;
     background-color: $darkBlue;
     text-align: center;
     margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     h1{
         font-family: "Poppins", 'Open-sans';
@@ -20,6 +23,9 @@
             position: relative;
             top: 0.6rem;;
         }
+    }
+    a {
+        cursor: pointer;
     }
 
 }
