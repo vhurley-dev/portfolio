@@ -1,7 +1,7 @@
-<div class="recipe-detail">
+<div class="recipe-detail" *ngIf="recipe && recipe.recipe">
     <div class="image-container">
         <img src="{{recipeImgUrl}}">
-        <div class="prep-time" *ngIf="recipe.recipe.totalTime > 0">
+        <div class="prep-time" *ngIf="recipe.recipe.totalTime && recipe.recipe.totalTime > 0">
             <icon name="ph:timer" size="16"></icon>
             <p>{{recipe.recipe.totalTime}} mins</p>
         </div>
