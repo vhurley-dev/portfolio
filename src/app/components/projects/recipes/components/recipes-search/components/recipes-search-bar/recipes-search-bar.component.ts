@@ -24,11 +24,21 @@ export class RecipesSearchBarComponent {
     ingredientsMax: new FormControl(''),
     dietType: new FormControl(''),
   })
+  sessionData: any;
+  sessionDataSearchTerm: string = '';
   
+  ngOnInit() {
+    this.sessionData = this.recipeService.getSessionRecipes();
+    this.searchResults.emit(this.sessionData);
+    this.sessionDataSearchTerm = sessionStorage.getItem('sessionDataSearchTerm') || '';
+
+  }
   searchRecipes(searchTerm: any) {
-    this.recipeService.getRecipes(searchTerm, this.filtersForm.controls).subscribe((res) => {
-      this.data = {...res};
-      this.searchResults.emit(this.data);
+    this.recipeService.getRecipes(searchTerm, this.filtersForm.controls).subscribe((res: any) => {
+      this.recipeService.setSessionRecipes(res, searchTerm);
+      this.sessionData = this.recipeService.getSessionRecipes();
+      this.searchResults.emit(this.sessionData);
+      this.sessionDataSearchTerm = sessionStorage.getItem('sessionDataSearchTerm') || '';
     });
   }
 

@@ -28,7 +28,7 @@ export class RecipeDetailComponent implements OnInit {
   }
   ngOnInit(): void {
     this.recipesService.getRecipe(this.recipeUrl).subscribe((res) => {
-      this.recipe = {...res};
+      this.recipe = res;
       this.nutrition = {macros: this.recipe.recipe.totalNutrients, yield: this.recipe.recipe.yield}
     })
   }

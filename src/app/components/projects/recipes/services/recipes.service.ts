@@ -35,7 +35,17 @@ export class RecipesService {
     if(filters.dietType.value) {
       params = params.append('diet', `${filters.dietType.value}`);
     }
-    return this.http.get(url, {params: params})
+    this.data = this.http.get(url, {params: params});
+    return this.data;
+  }
+
+  setSessionRecipes(data: any, searchTerm: string) {
+    sessionStorage.setItem('sessionData', JSON.stringify(data));
+    sessionStorage.setItem('sessionDataSearchTerm', searchTerm);
+  }
+  getSessionRecipes() {
+    let sessionObj = JSON.parse(sessionStorage.getItem('sessionData')|| '{}');
+    return sessionObj;
   }
 
   fetchNextRecipes(nextUrl: string) {
