@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="results-found">
-        <h5>Showing {{data?.from}} - {{data?.to}} of {{data?.count}} results for {{searchTerm}}</h5>
+        <h5 *ngIf="sessionDataSearchTerm">Showing {{sessionData?.from}} - {{sessionData?.to}} of {{sessionData?.count}} results for {{sessionDataSearchTerm}}</h5>
     </div>
 </div>
 
