@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { RecipesSearchBarComponent } from './components/recipes-search-bar/recipes-search-bar.component';
 import { RecipesSearchResultsComponent } from './components/recipes-search-results/recipes-search-results.component';
 import { CommonModule } from '@angular/common';
@@ -13,6 +13,11 @@ import { CommonModule } from '@angular/common';
 export class RecipesSearchComponent {
   recipeData: any;
   filterOpen: boolean;
+
+  constructor(private cdr: ChangeDetectorRef) { }
+  ngAfterViewChecked(){
+    this.cdr.detectChanges();
+  }
 
   updateSearchResults(recipes: any) {
     this.recipeData = recipes;
