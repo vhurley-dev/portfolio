@@ -1,6 +1,6 @@
 <div class="container">
-    <ng-container *ngFor="let project of projects">
-    <div class="project-outer">
+    @for (project of projects; track project) {
+        <div class="project-outer">
             <div class="project">
                 <img src={{project.img}} alt="" [routerLink]="project.projectUrl">
                 <div class="description">
@@ -9,12 +9,12 @@
                     </a>
                     <p>{{project.description}}</p>
                     <div class="technology">
-                        <ng-content *ngFor="let tech of project.tech">
+                        @for (tech of project.tech; track tech) {
                             <app-tech-tag [techTag]="tech"></app-tech-tag>
-                        </ng-content>
+                        }
                     </div>
                 </div>
             </div>
         </div>
-    </ng-container>
+    }
 </div>
