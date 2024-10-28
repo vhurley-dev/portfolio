@@ -1,12 +1,14 @@
 <div class="container-outer">
     <h5>Ingredients</h5>
     <div class="container-inner">
-        <div class="ingredient" *ngFor="let ingredient of ingredients">
-            <div class="description">
-                <img src="{{ingredient.image}}" alt="">
-                <p class="ingredient-name" >{{ingredient.food}}</p>
+        @for (ingredient of ingredients; track ingredient) {
+            <div class="ingredient">
+                <div class="description">
+                    <img src="{{ingredient.image}}" alt="">
+                    <p class="ingredient-name" >{{ingredient.food}}</p>
+                </div>
+                <p class="amount">{{ingredient.quantity | number: '1.0-0'}} {{ingredient.measure}}</p>
             </div>
-            <p class="amount">{{ingredient.quantity | number: '1.0-0'}} {{ingredient.measure}}</p>
-        </div>
+        }
     </div>
 </div>

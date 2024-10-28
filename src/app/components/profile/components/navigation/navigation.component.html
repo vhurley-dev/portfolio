@@ -33,9 +33,9 @@
     </li>
 </ul>
 
-<!-- This works except for applying active class, need to look into-->
+<!-- This works except for applying active class, need to look into this-->
 <!-- <ul>
-    <ng-content *ngFor="let section of sections | keyvalue">
+    @for (section of sections | keyvalue; track section) {
         <li [routerLink]="['']" 
             fragment="#{{section.value}}" 
             [class.active]="(activeFragment | async)==='{{section.value}}'">
@@ -44,5 +44,5 @@
                 <span class="nav-item">{{section.value}}</span>
             </a>
         </li>
-    </ng-content>
+    }
 </ul> -->
