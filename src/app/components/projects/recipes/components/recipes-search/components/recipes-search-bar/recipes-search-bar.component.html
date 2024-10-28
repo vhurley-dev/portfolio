@@ -7,7 +7,9 @@
         </div>
     </div>
     <div class="results-found">
-        <h5 *ngIf="sessionDataSearchTerm">Showing {{sessionData?.from}} - {{sessionData?.to}} of {{sessionData?.count}} results for {{sessionDataSearchTerm}}</h5>
+        @if (sessionDataSearchTerm) {
+            <h5>Showing {{sessionData?.from}} - {{sessionData?.to}} of {{sessionData?.count}} results for {{sessionDataSearchTerm}}</h5>
+        }
     </div>
 </div>
 
@@ -35,7 +37,9 @@
                 <div class="input-group">
                     <div class="custom-select">
                         <select id="diet-type" formControlName="dietType">
-                            <option *ngFor="let dietType of dietOptions" [ngValue]="dietType">{{ dietType }}</option>
+                            @for (dietType of dietOptions; track dietType) {
+                                <option [ngValue]="dietType">{{ dietType }}</option>
+                            }
                         </select>
                     </div>
                 </div>
