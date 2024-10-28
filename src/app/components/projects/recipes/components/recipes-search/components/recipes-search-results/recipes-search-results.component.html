@@ -1,15 +1,21 @@
 
-<div class="recipes" *ngIf="recipes" [class.hide]="filterOpen===true">
-    <ng-content *ngFor="let recipe of recipes.hits">
-        <div class="recipe-card">
-            <img src="{{recipe.recipe.images.REGULAR.url}}">
-            <div class="overlay"></div>
-            <div class="prep-time" *ngIf="recipe.recipe.totalTime > 0">
-                <icon name="ph:timer" size="16"></icon>
-                <p>{{recipe.recipe.totalTime}} mins</p>
+@if (recipes) {
+    <div class="recipes" [class.hide]="filterOpen===true">
+        @for (recipe of recipes.hits; track recipe) {
+            <div class="recipe-card">
+                <img src="{{recipe.recipe.images.REGULAR.url}}">
+                <div class="overlay"></div>
+                @if (recipe.recipe.totalTime > 0) {
+                    <div class="prep-time">
+                        <icon name="ph:timer" size="16"></icon>
+                        <p>{{recipe.recipe.totalTime}} mins</p>
+                    </div>
+                }
+                <a class="title" [routerLink]="['/recipes', recipe._links.self.href, recipe.recipe.images.REGULAR.url]">{{recipe.recipe.label}}</a>
             </div>
-            <a class="title" [routerLink]="['/recipes', recipe._links.self.href, recipe.recipe.images.REGULAR.url]">{{recipe.recipe.label}}</a>
-        </div>
-    </ng-content>
-    <button *ngIf="recipes._links && recipes._links.next && recipes._links.next.href" class="button-next" (click)="loadNext(recipes._links.next.href)"><span>Next page</span><icon name="ph:caret-right" size="16"></icon></button>
-</div>
+        }
+        @if (recipes._links && recipes._links.next && recipes._links.next.href) {
+            <button class="button-next" (click)="loadNext(recipes._links.next.href)"><span>Next page</span><icon name="ph:caret-right" size="16"></icon></button>
+        }
+    </div>
+}

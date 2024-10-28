@@ -1,6 +1,5 @@
-<ng-container *ngIf="loaded">
+@if (loaded) {
     <svg [attr.viewBox]="viewBox" [innerHTML]="path | safeHtml"></svg>
-  </ng-container>
-  <ng-container *ngIf="!loaded">
-    <div class="placeholder"></div>
-</ng-container>
+}@else {
+  <div class="placeholder"></div>
+}
