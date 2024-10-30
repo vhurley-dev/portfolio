@@ -1,29 +1,33 @@
-<div class="recipe-detail" *ngIf="recipe && recipe.recipe">
-    <div class="image-container">
-        <img src="{{recipeImgUrl}}">
-        <div class="prep-time" *ngIf="recipe.recipe.totalTime && recipe.recipe.totalTime > 0">
-            <icon name="ph:timer" size="16"></icon>
-            <p>{{recipe.recipe.totalTime}} mins</p>
+@if (recipe && recipe.recipe) {
+    <div class="recipe-detail">
+        <div class="image-container">
+            <img src="{{recipeImgUrl}}">
+            @if (recipe.recipe.totalTime && recipe.recipe.totalTime > 0) {
+                <div class="prep-time">
+                    <icon name="ph:timer" size="16"></icon>
+                    <p>{{recipe.recipe.totalTime}} mins</p>
+                </div>
+            }
+        </div>
+        <h5>{{recipe.recipe.label}}</h5>
+
+        <div class="recipe-info">
+            <div class="servings">
+                <icon name="ph:bowl-steam" size="16"></icon>
+                <span>serves {{recipe.recipe.yield}}</span>
+            </div>
+            <div class="ingredients-count">{{recipe.recipe.ingredients.length}} ingredients</div>
+        </div>
+
+        <app-nutrition [nutrition]="nutrition"></app-nutrition>
+
+        <app-ingredients [ingredients]="recipe.recipe.ingredients"></app-ingredients>
+
+        <div class="source">
+            <h5>Steps</h5>
+            <div class="source-inner">
+                <p>For cooking steps visit <a [href]="recipe.recipe.url" target="_blank">{{recipe.recipe.source}}</a></p>
+            </div> 
         </div>
     </div>
-    <h5>{{recipe.recipe.label}}</h5>
-
-    <div class="recipe-info">
-        <div class="servings">
-            <icon name="ph:bowl-steam" size="16"></icon>
-            <span>serves {{recipe.recipe.yield}}</span>
-        </div>
-        <div class="ingredients-count">{{recipe.recipe.ingredients.length}} ingredients</div>
-    </div>
-
-    <app-nutrition [nutrition]="nutrition"></app-nutrition>
-
-    <app-ingredients [ingredients]="recipe.recipe.ingredients"></app-ingredients>
-
-    <div class="source">
-        <h5>Steps</h5>
-        <div class="source-inner">
-            <p>For cooking steps visit <a [href]="recipe.recipe.url" target="_blank">{{recipe.recipe.source}}</a></p>
-        </div> 
-    </div>
-</div>
+}

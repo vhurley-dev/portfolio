@@ -50,7 +50,6 @@
         width: 1.2rem;
         height: 0.1rem;
         background-color: $grey;
-    
     }
     @media only screen and (max-width: 700px) {
         margin-bottom: 0.8rem;
@@ -66,8 +65,7 @@
 .title {
     display: flex;
     flex-wrap: wrap;
-    align-items: top;
-
+    
     .seperator {
         width: 0.5rem;
         height: 0.5rem;

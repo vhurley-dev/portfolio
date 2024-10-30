@@ -1,26 +1,34 @@
 <ul>
     <li [routerLink]="['']" 
-        fragment="#about" 
-        [class.active]="(activeFragment | async)==='about'">
-        <a href="#about"  >
+        fragment="#{{sections.ABOUT}}" 
+        [class.active]="(activeFragment | async)===sections.ABOUT">
+        <a href="#{{sections.ABOUT}}">
             <span class="nav-indicator"></span>
-            <span class="nav-item">about</span>
+            <span class="nav-item">{{sections.ABOUT}}</span>
         </a>
     </li>
     <li [routerLink]="['']" 
-        fragment="#experience" 
-        [class.active]="(activeFragment | async)==='experience'">
-        <a href="#experience"  >
+        fragment="#{{sections.EXPERIENCE}}" 
+        [class.active]="(activeFragment | async)===sections.EXPERIENCE">
+        <a href="#{{sections.EXPERIENCE}}">
             <span class="nav-indicator"></span>
-            <span class="nav-item">experience</span>
+            <span class="nav-item">{{sections.EXPERIENCE}}</span>
         </a>
     </li>
     <li [routerLink]="['']" 
-        fragment="#projects" 
-        [class.active]="(activeFragment | async)==='projects'">
-        <a href="#projects"  >
+        fragment="#{{sections.PROJECTS}}" 
+        [class.active]="(activeFragment | async)===sections.PROJECTS">
+        <a href="#{{sections.PROJECTS}}"  >
             <span class="nav-indicator"></span>
-            <span class="nav-item">projects</span>
+            <span class="nav-item">{{sections.PROJECTS}}</span>
+        </a>
+    </li>
+    <li [routerLink]="['']" 
+        fragment="#{{sections.COURSES}}" 
+        [class.active]="(activeFragment | async)===sections.COURSES">
+        <a href="#{{sections.COURSES}}"  >
+            <span class="nav-indicator"></span>
+            <span class="nav-item">{{sections.COURSES}}</span>
         </a>
     </li>
     <li [routerLink]="['']" 
@@ -33,9 +41,9 @@
     </li>
 </ul>
 
-<!-- This works except for applying active class, need to look into-->
+<!-- This works except for applying active class, need to look into this-->
 <!-- <ul>
-    <ng-content *ngFor="let section of sections | keyvalue">
+    @for (section of sections | keyvalue; track section) {
         <li [routerLink]="['']" 
             fragment="#{{section.value}}" 
             [class.active]="(activeFragment | async)==='{{section.value}}'">
@@ -44,5 +52,5 @@
                 <span class="nav-item">{{section.value}}</span>
             </a>
         </li>
-    </ng-content>
+    }
 </ul> -->

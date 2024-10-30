@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { Profile } from './interfaces/profile.model';
 import { SectionEnums } from './enums/sections.enum';
 import { BuildInfoComponent } from './components/build-info/build-info.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +18,7 @@ import { BuildInfoComponent } from './components/build-info/build-info.component
             ExperienceComponent, 
             TechnologyComponent,
             ProjectsComponent,
+            CoursesComponent,
             BuildInfoComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',

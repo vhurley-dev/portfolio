@@ -65,6 +65,67 @@
           "tech": ["Angular"]
         }
     ],
+    "courses": [
+        {
+            "title": "Angular and NodeJS: The MEAN stack guide (2024 edition)",
+            "provider": "Udemy",
+            "dateCompleted": "28th October 2024",
+            "certificateURL": "./assets/docs/Angular-NodeJS-MEAN-Stack-Certificate.pdf"
+        },
+        {
+            "title": "AWS Partner Accreditation (Technical)",
+            "provider": "AWS Training and certification",
+            "dateCompleted": "14th February 2024",
+            "certificateURL": "./assets/docs/AWS-Partner-Accreditation-Technical-Certificate.pdf"
+        },
+        {
+            "title": "Continuous Integration and Continuous Delivery with GitLab",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "27th February 2023",
+            "certificateURL": "./assets/docs/Continuous-Integration-and-Continuous-Delivery-with-GitLab-Certificate.pdf"
+        },
+        {
+            "title": "Learning GitLab",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "20th February 2023",
+            "certificateURL": "./assets/docs/Learning-Amazon-Web-Services-AWS-for-Developers-Certificate.pdf"
+        },
+        {
+            "title": "Learning Terraform (2020)",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "10th September 2022",
+            "certificateURL": "./assets/docs/Learning-Terraform-Certificate.pdf"
+        },
+        {
+            "title": "Learning Amazon Web Services (AWS) for Deverlopers",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "20th September 2022",
+            "certificateURL": "./assets/docs/Learning-Amazon-Web-Services-AWS-for-Developers-Certificate.pdf"
+        },
+        {
+            "title": "Javascript Code Challenges",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "4th April 2022",
+            "certificateURL": "./assets/docs/JavaScript-Code-Challenges-Certificate.pdf"
+        },
+        {
+            "title": "Javascript Essential Training",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "29th March 2022",
+            "certificateURL": "./assets/docs/JavaScript-Essential-Training-Certificate.pdf"
+        },
+        {
+            "title": "XML Essential Training (2018)",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "16th March 2022",
+            "certificateURL": "./assets/docs/XML-Essential-Training-2018-Certificate.pdf"
+        },
+        {
+            "title": "Design Systems and Pattern Libraries",
+            "provider": "NNg",
+            "dateCompleted": "10th November 2021"
+        }
+    ],
     "buildInfo": {
         "intro": "This portfolio was built with Angular 18 in Visual Studio Code and deployed with GitHub.",
         "repoText": "View the repo",
