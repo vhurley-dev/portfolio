@@ -40,6 +40,9 @@
                 position: relative;
                 top: 0.5rem;
             }
+            &:hover {
+                background-color: $darkGreen;
+            }
         }
     }
     .results-found {
@@ -160,9 +163,17 @@
             }
         }
         .btn-primary {
+            cursor: pointer;
             background-color: $green;
             color: $pureWhite;
-            
+            font-size: 1.6rem;
+            border: none;
+            border-radius: 0.8rem;
+            padding: 0.8rem 1.6rem;
+
+            &:hover {
+                background-color: $darkGreen;
+            }
         }
     }
 }

@@ -1,31 +1,39 @@
 
 <div class="cursor" [style.top]="top" [style.left]="left"></div>
-<div class="outer-container" *ngIf="profile">
-    <div class="inner-container">
-        <div class="left">
-            <h1>{{profile.name}}</h1>
-            <h2>{{profile.jobTitle}}</h2>
-            <h4>{{profile.strapLine}}</h4>
-            <app-navigation></app-navigation>
-        </div>
-        <div class="right">
-            <div id="{{section.ABOUT}}" class="section">
-                <p *ngFor="let intro of profile.intros" class="p-large">{{intro}}</p>
+@if (profile) {
+    <div class="outer-container">
+        <div class="inner-container">
+            <div class="left">
+                <h1>{{profile.name}}</h1>
+                <h2>{{profile.jobTitle}}</h2>
+                <h4>{{profile.strapLine}}</h4>
+                <app-navigation></app-navigation>
             </div>
-            <div class="section">
-                <h3 id="{{section.EXPERIENCE}}">{{section.EXPERIENCE}}</h3>
-                <app-experience [experiences]="profile.experiences" ></app-experience>
+            <div class="right">
+                <div id="{{section.ABOUT}}" class="section">
+                    @for (intro of profile.intros; track intro) {
+                        <p class="p-large">{{intro}}</p>
+                    }
+                </div>
+                <div class="section">
+                    <h3 id="{{section.EXPERIENCE}}">{{section.EXPERIENCE}}</h3>
+                    <app-experience [experiences]="profile.experiences" ></app-experience>
+                </div>
+                <div class="section">
+                    <h3 id="{{section.PROJECTS}}">{{section.PROJECTS}}</h3>
+                    <app-projects [projects]="profile.projects"></app-projects>
+                </div>
+                <div class="section">
+                    <h3 id="{{section.COURSES}}">{{section.COURSES}}</h3>
+                    <app-courses [courses]="profile.courses"></app-courses>
+                </div>
+                <div class="section">
+                    <h3 id="{{section.TECHNOLOGY}}">{{section.TECHNOLOGY}}</h3>
+                    <app-technology [technologies]="profile.technologies"></app-technology>
+                </div>
+                <app-build-info [buildInfo]="profile.buildInfo"></app-build-info>
+                    
             </div>
-            <div class="section">
-                <h3 id="{{section.PROJECTS}}">{{section.PROJECTS}}</h3>
-                <app-projects [projects]="profile.projects"></app-projects>
-            </div>
-            <div class="section">
-                <h3 id="{{section.TECHNOLOGY}}">{{section.TECHNOLOGY}}</h3>
-                <app-technology [technologies]="profile.technologies"></app-technology>
-            </div>
-            <app-build-info [buildInfo]="profile.buildInfo"></app-build-info>
-                
         </div>
     </div>
-</div>
+}

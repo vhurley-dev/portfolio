@@ -1,5 +1,5 @@
 <div class="outer-container">
-    <ng-content *ngFor="let experience of experiences">
+    @for (experience of experiences; track experience) {
         <div class="container">
             <div class="left">
                 <div class="date">
@@ -19,13 +19,13 @@
                 </a>
                 <p class="description">{{experience.description}}</p>
                 <div class="technology">
-                    <ng-content *ngFor="let tech of experience.tech">
+                    @for (tech of experience.tech; track tech) {
                         <app-tech-tag [techTag]="tech"></app-tech-tag>
-                    </ng-content>
+                    }
                 </div>
             </div>
         </div>
-    </ng-content>
+    }
     <a href="./assets/docs/victoria-hurley-cv.pdf" class="large-link" target="_blank">
         View full CV<icon name="ph:arrow-up-right" class="icon-hover" size="18" weight="bold"></icon>
     </a>
