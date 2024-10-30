@@ -15,5 +15,5 @@ export class NavigationComponent {
   constructor(public route: ActivatedRoute){}
   activeFragment = this.route.fragment.pipe(share()); 
   sections: typeof SectionEnums = SectionEnums;
-  navItems: string[] = ['about', 'experience', 'projects', 'technology'];
+  navItems: string[] = ['about', 'experience', 'projects', 'recent qualifications', 'technology'];
 }
