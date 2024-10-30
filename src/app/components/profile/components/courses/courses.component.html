@@ -1,0 +1,15 @@
+
+@for (course of courses; track course) {
+    <div class="course-item">
+        @if(course.certificateURL){
+            <a href="{{course.certificateURL}}" target="_blank"><h5>{{course.title}}<icon name="ph:arrow-up-right" size="18"></icon></h5></a>
+        }@else {
+            <h5>{{course.title}}</h5>
+        }
+        <div class="course-details">
+            <h6>{{course.provider}}</h6>
+            <div class="seperator"></div>
+            <h6>{{course.dateCompleted}}</h6>
+        </div>
+    </div>
+}
