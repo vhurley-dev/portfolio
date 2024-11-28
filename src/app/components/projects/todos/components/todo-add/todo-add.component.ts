@@ -25,6 +25,6 @@ export class TodoAddComponent {
     }
     this.todosService.addTask(newTask);
     this.taskTitle = '';
-    location.reload();
+    // location.reload();
   }
 }
