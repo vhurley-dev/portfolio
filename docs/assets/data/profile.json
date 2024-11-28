@@ -1,0 +1,138 @@
+{
+    "name": "Victoria Hurley",
+    "jobTitle": "Frontend Software Engineer",
+    "strapLine": "Developing web apps that are engaging and accessible",
+    "intros": [
+        "I journeyed into web development by ways of Wordpress, initially creating sites using pre-built themes for fun. As with many developers, curiosity got the better of me and I wanted to find out how things worked and what more could be done. I started coding with HTML, CSS and JavaScript and from there found my way into Angular development.",
+        "I have experience as an Angular developer for a RegTech company who offer a subscription service to a regulatory compliance app for insurance companies.",
+        "I have spent the last three years working on a projects for British Airways. I have been involved in re-platforming projects using Angular 16, accessibility improvement projects and re-design projects aimed at bringing customers a better user experience."
+    ],
+    "experiences":[
+        {
+            "dateFrom": "Mar 2022",
+            "dateTo": "present",
+            "company": "Leighton",
+            "companyUrl": "https://leighton.com",
+            "title": "Frontend Software Engineer",
+            "description": [
+                "I am currently employed by Leighton and have been out on contract with British Airways consistently since joining the team. At BA I have been involved in a variety of projects including building apps with Angular and AWS (predonminantly front end but also assisting in back end tasks), page redesign projects and accessibility improvement."
+            ],
+            "tech": ["Angular", "AWS", "Nest.js", "TypeScript", "JavaScript", "Jest", "Jasmine", "Pact", "Terraform"]
+        },
+        {
+            "dateFrom": "Sept 2018",
+            "dateTo": "Feb 2022",
+            "company": "REG Technologies",
+            "companyUrl": "https://reg.uk.com/",
+            "title": "Frontend Software Engineer",
+            "description": [
+                "At REG technologies as part of the development team I helped build, maintain and design their subscription app. This app is used to assist regulated businesses in the insurance sector towards being compliant. I worked on developing many new features including document exchange, dashboards and the international regulators project."
+            ],
+            "tech": ["Angular", "Azure", "TypeScript", "SCSS", "Bootstrap"]
+        }
+    ],
+    "technologies": [
+        {"technology": "Angular", "score": "80%"},
+        {"technology": "AWS", "score": "50%"},
+        {"technology": "Azure", "score": "50%"},
+        {"technology": "CSS", "score": "80%"},
+        {"technology": "Express.js", "score": "30%"},
+        {"technology": "Git", "score": "60%"},
+        {"technology": "HTML", "score": "80%"},
+        {"technology": "Jasmine", "score": "40%"},
+        {"technology": "JavaScript", "score": "80%"},
+        {"technology": "Jest", "score": "40%"},
+        {"technology": "JQuery", "score": "60%"},
+        {"technology": "MongoDB", "score": "30%"},
+        {"technology": "Mongoose", "score": "30%"},
+        {"technology": "Nest.js", "score": "30%"},
+        {"technology": "Node.js", "score": "30%"},
+        {"technology": "Pact", "score": "30%"},
+        {"technology": "Terraform", "score": "30%"},
+        {"technology": "TypeScript", "score": "75%"},
+        {"technology": "SCSS", "score": "80%"},
+        {"technology": "XSLT", "score": "70%"}
+    ],
+    "projects": [
+        {
+          "title": "Todo's MEAN app",
+          "description": "A MEAN todo's app where you can add, edit, delete, mark as complete, filter and count your todo list items. Built in Angular using signals with a Node, Express and MongoDB backend.",
+          "img": "./assets/img/todos.png",
+          "projectUrl": "/todos",
+          "tech": ["Angular", "Signals", "Node", "Express", "MongoDB", "Mongoose"]
+        },
+        {
+          "title": "Recipe search",
+          "description": "A little app that uses a third party API to search for and filter recipes by number of ingredients and diet type. View a recipe to see nutrition information or visit the site the information was taken from.",
+          "img": "./assets/img/get-cooking.png",
+          "projectUrl": "/recipes",
+          "tech": ["Angular"]
+        }
+    ],
+    "courses": [
+        {
+            "title": "Angular and NodeJS: The MEAN stack guide (2024 edition)",
+            "provider": "Udemy",
+            "dateCompleted": "28th October 2024",
+            "certificateURL": "./assets/docs/Angular-NodeJS-MEAN-Stack-Certificate.pdf"
+        },
+        {
+            "title": "AWS Partner Accreditation (Technical)",
+            "provider": "AWS Training and certification",
+            "dateCompleted": "14th February 2024",
+            "certificateURL": "./assets/docs/AWS-Partner-Accreditation-Technical-Certificate.pdf"
+        },
+        {
+            "title": "Continuous Integration and Continuous Delivery with GitLab",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "27th February 2023",
+            "certificateURL": "./assets/docs/Continuous-Integration-and-Continuous-Delivery-with-GitLab-Certificate.pdf"
+        },
+        {
+            "title": "Learning GitLab",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "20th February 2023",
+            "certificateURL": "./assets/docs/Learning-Amazon-Web-Services-AWS-for-Developers-Certificate.pdf"
+        },
+        {
+            "title": "Learning Terraform (2020)",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "10th September 2022",
+            "certificateURL": "./assets/docs/Learning-Terraform-Certificate.pdf"
+        },
+        {
+            "title": "Learning Amazon Web Services (AWS) for Deverlopers",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "20th September 2022",
+            "certificateURL": "./assets/docs/Learning-Amazon-Web-Services-AWS-for-Developers-Certificate.pdf"
+        },
+        {
+            "title": "Javascript Code Challenges",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "4th April 2022",
+            "certificateURL": "./assets/docs/JavaScript-Code-Challenges-Certificate.pdf"
+        },
+        {
+            "title": "Javascript Essential Training",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "29th March 2022",
+            "certificateURL": "./assets/docs/JavaScript-Essential-Training-Certificate.pdf"
+        },
+        {
+            "title": "XML Essential Training (2018)",
+            "provider": "LinkedIn Learning",
+            "dateCompleted": "16th March 2022",
+            "certificateURL": "./assets/docs/XML-Essential-Training-2018-Certificate.pdf"
+        },
+        {
+            "title": "Design Systems and Pattern Libraries",
+            "provider": "NNg",
+            "dateCompleted": "10th November 2021"
+        }
+    ],
+    "buildInfo": {
+        "intro": "This portfolio was built with Angular 18 in Visual Studio Code and deployed with GitHub.",
+        "repoText": "View the repo",
+        "repoUrl": "https://github.com/vhurley-dev/portfolio"
+    }
+}
