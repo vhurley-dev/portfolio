@@ -2,16 +2,19 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, WritableSignal, computed, signal } from '@angular/core';
 import { IconModule } from '../../../../../../../projects/icon/src/public-api';
 import { Task, TasksFilter } from '../../interfaces/task.model';
+import { TodosService } from '../../todos.service';
+import { TodoEditComponent } from '../todo-edit/todo-edit.component';
 
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [CommonModule, IconModule],
+  imports: [CommonModule, IconModule, TodoEditComponent],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
+  constructor(private todosService: TodosService) {}
   @Input() tasks: WritableSignal<Task[]>;
   filter = signal(TasksFilter.All);
   filters = TasksFilter;
@@ -26,32 +29,35 @@ export class TodoListComponent {
       })
     }
   });
+
   changeFilter(filter: TasksFilter) {
     this.filter.set(filter);
   }
+
   completedTasksCount = computed(() => {
     return this.tasks().filter(task =>
       task.completed).length;
   })
 
-  toggleTask(task: Task) {
-    const updatedTasks = this.tasks().map(taskItem => 
-      taskItem.title === task.title ? {...taskItem,
+  onCompleteTask(taskId: string) {
+    let updatedTasks = this.tasks().map(taskItem => 
+      taskItem.id === taskId ? {...taskItem,
         completed: !taskItem.completed} : taskItem
       );
-      this.tasks.set(updatedTasks);
-  }
-  deleteTask(taskTitle: string, index: number) {
-    const updatedTasks = this.tasks().map(taskItem => 
-      taskItem.title === taskTitle ? {...taskItem,
-        completed: false} : taskItem
-    );
     this.tasks.set(updatedTasks);
-    this.tasks().splice(index, 1);
+    let updatedTask = this.tasks().find(task => task.id === taskId);
+    if(updatedTask) {
+      this.todosService.updateTask(updatedTask);
+    }
   }
-  // icon is in place in html to trigger edit function
-  // To do: Edit functionality
-  // editTask(taskTitle: String, index: number) {
-  //   alert(`Editing task ${index}: ${taskTitle} isn't available just yet.`)
-  // }
+
+  onDeleteTask(taskId: string) {
+    let updatedTasks = this.tasks().filter(task => task.id !== taskId);
+    this.tasks.set(updatedTasks);
+    this.todosService.deleteTask(taskId).subscribe();
+  }
+
+  onEditTask(task: Task) {
+    task.editMode = true;
+  }
 }
