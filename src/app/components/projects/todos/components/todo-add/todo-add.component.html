@@ -1,4 +1,5 @@
+
 <div class="add-task clearfix">
-    <input #titleInput (keydown.enter)="addTask(titleInput)" placeholder="What do you need to do?" />
-    <button (click)="addTask(titleInput)">Add</button>
+    <input #titleInput [(ngModel)]='taskTitle' (keydown.enter)="newTask()" placeholder="What do you need to do?" autofocus/>
+    <button (click)="newTask()">Add</button>
 </div>

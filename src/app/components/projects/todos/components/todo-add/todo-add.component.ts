@@ -1,24 +1,30 @@
-import { Component, EventEmitter, Input, Output, WritableSignal,} from '@angular/core';
+import { Component, Input, WritableSignal,} from '@angular/core';
 import { Task } from '../../interfaces/task.model';
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { TodosService } from '../../todos.service';
 
 @Component({
   selector: 'app-todo-add',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './todo-add.component.html',
   styleUrl: './todo-add.component.scss'
 })
 export class TodoAddComponent {
-@Input() tasksList: WritableSignal<Task[]>;
+  constructor(private http: HttpClient, private todosService: TodosService) {}
+  taskTitle: string;
+  @Input() tasksList: WritableSignal<Task[]>;
 
-  addTask(titleInput: HTMLInputElement) {
-    if (titleInput.value) {
-      const newTask = {
-        title: titleInput.value,
-        completed: false
-      };
-      this.tasksList.set([...this.tasksList(), newTask]);
+  newTask() {
+    const newTask: Task = {
+      id: '',
+      completed: false,
+      title: this.taskTitle,
+      editMode: false
     }
-    titleInput.value = '';
+    this.todosService.addTask(newTask);
+    this.taskTitle = '';
+    location.reload();
   }
 }

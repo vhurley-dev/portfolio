@@ -1,0 +1,34 @@
+@import './../../../../../../assets/scss/colours';  
+
+.edit-task {
+    display: flex;
+    justify-content: space-between;
+    .edit-input {
+        flex-grow: 1;
+        padding-right: 0.8rem;
+    }
+    .icons {
+        display: flex;
+        justify-content: space-between;
+        min-width: 5.6rem;
+        align-items: start;
+        cursor: pointer;
+    }
+}
+input {
+    font-family: "Poppins", 'Open-sans';
+    color: $darkBlue;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 0.2rem 0.8rem;
+    width: 100%;
+    border-radius: 0.8rem;
+    border: 1px solid $grey;
+}
+
+.icon-red {
+    color: $pink;
+}
+.icon-green {
+    color: $green;
+}
