@@ -1,0 +1,6 @@
+{
+    "env": {
+        "MONGO_ATLAS_PW": "Alani$12",
+        "MONGO_ATLAS_USER": "victoria"
+    }
+}

@@ -36,13 +36,17 @@
         {"technology": "AWS", "score": "50%"},
         {"technology": "Azure", "score": "50%"},
         {"technology": "CSS", "score": "80%"},
+        {"technology": "Express.js", "score": "30%"},
         {"technology": "Git", "score": "60%"},
         {"technology": "HTML", "score": "80%"},
         {"technology": "Jasmine", "score": "40%"},
         {"technology": "JavaScript", "score": "80%"},
         {"technology": "Jest", "score": "40%"},
         {"technology": "JQuery", "score": "60%"},
+        {"technology": "MongoDB", "score": "30%"},
+        {"technology": "Mongoose", "score": "30%"},
         {"technology": "Nest.js", "score": "30%"},
+        {"technology": "Node.js", "score": "30%"},
         {"technology": "Pact", "score": "30%"},
         {"technology": "Terraform", "score": "30%"},
         {"technology": "TypeScript", "score": "75%"},
@@ -51,15 +55,15 @@
     ],
     "projects": [
         {
-          "title": "Todo list project using signals",
-          "description": "A little app that lets you add, edit, delete, mark as complete, filter and count your todo list items. Built in Angular using signals.",
+          "title": "Todo's MEAN app",
+          "description": "A MEAN todo's app where you can add, edit, delete, mark as complete, filter and count your todo list items. Built in Angular using signals with a Node, Express and MongoDB backend.",
           "img": "./assets/img/todos.png",
           "projectUrl": "/todos",
-          "tech": ["Angular", "Signals"]
+          "tech": ["Angular", "Signals", "Node", "Express", "MongoDB", "Mongoose"]
         },
         {
-          "title": "Recipe calculator",
-          "description": "A little app that lets you select ingredients to add to your recipe and gives you a visual indicator of whether this recipe fits your personal macros.",
+          "title": "Recipe search",
+          "description": "A little app that uses a third party API to search for and filter recipes by number of ingredients and diet type. View a recipe to see nutrition information or visit the site the information was taken from.",
           "img": "./assets/img/get-cooking.png",
           "projectUrl": "/recipes",
           "tech": ["Angular"]
