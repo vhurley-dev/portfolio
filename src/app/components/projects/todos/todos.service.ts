@@ -39,7 +39,9 @@ export class TodosService {
 
     addTask(task: Task) {
         this.http.post<{ task: Task }>(BACKEND_URL, task)
-        .subscribe();
+        .subscribe(res => {
+            this.getTasks();
+        });
     }
 
     updateTask(task: Task) {
