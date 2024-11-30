@@ -17,14 +17,15 @@ export class TodoAddComponent {
   @Input() tasksList: WritableSignal<Task[]>;
 
   newTask() {
-    const newTask: Task = {
-      id: '',
-      completed: false,
-      title: this.taskTitle,
-      editMode: false
+    if(this.taskTitle) {
+      const newTask: Task = {
+        id: '',
+        completed: false,
+        title: this.taskTitle,
+        editMode: false
+      }
+      this.todosService.addTask(newTask);
+      this.taskTitle = '';
     }
-    this.todosService.addTask(newTask);
-    this.taskTitle = '';
-    // location.reload();
   }
 }
