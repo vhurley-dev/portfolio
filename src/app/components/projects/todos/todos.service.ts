@@ -28,8 +28,9 @@ export class TodosService {
             })
         )
         .subscribe(transformedTasksData => {
-            this.tasks = transformedTasksData.tasks;
-            this.tasksUpdated.set(this.tasks);
+                this.tasks = transformedTasksData.tasks;
+                this.tasksUpdated.set(this.tasks);
+            console.log(JSON.stringify(this.tasksUpdated()));
         });
     }
 
@@ -39,7 +40,9 @@ export class TodosService {
 
     addTask(task: Task) {
         this.http.post<{ task: Task }>(BACKEND_URL, task)
-        .subscribe();
+        .subscribe(res => {
+            this.getTasks();
+        });
     }
 
     updateTask(task: Task) {
