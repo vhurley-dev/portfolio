@@ -28,9 +28,8 @@ export class TodosService {
             })
         )
         .subscribe(transformedTasksData => {
-                this.tasks = transformedTasksData.tasks;
-                this.tasksUpdated.set(this.tasks);
-            console.log(JSON.stringify(this.tasksUpdated()));
+            this.tasks = transformedTasksData.tasks;
+            this.tasksUpdated.set(this.tasks);
         });
     }
 
