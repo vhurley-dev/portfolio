@@ -16,11 +16,10 @@ import { TodosService } from './todos.service';
 export class TodosComponent {
   constructor(private _location: Location, private todosService: TodosService) {}
 
-  tasks: WritableSignal<Task[]>;
+  tasks = this.todosService.getUpdatedTasksListener();
 
   ngOnInit() {
     this.todosService.getTasks();
-    this.tasks = this.todosService.getUpdatedTasksListener();
   }
 
   backClick() {
