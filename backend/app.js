@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const todosRoutes = require("./routes/todos");
 
 const app = express();
-console.log("URI Check:", process.env.MONGODB_URI);
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
