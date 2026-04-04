@@ -45,4 +45,4 @@ Thumbs.db
 
 # Secrets
 /src/app/components/projects/recipes/APIs
-nodemon.json
+.env
