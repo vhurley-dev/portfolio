@@ -6,7 +6,7 @@
   "strapLine3": " for building polished, accessible web applications.",
   "introHeading1": "The craft of engineering",
   "introHeading2": "Enterprise at Scale",
-  "intro1": "My journey into software began with a fascination for how complex systems are built from the ground up. Before I was architecting digital interfaces, I was a luthier—earning a First Class Honours in Music Technology with a focus on guitar making. Whether I am carving a fretboard or refactoring a reactive Angular component, my approach remains the same: a deep respect for precision, durability, and the user’s experience with the final 'instrument'.",
+  "intro1": "My journey into software began with a fascination for how complex systems are built from the ground up. Before I was architecting digital interfaces, I was a luthier with a First Class Honours in Music Technology with a focus on guitar making. Whether carving a fretboard or refactoring a reactive Angular component, my approach remains the same: a deep respect for precision, durability, and the user’s experience with the final 'instrument'.",
   "intro2": "For the past four years, I have been an embedded consultant on the British Airways account , contributing to high-traffic re-platforming projects across major framework evolutions. This includes a recent upgrade from Angular 15 to 19 for the Disruptions team and a migration to Angular 16 and Nest.js for the Seat Map. A key highlight was leading the end-to-end accessibility transformation for the Seat Map. Working independently from audit reports, I performed the complex technical remediation required to achieve full WCAG compliance while delivering essential self-service solutions for passengers.",
   "experiences": [
     {
@@ -16,7 +16,7 @@
       "companyUrl": "https://leighton.com",
       "title": "Software engineer",
       "description": [
-        "I am currently employed by Leighton and have been out on contract with British Airways consistently since joining the team. At BA I have been involved in a variety of projects including building apps with Angular and AWS (predonminantly front end but also assisting in back end tasks), page redesign projects and accessibility improvement."
+        "Since joining Leighton, I have been consistently embedded within British Airways’ digital ecosystem. Working in a high-pressure, enterprise environment, I’ve contributed to the modernization of guest-facing services - transitioning legacy systems into high-performance Angular applications. My role has evolved from core frontend development to taking increasing ownership of the full stack, including Nest.js backend services and AWS/Terraform infrastructure. A major focus of my tenure has been ensuring digital inclusivity by leading accessibility remediation projects to meet strict WCAG standards."
       ],
       "tech": [
         "Angular",
@@ -31,38 +31,48 @@
       ]
     },
     {
-      "dateFrom": "Sept 2018",
+      "dateFrom": "Sept 2019",
       "dateTo": "Feb 2022",
       "company": "REG Technologies",
       "companyUrl": "https://reg.uk.com/",
       "title": "Software engineer",
       "description": [
-        "At REG technologies as part of the development team I helped build, maintain and design their subscription app. This app is used to assist regulated businesses in the insurance sector towards being compliant. I worked on developing many new features including document exchange, dashboards and the international regulators project."
+        "At REG, I played a versatile role in the evolution of a complex, subscription-based platform serving the regulated insurance sector. My work shifted with the product's highest-priority needs, ranging from architecting interactive data dashboards for compliance tracking to taking over the International Regulators project from the Principal Engineer. In addition to my engineering responsibilities, I served as the sole designer for the team, utilizing Adobe XD and Illustrator to bridge the gap between regulatory requirements and a seamless user experience. This dual-focus allowed me to drive both technical component reusability and UI/UX consistency across the entire platform."
       ],
-      "tech": ["Angular", "Azure", "TypeScript", "SCSS", "Bootstrap"]
+      "tech": [
+        "Angular",
+        "Azure",
+        "TypeScript",
+        "SCSS",
+        "Bootstrap",
+        "Adobe XD",
+        "Illustrator"
+      ]
     }
   ],
   "technologies": [
-    { "technology": "Angular", "score": "80%" },
+    { "technology": "Angular", "score": "90%" },
     { "technology": "AWS", "score": "50%" },
     { "technology": "Azure", "score": "50%" },
-    { "technology": "CSS", "score": "80%" },
-    { "technology": "Express.js", "score": "30%" },
-    { "technology": "Git", "score": "60%" },
-    { "technology": "HTML", "score": "80%" },
-    { "technology": "Jasmine", "score": "40%" },
+    { "technology": "CSS", "score": "90%" },
+    { "technology": "Express.js", "score": "40%" },
+    { "technology": "Git", "score": "70%" },
+    { "technology": "HTML", "score": "90%" },
+    { "technology": "Jasmine", "score": "60%" },
     { "technology": "JavaScript", "score": "80%" },
-    { "technology": "Jest", "score": "40%" },
+    { "technology": "Jest", "score": "50%" },
     { "technology": "JQuery", "score": "60%" },
     { "technology": "MongoDB", "score": "30%" },
     { "technology": "Mongoose", "score": "30%" },
     { "technology": "Nest.js", "score": "30%" },
-    { "technology": "Node.js", "score": "30%" },
+    { "technology": "Nest.js", "score": "30%" },
+    { "technology": "Next.js", "score": "70%" },
     { "technology": "Pact", "score": "30%" },
+    { "technology": "React", "score": "50%" },
     { "technology": "Terraform", "score": "30%" },
-    { "technology": "TypeScript", "score": "75%" },
-    { "technology": "SCSS", "score": "80%" },
-    { "technology": "XSLT", "score": "70%" }
+    { "technology": "TypeScript", "score": "80%" },
+    { "technology": "SCSS", "score": "90%" },
+    { "technology": "XSLT", "score": "80%" }
   ],
   "projects": [
     {
@@ -81,6 +91,30 @@
     }
   ],
   "courses": [
+    {
+      "title": "React - The Complete Guide (incl. Next.js, Redux)",
+      "provider": "Udemy",
+      "dateCompleted": "In progress",
+      "certificateURL": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/"
+    },
+    {
+      "title": "The Complete JavaScript Course 2025",
+      "provider": "Udemy",
+      "dateCompleted": "In progress",
+      "certificateURL": "https://www.udemy.com/course/the-complete-javascript-course/"
+    },
+    {
+      "title": "Local LLMs via Ollama & LM Studio - The Practical Guide",
+      "provider": "Udemy",
+      "dateCompleted": "19th September 2025",
+      "certificateURL": "https://www.udemy.com/course/running-open-llms-locally-practical-guide/?src=sac&kw=Local+LLMs+via+Ollama+%26+LM+Studio+-+The+Practical+Guide"
+    },
+    {
+      "title": "AI Agents and Workflows: The Practical Guide",
+      "provider": "Udemy",
+      "dateCompleted": "12th August 2025",
+      "certificateURL": "./assets/docs/AI-Agents-And-Workflows-Certificate.pdf"
+    },
     {
       "title": "Angular and NodeJS: The MEAN stack guide (2024 edition)",
       "provider": "Udemy",
@@ -112,7 +146,7 @@
       "certificateURL": "./assets/docs/Learning-Terraform-Certificate.pdf"
     },
     {
-      "title": "Learning Amazon Web Services (AWS) for Deverlopers",
+      "title": "Learning Amazon Web Services (AWS) for Developers",
       "provider": "LinkedIn Learning",
       "dateCompleted": "20th September 2022",
       "certificateURL": "./assets/docs/Learning-Amazon-Web-Services-AWS-for-Developers-Certificate.pdf"
