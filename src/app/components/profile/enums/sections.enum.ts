@@ -1,7 +1,7 @@
 export enum SectionEnums {
-    ABOUT = 'about',
-    EXPERIENCE = 'experience',
-    TECHNOLOGY = 'technology',
-    PROJECTS = 'projects',
-    COURSES = "courses"
+  ABOUT = 'about me',
+  EXPERIENCE = 'experience',
+  TECHNOLOGY = 'technology',
+  PROJECTS = 'projects',
+  COURSES = 'courses',
 }
