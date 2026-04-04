@@ -1,4 +1,4 @@
 export const environment = {
-    production: true,
-    apiUrl: "http://portfolio-be-env.eba-psanmvac.eu-west-2.elasticbeanstalk.com/api"
-}
+  production: true,
+  apiUrl: 'https://portfolio-api-fbr0.onrender.com/api',
+};
