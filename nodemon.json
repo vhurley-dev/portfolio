@@ -1,6 +1,5 @@
 {
-    "env": {
-        "MONGO_ATLAS_PW": "Alani$12",
-        "MONGO_ATLAS_USER": "victoria"
-    }
+  "env": {
+    "MONGODB_URI": "mongodb+srv://vhurleydev:lAOG8ZZ4TCx8Ait5@dev-portfolio.hi4nld6.mongodb.net/portfolio_db?retryWrites=true&w=majority&appName=dev-portfolio"
+  }
 }
