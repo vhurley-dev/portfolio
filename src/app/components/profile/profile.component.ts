@@ -11,17 +11,16 @@ import { BuildInfoComponent } from './components/build-info/build-info.component
 import { CoursesComponent } from './components/courses/courses.component';
 
 @Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [CommonModule,
-            NavigationComponent,
-            ExperienceComponent, 
-            TechnologyComponent,
-            ProjectsComponent,
-            CoursesComponent,
-            BuildInfoComponent],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss',
+    selector: 'app-profile',
+    imports: [CommonModule,
+        NavigationComponent,
+        ExperienceComponent,
+        TechnologyComponent,
+        ProjectsComponent,
+        CoursesComponent,
+        BuildInfoComponent],
+    templateUrl: './profile.component.html',
+    styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
   profileService = inject(ProfileService);

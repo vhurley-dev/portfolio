@@ -7,11 +7,10 @@ import { TodoEditComponent } from '../todo-edit/todo-edit.component';
 
 
 @Component({
-  selector: 'app-todo-list',
-  standalone: true,
-  imports: [CommonModule, IconModule, TodoEditComponent],
-  templateUrl: './todo-list.component.html',
-  styleUrl: './todo-list.component.scss'
+    selector: 'app-todo-list',
+    imports: [CommonModule, IconModule, TodoEditComponent],
+    templateUrl: './todo-list.component.html',
+    styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
   constructor(private todosService: TodosService) {}

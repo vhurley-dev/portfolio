@@ -1,4 +1,4 @@
-@import "./../../../../assets/scss/colours";
+@use "./../../../../assets/scss/colours" as *;
 .tech-tag {
   border-radius: 3.5rem;
   background-color: rgba($green, 0.15);
