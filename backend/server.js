@@ -3,6 +3,7 @@ const app = require("./app");
 const debug = require("debug")("node-angular");
 const http = require("http");
 
+console.log("Backend is running on Node version:", process.version);
 const normalizePort = (val) => {
   var port = parseInt(val, 10);
 
