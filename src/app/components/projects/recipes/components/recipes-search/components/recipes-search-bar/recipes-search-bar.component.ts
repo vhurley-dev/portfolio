@@ -5,11 +5,10 @@ import { IconModule } from '../../../../../../../../../projects/icon/src/lib/ico
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-recipes-search-bar',
-  standalone: true,
-  imports: [CommonModule, IconModule, ReactiveFormsModule, FormsModule ],
-  templateUrl: './recipes-search-bar.component.html',
-  styleUrl: './recipes-search-bar.component.scss'
+    selector: 'app-recipes-search-bar',
+    imports: [CommonModule, IconModule, ReactiveFormsModule, FormsModule],
+    templateUrl: './recipes-search-bar.component.html',
+    styleUrl: './recipes-search-bar.component.scss'
 })
 export class RecipesSearchBarComponent {
   @Input() data: any;

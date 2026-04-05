@@ -7,11 +7,10 @@ import { NutritionComponent } from './components/nutrition/nutrition.component';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
 
 @Component({
-  selector: 'app-recipe-detail',
-  standalone: true,
-  imports: [CommonModule, IconModule, NutritionComponent, IngredientsComponent],
-  templateUrl: './recipe-detail.component.html',
-  styleUrl: './recipe-detail.component.scss'
+    selector: 'app-recipe-detail',
+    imports: [CommonModule, IconModule, NutritionComponent, IngredientsComponent],
+    templateUrl: './recipe-detail.component.html',
+    styleUrl: './recipe-detail.component.scss'
 })
 export class RecipeDetailComponent implements OnInit {
   recipesService = inject(RecipesService);

@@ -5,11 +5,10 @@ import { RecipesService } from '../../../../services/recipes.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-recipes-search-results',
-  standalone: true,
-  imports: [CommonModule, IconModule, RouterLink],
-  templateUrl: './recipes-search-results.component.html',
-  styleUrl: './recipes-search-results.component.scss'
+    selector: 'app-recipes-search-results',
+    imports: [CommonModule, IconModule, RouterLink],
+    templateUrl: './recipes-search-results.component.html',
+    styleUrl: './recipes-search-results.component.scss'
 })
 export class RecipesSearchResultsComponent {
   @Input() recipes: any;

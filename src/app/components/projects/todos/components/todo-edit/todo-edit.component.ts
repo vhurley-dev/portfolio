@@ -5,11 +5,10 @@ import { IconModule } from '../../../../../../../projects/icon/src/public-api';
 import { TodosService } from '../../todos.service';
 
 @Component({
-  selector: 'app-todo-edit',
-  standalone: true,
-  imports: [FormsModule, IconModule],
-  templateUrl: './todo-edit.component.html',
-  styleUrl: './todo-edit.component.scss'
+    selector: 'app-todo-edit',
+    imports: [FormsModule, IconModule],
+    templateUrl: './todo-edit.component.html',
+    styleUrl: './todo-edit.component.scss'
 })
 export class TodoEditComponent {
   constructor(private todosService: TodosService) {}
