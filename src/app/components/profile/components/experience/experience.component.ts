@@ -6,11 +6,10 @@ import { IconModule } from '../../../../../../projects/icon/src/public-api';
 
 
 @Component({
-  selector: 'app-experience',
-  standalone: true,
-  imports: [CommonModule, TechTagComponent, IconModule],
-  templateUrl: './experience.component.html',
-  styleUrl: './experience.component.scss'
+    selector: 'app-experience',
+    imports: [CommonModule, TechTagComponent, IconModule],
+    templateUrl: './experience.component.html',
+    styleUrl: './experience.component.scss'
 })
 export class ExperienceComponent {
 @Input() experiences: Experience[];

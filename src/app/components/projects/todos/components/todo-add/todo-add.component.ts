@@ -5,11 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { TodosService } from '../../todos.service';
 
 @Component({
-  selector: 'app-todo-add',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './todo-add.component.html',
-  styleUrl: './todo-add.component.scss'
+    selector: 'app-todo-add',
+    imports: [FormsModule],
+    templateUrl: './todo-add.component.html',
+    styleUrl: './todo-add.component.scss'
 })
 export class TodoAddComponent {
   constructor(private http: HttpClient, private todosService: TodosService) {}

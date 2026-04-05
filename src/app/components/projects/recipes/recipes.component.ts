@@ -3,11 +3,10 @@ import { RecipesHeaderComponent } from './components/recipes-header/recipes-head
 import { RouterModule, RouterOutlet, provideRouter } from '@angular/router';
 
 @Component({
-  selector: 'app-recipes',
-  standalone: true,
-  imports: [RecipesHeaderComponent, RouterOutlet, RouterModule],
-  templateUrl: './recipes.component.html',
-  styleUrl: './recipes.component.scss',
+    selector: 'app-recipes',
+    imports: [RecipesHeaderComponent, RouterOutlet, RouterModule],
+    templateUrl: './recipes.component.html',
+    styleUrl: './recipes.component.scss'
 })
 export class RecipesComponent {
 

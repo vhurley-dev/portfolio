@@ -1,4 +1,4 @@
-@import "../../../../../assets/scss/colours";
+@use "../../../../../assets/scss/colours" as *;
 
 ul {
   list-style-type: none;
