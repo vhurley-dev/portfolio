@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-nutrition',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './nutrition.component.html',
-  styleUrl: './nutrition.component.scss'
+    selector: 'app-nutrition',
+    imports: [CommonModule],
+    templateUrl: './nutrition.component.html',
+    styleUrl: './nutrition.component.scss'
 })
 export class NutritionComponent {
   @Input() nutrition: any;

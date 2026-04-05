@@ -9,14 +9,15 @@ import {
 import { loadIcon } from 'iconify-icon';
 
 @Component({
-  selector: 'icon',
-  exportAs: 'icon',
-  templateUrl: './icon.component.html',
-  styleUrls: ['./icon.component.css'],
-  host: {
-    'class': 'icon',
-    '[class.is-loaded]': 'loaded'
-  }
+    selector: 'icon',
+    exportAs: 'icon',
+    templateUrl: './icon.component.html',
+    styleUrls: ['./icon.component.css'],
+    host: {
+        'class': 'icon',
+        '[class.is-loaded]': 'loaded'
+    },
+    standalone: false
 })
 export class IconComponent implements OnChanges {
   private _elementRef = inject(ElementRef);

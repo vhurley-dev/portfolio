@@ -4,11 +4,10 @@ import { RouterLink } from '@angular/router';
 import { IconModule } from '../../../../../../../projects/icon/src/lib/icon/icon.module';
 
 @Component({
-  selector: 'app-recipes-header',
-  standalone: true,
-  imports: [IconModule, RouterLink],
-  templateUrl: './recipes-header.component.html',
-  styleUrl: './recipes-header.component.scss'
+    selector: 'app-recipes-header',
+    imports: [IconModule, RouterLink],
+    templateUrl: './recipes-header.component.html',
+    styleUrl: './recipes-header.component.scss'
 })
 export class RecipesHeaderComponent {
   constructor(private _location: Location) {}

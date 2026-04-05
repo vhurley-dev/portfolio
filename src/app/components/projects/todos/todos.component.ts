@@ -6,11 +6,10 @@ import { IconModule } from '../../../../../projects/icon/src/public-api';
 import { TodosService } from './todos.service';
 
 @Component({
-  selector: 'app-todos',
-  standalone: true,
-  imports: [TodoAddComponent, TodoListComponent, IconModule],
-  templateUrl: './todos.component.html',
-  styleUrl: './todos.component.scss',
+    selector: 'app-todos',
+    imports: [TodoAddComponent, TodoListComponent, IconModule],
+    templateUrl: './todos.component.html',
+    styleUrl: './todos.component.scss'
 })
 export class TodosComponent {
   constructor(
