@@ -176,7 +176,7 @@
     }
   ],
   "buildInfo": {
-    "intro": "This portfolio was built with Angular 18 in Visual Studio Code and deployed with GitHub.",
+    "intro": "This portfolio was built with Angular 20 in Visual Studio Code and deployed with GitHub and Render.",
     "repoText": "View the repo",
     "repoUrl": "https://github.com/vhurley-dev/portfolio"
   }
