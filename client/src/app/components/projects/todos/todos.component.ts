@@ -5,10 +5,16 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { IconModule } from '../../../../../projects/icon/src/public-api';
 import { TodosService } from './todos.service';
 import { ServerStatusService } from '../../global/server-status/server-status.service';
+import { ServerStatusComponent } from '../../global/server-status/server-status.component';
 
 @Component({
   selector: 'app-todos',
-  imports: [TodoAddComponent, TodoListComponent, IconModule],
+  imports: [
+    TodoAddComponent,
+    TodoListComponent,
+    IconModule,
+    ServerStatusComponent,
+  ],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss',
 })
@@ -19,9 +25,16 @@ export class TodosComponent {
     private _location: Location,
     private todosService: TodosService,
   ) {
+    // Add a log here to see if the component is even starting the watch
+    console.log('TodoComponent initialized, watching server signal...');
+
     effect(() => {
-      if (this.isServerReady()) {
-        this.todosService.getTasks(); // Call your existing data fetcher
+      const ready = this.isServerReady();
+      console.log('Signal changed! Current value:', ready);
+
+      if (ready) {
+        console.log('Server is READY. Fetching todos...');
+        this.todosService.getTasks();
       }
     });
   }
