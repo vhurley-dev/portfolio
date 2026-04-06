@@ -28,7 +28,6 @@ export class ServerStatusComponent implements OnInit {
     this.http
       .get(API_URL)
       .pipe(
-        // Retry every 2 seconds if it fails (the server is waking up)
         retry({ delay: 2000 }),
         catchError(() => of(false)),
       )

@@ -13,6 +13,6 @@
     <app-todo-add [tasksList]="tasks"></app-todo-add>
     <app-todo-list [tasks]="tasks"></app-todo-list>
   } @else {
-    <p>Waiting for backend connection...</p>
+    <app-server-status />
   }
 </div>
