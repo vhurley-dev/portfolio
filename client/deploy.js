@@ -69,16 +69,25 @@ try {
   );
   fs.writeFileSync(path.join(docsPath, ".nojekyll"), "");
 
-  // 8. Push to GitHub (Uncomment when you are ready to go live automatically)
-  /*
-    console.log('--- Pushing to GitHub ---');
-    run('git -C .. add .');
-    run(`git -C .. commit -m "Automated Deploy: ${new Date().toLocaleString()}"`);
-    run('git -C .. push origin gh-pages');
-    */
+  // 8. Push to GitHub
+  console.log("--- Pushing to GitHub ---");
+  run("git -C .. add .");
 
-  console.log("\n✅ Local build and folder structure verified!");
-  console.log("Location: " + docsPath);
+  // Using a simple ISO string for the timestamp to keep it cross-platform friendly
+  const timestamp = new Date()
+    .toISOString()
+    .replace(/T/, " ")
+    .replace(/\..+/, "");
+  run(`git -C .. commit -m "Automated Deploy: ${timestamp}"`);
+  run("git -C .. push origin gh-pages");
+
+  // 9. Back to business
+  console.log("--- Switching back to main ---");
+  run("git -C .. checkout main");
+
+  console.log(
+    "\n🚀 Deployment Complete! Your portfolio is live. Go to Github Actions to monitor the deployment.",
+  );
 } catch (error) {
   console.error("\n❌ Deployment interrupted:", error.message);
   process.exit(1);
