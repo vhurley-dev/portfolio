@@ -1,17 +1,17 @@
 import {
   withHttpTransferCache
-} from "./chunk-CCK6S7GU.js";
+} from "./chunk-ILNCGQVI.js";
 import {
   CommonModule,
-  DomAdapter,
-  PLATFORM_BROWSER_ID,
-  getDOM,
-  setRootDomAdapter
-} from "./chunk-SJYUZVEH.js";
+  PLATFORM_BROWSER_ID
+} from "./chunk-7Z4QFP5M.js";
 import {
+  DomAdapter,
   XhrFactory,
-  parseCookieValue
-} from "./chunk-6UNWJBON.js";
+  getDOM,
+  parseCookieValue,
+  setRootDomAdapter
+} from "./chunk-SUPTJGNQ.js";
 import {
   APP_ID,
   ApplicationModule,
@@ -39,12 +39,10 @@ import {
   TESTABILITY,
   TESTABILITY_GETTER,
   Testability,
-  TestabilityRegistry,
   TracingService,
   Version,
   ViewEncapsulation,
   XSS_SECURITY_URL,
-  ZONELESS_ENABLED,
   _global,
   _sanitizeHtml,
   _sanitizeUrl,
@@ -62,6 +60,7 @@ import {
   internalCreateApplication,
   makeEnvironmentProviders,
   platformCore,
+  provideStabilityDebugging,
   setClassMetadata,
   setDocument,
   unwrapSafeValue,
@@ -73,27 +72,24 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-E44JF3YN.js";
+} from "./chunk-NLDU4T66.js";
 import {
+  __async,
   __spreadValues
 } from "./chunk-WDMUDEB6.js";
 
-// node_modules/@angular/platform-browser/fesm2022/dom_renderer.mjs
+// node_modules/@angular/platform-browser/fesm2022/_dom_renderer-chunk.mjs
 var EventManagerPlugin = class {
   _doc;
-  // TODO: remove (has some usage in G3)
   constructor(_doc) {
     this._doc = _doc;
   }
-  // Using non-null assertion because it's set by EventManager's constructor
   manager;
 };
 var DomEventsPlugin = class _DomEventsPlugin extends EventManagerPlugin {
   constructor(doc) {
     super(doc);
   }
-  // This plugin should come last in the list of plugins, because it accepts all
-  // events.
   supports(eventName) {
     return true;
   }
@@ -123,14 +119,11 @@ var DomEventsPlugin = class _DomEventsPlugin extends EventManagerPlugin {
     }]
   }], null);
 })();
-var EVENT_MANAGER_PLUGINS = new InjectionToken(ngDevMode ? "EventManagerPlugins" : "");
+var EVENT_MANAGER_PLUGINS = new InjectionToken(typeof ngDevMode !== "undefined" && ngDevMode ? "EventManagerPlugins" : "");
 var EventManager = class _EventManager {
   _zone;
   _plugins;
   _eventNameToPlugin = /* @__PURE__ */ new Map();
-  /**
-   * Initializes an instance of the event-manager service.
-   */
   constructor(plugins, _zone) {
     this._zone = _zone;
     plugins.forEach((plugin) => {
@@ -143,27 +136,13 @@ var EventManager = class _EventManager {
       this._plugins.push(domEventPlugin);
     }
   }
-  /**
-   * Registers a handler for a specific element and event.
-   *
-   * @param element The HTML element to receive event notifications.
-   * @param eventName The name of the event to listen for.
-   * @param handler A function to call when the notification occurs. Receives the
-   * event object as an argument.
-   * @param options Options that configure how the event listener is bound.
-   * @returns  A callback function that can be used to remove the handler.
-   */
   addEventListener(element, eventName, handler, options) {
     const plugin = this._findPluginFor(eventName);
     return plugin.addEventListener(element, eventName, handler, options);
   }
-  /**
-   * Retrieves the compilation zone in which event listeners are registered.
-   */
   getZone() {
     return this._zone;
   }
-  /** @internal */
   _findPluginFor(eventName) {
     let plugin = this._eventNameToPlugin.get(eventName);
     if (plugin) {
@@ -238,19 +217,8 @@ var SharedStylesHost = class _SharedStylesHost {
   doc;
   appId;
   nonce;
-  /**
-   * Provides usage information for active inline style content and associated HTML <style> elements.
-   * Embedded styles typically originate from the `styles` metadata of a rendered component.
-   */
   inline = /* @__PURE__ */ new Map();
-  /**
-   * Provides usage information for active external style URLs and the associated HTML <link> elements.
-   * External styles typically originate from the `ɵɵExternalStylesFeature` of a rendered component.
-   */
   external = /* @__PURE__ */ new Map();
-  /**
-   * Set of host DOM nodes that will have styles attached.
-   */
   hosts = /* @__PURE__ */ new Set();
   constructor(doc, appId, nonce, platformId = {}) {
     this.doc = doc;
@@ -259,20 +227,12 @@ var SharedStylesHost = class _SharedStylesHost {
     addServerStyles(doc, appId, this.inline, this.external);
     this.hosts.add(doc.head);
   }
-  /**
-   * Adds embedded styles to the DOM via HTML `style` elements.
-   * @param styles An array of style content strings.
-   */
   addStyles(styles, urls) {
     for (const value of styles) {
       this.addUsage(value, this.inline, createStyleElement);
     }
     urls?.forEach((value) => this.addUsage(value, this.external, createLinkElement));
   }
-  /**
-   * Removes embedded styles from the DOM that were added as HTML `style` elements.
-   * @param styles An array of style content strings.
-   */
   removeStyles(styles, urls) {
     for (const value of styles) {
       this.removeUsage(value, this.inline);
@@ -311,12 +271,6 @@ var SharedStylesHost = class _SharedStylesHost {
     }
     this.hosts.clear();
   }
-  /**
-   * Adds a host node to the set of style hosts and adds all existing style usage to
-   * the newly added host node.
-   *
-   * This is currently only used for Shadow DOM encapsulation mode.
-   */
   addHost(hostNode) {
     this.hosts.add(hostNode);
     for (const [style, {
@@ -396,8 +350,7 @@ var COMPONENT_VARIABLE = "%COMP%";
 var HOST_ATTR = `_nghost-${COMPONENT_VARIABLE}`;
 var CONTENT_ATTR = `_ngcontent-${COMPONENT_VARIABLE}`;
 var REMOVE_STYLES_ON_COMPONENT_DESTROY_DEFAULT = true;
-var REMOVE_STYLES_ON_COMPONENT_DESTROY = new InjectionToken(ngDevMode ? "RemoveStylesOnCompDestroy" : "", {
-  providedIn: "root",
+var REMOVE_STYLES_ON_COMPONENT_DESTROY = new InjectionToken(typeof ngDevMode !== "undefined" && ngDevMode ? "RemoveStylesOnCompDestroy" : "", {
   factory: () => REMOVE_STYLES_ON_COMPONENT_DESTROY_DEFAULT
 });
 function shimContentAttribute(componentShortId) {
@@ -440,7 +393,6 @@ var DomRendererFactory2 = class _DomRendererFactory2 {
   tracingService;
   rendererByCompId = /* @__PURE__ */ new Map();
   defaultRenderer;
-  platformIsServer;
   constructor(eventManager, sharedStylesHost, appId, removeStylesOnCompDestroy, doc, ngZone, nonce = null, tracingService = null) {
     this.eventManager = eventManager;
     this.sharedStylesHost = sharedStylesHost;
@@ -450,8 +402,7 @@ var DomRendererFactory2 = class _DomRendererFactory2 {
     this.ngZone = ngZone;
     this.nonce = nonce;
     this.tracingService = tracingService;
-    this.platformIsServer = false;
-    this.defaultRenderer = new DefaultDomRenderer2(eventManager, doc, ngZone, this.platformIsServer, this.tracingService);
+    this.defaultRenderer = new DefaultDomRenderer2(eventManager, doc, ngZone, this.tracingService);
   }
   createRenderer(element, type) {
     if (!element || !type) {
@@ -479,16 +430,17 @@ var DomRendererFactory2 = class _DomRendererFactory2 {
       const eventManager = this.eventManager;
       const sharedStylesHost = this.sharedStylesHost;
       const removeStylesOnCompDestroy = this.removeStylesOnCompDestroy;
-      const platformIsServer = this.platformIsServer;
       const tracingService = this.tracingService;
       switch (type.encapsulation) {
         case ViewEncapsulation.Emulated:
-          renderer = new EmulatedEncapsulationDomRenderer2(eventManager, sharedStylesHost, type, this.appId, removeStylesOnCompDestroy, doc, ngZone, platformIsServer, tracingService);
+          renderer = new EmulatedEncapsulationDomRenderer2(eventManager, sharedStylesHost, type, this.appId, removeStylesOnCompDestroy, doc, ngZone, tracingService);
           break;
         case ViewEncapsulation.ShadowDom:
-          return new ShadowDomRenderer(eventManager, sharedStylesHost, element, type, doc, ngZone, this.nonce, platformIsServer, tracingService);
+          return new ShadowDomRenderer(eventManager, element, type, doc, ngZone, this.nonce, tracingService, sharedStylesHost);
+        case ViewEncapsulation.ExperimentalIsolatedShadowDom:
+          return new ShadowDomRenderer(eventManager, element, type, doc, ngZone, this.nonce, tracingService);
         default:
-          renderer = new NoneEncapsulationDomRenderer(eventManager, sharedStylesHost, type, removeStylesOnCompDestroy, doc, ngZone, platformIsServer, tracingService);
+          renderer = new NoneEncapsulationDomRenderer(eventManager, sharedStylesHost, type, removeStylesOnCompDestroy, doc, ngZone, tracingService);
           break;
       }
       rendererByCompId.set(type.id, renderer);
@@ -498,10 +450,6 @@ var DomRendererFactory2 = class _DomRendererFactory2 {
   ngOnDestroy() {
     this.rendererByCompId.clear();
   }
-  /**
-   * Used during HMR to clear any cached data about a component.
-   * @param componentId ID of the component that is being replaced.
-   */
   componentReplaced(componentId) {
     this.rendererByCompId.delete(componentId);
   }
@@ -560,19 +508,13 @@ var DefaultDomRenderer2 = class {
   eventManager;
   doc;
   ngZone;
-  platformIsServer;
   tracingService;
   data = /* @__PURE__ */ Object.create(null);
-  /**
-   * By default this renderer throws when encountering synthetic properties
-   * This can be disabled for example by the AsyncAnimationRendererFactory
-   */
   throwOnSyntheticProps = true;
-  constructor(eventManager, doc, ngZone, platformIsServer, tracingService) {
+  constructor(eventManager, doc, ngZone, tracingService) {
     this.eventManager = eventManager;
     this.doc = doc;
     this.ngZone = ngZone;
-    this.platformIsServer = platformIsServer;
     this.tracingService = tracingService;
   }
   destroy() {
@@ -713,17 +655,19 @@ function isTemplateNode(node) {
   return node.tagName === "TEMPLATE" && node.content !== void 0;
 }
 var ShadowDomRenderer = class extends DefaultDomRenderer2 {
-  sharedStylesHost;
   hostEl;
+  sharedStylesHost;
   shadowRoot;
-  constructor(eventManager, sharedStylesHost, hostEl, component, doc, ngZone, nonce, platformIsServer, tracingService) {
-    super(eventManager, doc, ngZone, platformIsServer, tracingService);
-    this.sharedStylesHost = sharedStylesHost;
+  constructor(eventManager, hostEl, component, doc, ngZone, nonce, tracingService, sharedStylesHost) {
+    super(eventManager, doc, ngZone, tracingService);
     this.hostEl = hostEl;
+    this.sharedStylesHost = sharedStylesHost;
     this.shadowRoot = hostEl.attachShadow({
       mode: "open"
     });
-    this.sharedStylesHost.addHost(this.shadowRoot);
+    if (this.sharedStylesHost) {
+      this.sharedStylesHost.addHost(this.shadowRoot);
+    }
     let styles = component.styles;
     if (ngDevMode) {
       const baseHref = getDOM().getBaseHref(doc) ?? "";
@@ -765,7 +709,9 @@ var ShadowDomRenderer = class extends DefaultDomRenderer2 {
     return this.nodeOrShadowRoot(super.parentNode(this.nodeOrShadowRoot(node)));
   }
   destroy() {
-    this.sharedStylesHost.removeHost(this.shadowRoot);
+    if (this.sharedStylesHost) {
+      this.sharedStylesHost.removeHost(this.shadowRoot);
+    }
   }
 };
 var NoneEncapsulationDomRenderer = class extends DefaultDomRenderer2 {
@@ -773,8 +719,8 @@ var NoneEncapsulationDomRenderer = class extends DefaultDomRenderer2 {
   removeStylesOnCompDestroy;
   styles;
   styleUrls;
-  constructor(eventManager, sharedStylesHost, component, removeStylesOnCompDestroy, doc, ngZone, platformIsServer, tracingService, compId) {
-    super(eventManager, doc, ngZone, platformIsServer, tracingService);
+  constructor(eventManager, sharedStylesHost, component, removeStylesOnCompDestroy, doc, ngZone, tracingService, compId) {
+    super(eventManager, doc, ngZone, tracingService);
     this.sharedStylesHost = sharedStylesHost;
     this.removeStylesOnCompDestroy = removeStylesOnCompDestroy;
     let styles = component.styles;
@@ -800,9 +746,9 @@ var NoneEncapsulationDomRenderer = class extends DefaultDomRenderer2 {
 var EmulatedEncapsulationDomRenderer2 = class extends NoneEncapsulationDomRenderer {
   contentAttr;
   hostAttr;
-  constructor(eventManager, sharedStylesHost, component, appId, removeStylesOnCompDestroy, doc, ngZone, platformIsServer, tracingService) {
+  constructor(eventManager, sharedStylesHost, component, appId, removeStylesOnCompDestroy, doc, ngZone, tracingService) {
     const compId = appId + "-" + component.id;
-    super(eventManager, sharedStylesHost, component, removeStylesOnCompDestroy, doc, ngZone, platformIsServer, tracingService, compId);
+    super(eventManager, sharedStylesHost, component, removeStylesOnCompDestroy, doc, ngZone, tracingService, compId);
     this.contentAttr = shimContentAttribute(compId);
     this.hostAttr = shimHostAttribute(compId);
   }
@@ -817,7 +763,7 @@ var EmulatedEncapsulationDomRenderer2 = class extends NoneEncapsulationDomRender
   }
 };
 
-// node_modules/@angular/platform-browser/fesm2022/browser.mjs
+// node_modules/@angular/platform-browser/fesm2022/_browser-chunk.mjs
 var BrowserDomAdapter = class _BrowserDomAdapter extends DomAdapter {
   supportsDOMEvents = true;
   static makeCurrent() {
@@ -851,7 +797,6 @@ var BrowserDomAdapter = class _BrowserDomAdapter extends DomAdapter {
   isShadowRoot(node) {
     return node instanceof DocumentFragment;
   }
-  /** @deprecated No longer being used in Ivy code. To be removed in version 14. */
   getGlobalEventTarget(doc, target) {
     if (target === "window") {
       return window;
@@ -971,29 +916,12 @@ var MODIFIER_KEY_GETTERS = {
   "shift": (event) => event.shiftKey
 };
 var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
-  /**
-   * Initializes an instance of the browser plug-in.
-   * @param doc The document in which key events will be detected.
-   */
   constructor(doc) {
     super(doc);
   }
-  /**
-   * Reports whether a named key event is supported.
-   * @param eventName The event name to query.
-   * @return True if the named key event is supported.
-   */
   supports(eventName) {
     return _KeyEventsPlugin.parseEventName(eventName) != null;
   }
-  /**
-   * Registers a handler for a specific element and key event.
-   * @param element The HTML element to receive event notifications.
-   * @param eventName The name of the key event to listen for.
-   * @param handler A function to call when the notification occurs. Receives the
-   * event object as an argument.
-   * @returns The key event that was registered.
-   */
   addEventListener(element, eventName, handler, options) {
     const parsedEvent = _KeyEventsPlugin.parseEventName(eventName);
     const outsideHandler = _KeyEventsPlugin.eventCallback(parsedEvent["fullKey"], handler, this.manager.getZone());
@@ -1001,15 +929,6 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
       return getDOM().onAndCancel(element, parsedEvent["domEventName"], outsideHandler, options);
     });
   }
-  /**
-   * Parses the user provided full keyboard event definition and normalizes it for
-   * later internal use. It ensures the string is all lowercase, converts special
-   * characters to a standard spelling, and orders all the values consistently.
-   *
-   * @param eventName The name of the key event to listen for.
-   * @returns an object with the full, normalized string, and the dom event name
-   * or null in the case when the event doesn't match a keyboard event.
-   */
   static parseEventName(eventName) {
     const parts = eventName.toLowerCase().split(".");
     const domEventName = parts.shift();
@@ -1039,16 +958,6 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
     result["fullKey"] = fullKey;
     return result;
   }
-  /**
-   * Determines whether the actual keys pressed match the configured key code string.
-   * The `fullKeyCode` event is normalized in the `parseEventName` method when the
-   * event is attached to the DOM during the `addEventListener` call. This is unseen
-   * by the end user and is normalized for internal consistency and parsing.
-   *
-   * @param event The keyboard event.
-   * @param fullKeyCode The normalized user defined expected key event string
-   * @returns boolean.
-   */
   static matchEventFullKeyCode(event, fullKeyCode) {
     let keycode = _keyMap[event.key] || event.key;
     let key = "";
@@ -1074,13 +983,6 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
     key += keycode;
     return key === fullKeyCode;
   }
-  /**
-   * Configures a handler callback for a key event.
-   * @param fullKey The event name that combines all simultaneous keystrokes.
-   * @param handler The function that responds to the key event.
-   * @param zone The zone in which the event occurred.
-   * @returns A callback function.
-   */
   static eventCallback(fullKey, handler, zone) {
     return (event) => {
       if (_KeyEventsPlugin.matchEventFullKeyCode(event, fullKey)) {
@@ -1088,7 +990,6 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
       }
     };
   }
-  /** @internal */
   static _normalizeKey(keyName) {
     return keyName === "esc" ? "escape" : keyName;
   }
@@ -1112,23 +1013,27 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
   }], null);
 })();
 function bootstrapApplication(rootComponent, options, context) {
-  const config = __spreadValues({
-    rootComponent,
-    platformRef: context?.platformRef
-  }, createProvidersConfig(options));
-  if (false) {
-    return resolveComponentResources(fetch).catch((error) => {
-      console.error(error);
-      return Promise.resolve();
-    }).then(() => internalCreateApplication(config));
-  }
-  return internalCreateApplication(config);
+  return __async(this, null, function* () {
+    const config = __spreadValues({
+      rootComponent
+    }, createProvidersConfig(options, context));
+    if (false) {
+      yield resolveJitResources();
+    }
+    return internalCreateApplication(config);
+  });
 }
-function createApplication(options) {
-  return internalCreateApplication(createProvidersConfig(options));
+function createApplication(options, context) {
+  return __async(this, null, function* () {
+    if (false) {
+      yield resolveJitResources();
+    }
+    return internalCreateApplication(createProvidersConfig(options, context));
+  });
 }
-function createProvidersConfig(options) {
+function createProvidersConfig(options, context) {
   return {
+    platformRef: context?.platformRef,
     appProviders: [...BROWSER_MODULE_PROVIDERS, ...options?.providers ?? []],
     platformProviders: INTERNAL_BROWSER_PLATFORM_PROVIDERS
   };
@@ -1164,13 +1069,10 @@ var TESTABILITY_PROVIDERS = [{
   useClass: BrowserGetTestability
 }, {
   provide: TESTABILITY,
-  useClass: Testability,
-  deps: [NgZone, TestabilityRegistry, TESTABILITY_GETTER]
+  useClass: Testability
 }, {
   provide: Testability,
-  // Also provide as `Testability` for backwards-compatibility.
-  useClass: Testability,
-  deps: [NgZone, TestabilityRegistry, TESTABILITY_GETTER]
+  useClass: Testability
 }];
 var BROWSER_MODULE_PROVIDERS = [{
   provide: INJECTOR_SCOPE,
@@ -1181,13 +1083,11 @@ var BROWSER_MODULE_PROVIDERS = [{
 }, {
   provide: EVENT_MANAGER_PLUGINS,
   useClass: DomEventsPlugin,
-  multi: true,
-  deps: [DOCUMENT]
+  multi: true
 }, {
   provide: EVENT_MANAGER_PLUGINS,
   useClass: KeyEventsPlugin,
-  multi: true,
-  deps: [DOCUMENT]
+  multi: true
 }, DomRendererFactory2, SharedStylesHost, EventManager, {
   provide: RendererFactory2,
   useExisting: DomRendererFactory2
@@ -1240,28 +1140,10 @@ var Meta = class _Meta {
     this._doc = _doc;
     this._dom = getDOM();
   }
-  /**
-   * Retrieves or creates a specific `<meta>` tag element in the current HTML document.
-   * In searching for an existing tag, Angular attempts to match the `name` or `property` attribute
-   * values in the provided tag definition, and verifies that all other attribute values are equal.
-   * If an existing element is found, it is returned and is not modified in any way.
-   * @param tag The definition of a `<meta>` element to match or create.
-   * @param forceCreation True to create a new element without checking whether one already exists.
-   * @returns The existing element with the same attributes and values if found,
-   * the new element if no match is found, or `null` if the tag parameter is not defined.
-   */
   addTag(tag, forceCreation = false) {
     if (!tag) return null;
     return this._getOrCreateElement(tag, forceCreation);
   }
-  /**
-   * Retrieves or creates a set of `<meta>` tag elements in the current HTML document.
-   * In searching for an existing tag, Angular attempts to match the `name` or `property` attribute
-   * values in the provided tag definition, and verifies that all other attribute values are equal.
-   * @param tags An array of tag definitions to match or create.
-   * @param forceCreation True to create new elements without checking whether they already exist.
-   * @returns The matching elements if found, or the new elements.
-   */
   addTags(tags, forceCreation = false) {
     if (!tags) return [];
     return tags.reduce((result, tag) => {
@@ -1271,36 +1153,15 @@ var Meta = class _Meta {
       return result;
     }, []);
   }
-  /**
-   * Retrieves a `<meta>` tag element in the current HTML document.
-   * @param attrSelector The tag attribute and value to match against, in the format
-   * `"tag_attribute='value string'"`.
-   * @returns The matching element, if any.
-   */
   getTag(attrSelector) {
     if (!attrSelector) return null;
     return this._doc.querySelector(`meta[${attrSelector}]`) || null;
   }
-  /**
-   * Retrieves a set of `<meta>` tag elements in the current HTML document.
-   * @param attrSelector The tag attribute and value to match against, in the format
-   * `"tag_attribute='value string'"`.
-   * @returns The matching elements, if any.
-   */
   getTags(attrSelector) {
     if (!attrSelector) return [];
     const list = this._doc.querySelectorAll(`meta[${attrSelector}]`);
     return list ? [].slice.call(list) : [];
   }
-  /**
-   * Modifies an existing `<meta>` tag element in the current HTML document.
-   * @param tag The tag description with which to replace the existing tag content.
-   * @param selector A tag attribute and value to match against, to identify
-   * an existing tag. A string in the format `"tag_attribute=`value string`"`.
-   * If not supplied, matches a tag with the same `name` or `property` attribute value as the
-   * replacement tag.
-   * @return The modified element.
-   */
   updateTag(tag, selector) {
     if (!tag) return null;
     selector = selector || this._parseSelector(tag);
@@ -1310,18 +1171,9 @@ var Meta = class _Meta {
     }
     return this._getOrCreateElement(tag, true);
   }
-  /**
-   * Removes an existing `<meta>` tag element from the current HTML document.
-   * @param attrSelector A tag attribute and value to match against, to identify
-   * an existing tag. A string in the format `"tag_attribute=`value string`"`.
-   */
   removeTag(attrSelector) {
     this.removeTagElement(this.getTag(attrSelector));
   }
-  /**
-   * Removes an existing `<meta>` tag element from the current HTML document.
-   * @param meta The tag definition to match against to identify an existing tag.
-   */
   removeTagElement(meta) {
     if (meta) {
       this._dom.remove(meta);
@@ -1384,16 +1236,9 @@ var Title = class _Title {
   constructor(_doc) {
     this._doc = _doc;
   }
-  /**
-   * Get the title of the current HTML document.
-   */
   getTitle() {
     return this._doc.title;
   }
-  /**
-   * Set the title of the current HTML document.
-   * @param newTitle
-   */
   setTitle(newTitle) {
     this._doc.title = newTitle || "";
   }
@@ -1439,23 +1284,6 @@ var AngularProfiler = class {
   constructor(ref) {
     this.appRef = ref.injector.get(ApplicationRef);
   }
-  // tslint:disable:no-console
-  /**
-   * Exercises change detection in a loop and then prints the average amount of
-   * time in milliseconds how long a single round of change detection takes for
-   * the current state of the UI. It runs a minimum of 5 rounds for a minimum
-   * of 500 milliseconds.
-   *
-   * Optionally, a user may pass a `config` parameter containing a map of
-   * options. Supported options are:
-   *
-   * `record` (boolean) - causes the profiler to record a CPU profile while
-   * it exercises the change detector. Example:
-   *
-   * ```ts
-   * ng.profiler.timeChangeDetection({record: true})
-   * ```
-   */
   timeChangeDetection(config) {
     const record = config && config["record"];
     const profileName = "Change Detection";
@@ -1487,38 +1315,14 @@ function disableDebugTools() {
   exportNgVar(PROFILER_GLOBAL_NAME, null);
 }
 var By = class {
-  /**
-   * Match all nodes.
-   *
-   * @usageNotes
-   * ### Example
-   *
-   * {@example platform-browser/dom/debug/ts/by/by.ts region='by_all'}
-   */
   static all() {
     return () => true;
   }
-  /**
-   * Match elements by the given CSS selector.
-   *
-   * @usageNotes
-   * ### Example
-   *
-   * {@example platform-browser/dom/debug/ts/by/by.ts region='by_css'}
-   */
   static css(selector) {
     return (debugElement) => {
       return debugElement.nativeElement != null ? elementMatches(debugElement.nativeElement, selector) : false;
     };
   }
-  /**
-   * Match nodes that have the given directive present.
-   *
-   * @usageNotes
-   * ### Example
-   *
-   * {@example platform-browser/dom/debug/ts/by/by.ts region='by_directive'}
-   */
   static directive(type) {
     return (debugNode) => debugNode.providerTokens.indexOf(type) !== -1;
   }
@@ -1530,7 +1334,6 @@ function elementMatches(n, selector) {
   return false;
 }
 var EVENT_NAMES = {
-  // pan
   "pan": true,
   "panstart": true,
   "panmove": true,
@@ -1540,7 +1343,6 @@ var EVENT_NAMES = {
   "panright": true,
   "panup": true,
   "pandown": true,
-  // pinch
   "pinch": true,
   "pinchstart": true,
   "pinchmove": true,
@@ -1548,65 +1350,27 @@ var EVENT_NAMES = {
   "pinchcancel": true,
   "pinchin": true,
   "pinchout": true,
-  // press
   "press": true,
   "pressup": true,
-  // rotate
   "rotate": true,
   "rotatestart": true,
   "rotatemove": true,
   "rotateend": true,
   "rotatecancel": true,
-  // swipe
   "swipe": true,
   "swipeleft": true,
   "swiperight": true,
   "swipeup": true,
   "swipedown": true,
-  // tap
   "tap": true,
   "doubletap": true
 };
 var HAMMER_GESTURE_CONFIG = new InjectionToken(typeof ngDevMode === "undefined" || ngDevMode ? "HammerGestureConfig" : "");
 var HAMMER_LOADER = new InjectionToken(typeof ngDevMode === "undefined" || ngDevMode ? "HammerLoader" : "");
 var HammerGestureConfig = class _HammerGestureConfig {
-  /**
-   * A set of supported event names for gestures to be used in Angular.
-   * Angular supports all built-in recognizers, as listed in
-   * [HammerJS documentation](https://hammerjs.github.io/).
-   */
   events = [];
-  /**
-   * Maps gesture event names to a set of configuration options
-   * that specify overrides to the default values for specific properties.
-   *
-   * The key is a supported event name to be configured,
-   * and the options object contains a set of properties, with override values
-   * to be applied to the named recognizer event.
-   * For example, to disable recognition of the rotate event, specify
-   *  `{"rotate": {"enable": false}}`.
-   *
-   * Properties that are not present take the HammerJS default values.
-   * For information about which properties are supported for which events,
-   * and their allowed and default values, see
-   * [HammerJS documentation](https://hammerjs.github.io/).
-   *
-   */
   overrides = {};
-  /**
-   * Properties whose default values can be overridden for a given event.
-   * Different sets of properties apply to different events.
-   * For information about which properties are supported for which events,
-   * and their allowed and default values, see
-   * [HammerJS documentation](https://hammerjs.github.io/).
-   */
   options;
-  /**
-   * Creates a [HammerJS Manager](https://hammerjs.github.io/api/#hammermanager)
-   * and attaches it to a given HTML element.
-   * @param element The element that will recognize gestures.
-   * @returns A HammerJS event-manager object.
-   */
   buildHammer(element) {
     const mc = new Hammer(element, this.options);
     mc.get("pinch").set({
@@ -1819,47 +1583,27 @@ var DomSanitizerImpl = class _DomSanitizerImpl extends DomSanitizer {
       case SecurityContext.NONE:
         return value;
       case SecurityContext.HTML:
-        if (allowSanitizationBypassAndThrow(
-          value,
-          "HTML"
-          /* BypassType.Html */
-        )) {
+        if (allowSanitizationBypassAndThrow(value, "HTML")) {
           return unwrapSafeValue(value);
         }
         return _sanitizeHtml(this._doc, String(value)).toString();
       case SecurityContext.STYLE:
-        if (allowSanitizationBypassAndThrow(
-          value,
-          "Style"
-          /* BypassType.Style */
-        )) {
+        if (allowSanitizationBypassAndThrow(value, "Style")) {
           return unwrapSafeValue(value);
         }
         return value;
       case SecurityContext.SCRIPT:
-        if (allowSanitizationBypassAndThrow(
-          value,
-          "Script"
-          /* BypassType.Script */
-        )) {
+        if (allowSanitizationBypassAndThrow(value, "Script")) {
           return unwrapSafeValue(value);
         }
         throw new RuntimeError(5200, (typeof ngDevMode === "undefined" || ngDevMode) && "unsafe value used in a script context");
       case SecurityContext.URL:
-        if (allowSanitizationBypassAndThrow(
-          value,
-          "URL"
-          /* BypassType.Url */
-        )) {
+        if (allowSanitizationBypassAndThrow(value, "URL")) {
           return unwrapSafeValue(value);
         }
         return _sanitizeUrl(String(value));
       case SecurityContext.RESOURCE_URL:
-        if (allowSanitizationBypassAndThrow(
-          value,
-          "ResourceURL"
-          /* BypassType.ResourceUrl */
-        )) {
+        if (allowSanitizationBypassAndThrow(value, "ResourceURL")) {
           return unwrapSafeValue(value);
         }
         throw new RuntimeError(5201, (typeof ngDevMode === "undefined" || ngDevMode) && `unsafe value used in a resource URL context (see ${XSS_SECURITY_URL})`);
@@ -1934,21 +1678,6 @@ function withEventReplay2() {
 function withIncrementalHydration2() {
   return hydrationFeature(HydrationFeatureKind.IncrementalHydration, withIncrementalHydration());
 }
-function provideZoneJsCompatibilityDetector() {
-  return [{
-    provide: ENVIRONMENT_INITIALIZER,
-    useValue: () => {
-      const ngZone = inject(NgZone);
-      const isZoneless = inject(ZONELESS_ENABLED);
-      if (!isZoneless && ngZone.constructor !== NgZone) {
-        const console2 = inject(Console);
-        const message = formatRuntimeError(-5e3, "Angular detected that hydration was enabled for an application that uses a custom or a noop Zone.js implementation. This is not yet a fully supported configuration.");
-        console2.warn(message);
-      }
-    },
-    multi: true
-  }];
-}
 function provideEnabledBlockingInitialNavigationDetector() {
   return [{
     provide: ENVIRONMENT_INITIALIZER,
@@ -1981,9 +1710,9 @@ function provideClientHydration(...features) {
   if (typeof ngDevMode !== "undefined" && ngDevMode && featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) && hasHttpTransferCacheOptions) {
     throw new RuntimeError(5001, "Configuration error: found both withHttpTransferCacheOptions() and withNoHttpTransferCache() in the same call to provideClientHydration(), which is a contradiction.");
   }
-  return makeEnvironmentProviders([typeof ngDevMode !== "undefined" && ngDevMode ? provideZoneJsCompatibilityDetector() : [], typeof ngDevMode !== "undefined" && ngDevMode ? provideEnabledBlockingInitialNavigationDetector() : [], withDomHydration(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : withHttpTransferCache({}), providers]);
+  return makeEnvironmentProviders([typeof ngDevMode !== "undefined" && ngDevMode ? provideEnabledBlockingInitialNavigationDetector() : [], typeof ngDevMode !== "undefined" && ngDevMode ? provideStabilityDebugging() : [], withDomHydration(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : withHttpTransferCache({}), providers]);
 }
-var VERSION = new Version("20.3.18");
+var VERSION = new Version("21.2.7");
 
 export {
   EventManagerPlugin,
@@ -2022,15 +1751,4 @@ export {
   provideClientHydration,
   VERSION
 };
-/*! Bundled license information:
-
-@angular/platform-browser/fesm2022/dom_renderer.mjs:
-@angular/platform-browser/fesm2022/browser.mjs:
-@angular/platform-browser/fesm2022/platform-browser.mjs:
-  (**
-   * @license Angular v20.3.18
-   * (c) 2010-2025 Google LLC. https://angular.dev/
-   * License: MIT
-   *)
-*/
-//# sourceMappingURL=chunk-JYN7NFAP.js.map
+//# sourceMappingURL=chunk-B3V27HAF.js.map

@@ -1,14 +1,12 @@
 import {
   APP_BASE_HREF,
   AsyncPipe,
-  BrowserPlatformLocation,
   CommonModule,
   CurrencyPipe,
   DATE_PIPE_DEFAULT_OPTIONS,
   DATE_PIPE_DEFAULT_TIMEZONE,
   DatePipe,
   DecimalPipe,
-  DomAdapter,
   FormStyle,
   FormatWidth,
   HashLocationStrategy,
@@ -17,10 +15,10 @@ import {
   IMAGE_LOADER,
   JsonPipe,
   KeyValuePipe,
-  LOCATION_INITIALIZED,
   Location,
   LocationStrategy,
   LowerCasePipe,
+  NavigationAdapterForLocation,
   NgClass,
   NgComponentOutlet,
   NgForOf,
@@ -37,19 +35,21 @@ import {
   NgSwitchCase,
   NgSwitchDefault,
   NgTemplateOutlet,
+  NoTrailingSlashPathLocationStrategy,
   NullViewportScroller,
   NumberFormatStyle,
   NumberSymbol,
   PLATFORM_BROWSER_ID,
   PLATFORM_SERVER_ID,
+  PRECOMMIT_HANDLER_SUPPORTED,
   PRECONNECT_CHECK_BLOCKLIST,
   PathLocationStrategy,
   PercentPipe,
-  PlatformLocation,
   PlatformNavigation,
   Plural,
   SlicePipe,
   TitleCasePipe,
+  TrailingSlashPathLocationStrategy,
   TranslationWidth,
   UpperCasePipe,
   VERSION,
@@ -60,7 +60,6 @@ import {
   formatNumber,
   formatPercent,
   getCurrencySymbol,
-  getDOM,
   getLocaleCurrencyCode,
   getLocaleCurrencyName,
   getLocaleCurrencySymbol,
@@ -89,17 +88,22 @@ import {
   provideImageKitLoader,
   provideImgixLoader,
   provideNetlifyLoader,
-  registerLocaleData,
-  setRootDomAdapter
-} from "./chunk-SJYUZVEH.js";
+  registerLocaleData
+} from "./chunk-7Z4QFP5M.js";
 import {
+  BrowserPlatformLocation,
+  DomAdapter,
+  LOCATION_INITIALIZED,
+  PlatformLocation,
   XhrFactory,
-  parseCookieValue
-} from "./chunk-6UNWJBON.js";
+  getDOM,
+  parseCookieValue,
+  setRootDomAdapter
+} from "./chunk-SUPTJGNQ.js";
 import {
   DOCUMENT,
   IMAGE_CONFIG
-} from "./chunk-E44JF3YN.js";
+} from "./chunk-NLDU4T66.js";
 import "./chunk-RSS3ODKE.js";
 import "./chunk-WDMUDEB6.js";
 export {
@@ -143,15 +147,18 @@ export {
   NgSwitchCase,
   NgSwitchDefault,
   NgTemplateOutlet,
+  NoTrailingSlashPathLocationStrategy,
   NumberFormatStyle,
   NumberSymbol,
   PRECONNECT_CHECK_BLOCKLIST,
   PathLocationStrategy,
   PercentPipe,
   PlatformLocation,
+  PlatformNavigation,
   Plural,
   SlicePipe,
   TitleCasePipe,
+  TrailingSlashPathLocationStrategy,
   TranslationWidth,
   UpperCasePipe,
   VERSION,
@@ -192,10 +199,11 @@ export {
   provideNetlifyLoader,
   registerLocaleData,
   DomAdapter as ɵDomAdapter,
+  NavigationAdapterForLocation as ɵNavigationAdapterForLocation,
   NullViewportScroller as ɵNullViewportScroller,
   PLATFORM_BROWSER_ID as ɵPLATFORM_BROWSER_ID,
   PLATFORM_SERVER_ID as ɵPLATFORM_SERVER_ID,
-  PlatformNavigation as ɵPlatformNavigation,
+  PRECOMMIT_HANDLER_SUPPORTED as ɵPRECOMMIT_HANDLER_SUPPORTED,
   getDOM as ɵgetDOM,
   normalizeQueryParams as ɵnormalizeQueryParams,
   parseCookieValue as ɵparseCookieValue,

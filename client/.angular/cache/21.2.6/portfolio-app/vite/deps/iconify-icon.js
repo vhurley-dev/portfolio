@@ -2156,19 +2156,4 @@ export {
   loadIcons,
   svgToURL
 };
-/*! Bundled license information:
-
-iconify-icon/dist/iconify-icon.mjs:
-  (**
-  * (c) Iconify
-  *
-  * For the full copyright and license information, please view the license.txt
-  * files at https://github.com/iconify/iconify
-  *
-  * Licensed under MIT.
-  *
-  * @license MIT
-  * @version 2.1.0
-  *)
-*/
 //# sourceMappingURL=iconify-icon.js.map

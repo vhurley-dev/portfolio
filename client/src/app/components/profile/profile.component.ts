@@ -4,7 +4,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { TechnologyComponent } from './components/technology/technology.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProfileService } from './profile.service';
-import { CommonModule } from '@angular/common';
+
 import { Profile } from './interfaces/profile.model';
 import { SectionEnums } from './enums/sections.enum';
 import { BuildInfoComponent } from './components/build-info/build-info.component';
@@ -12,13 +12,7 @@ import { CoursesComponent } from './components/courses/courses.component';
 
 @Component({
     selector: 'app-profile',
-    imports: [CommonModule,
-        NavigationComponent,
-        ExperienceComponent,
-        TechnologyComponent,
-        ProjectsComponent,
-        CoursesComponent,
-        BuildInfoComponent],
+    imports: [NavigationComponent, ExperienceComponent, TechnologyComponent, ProjectsComponent, CoursesComponent, BuildInfoComponent],
     templateUrl: './profile.component.html',
     styleUrl: './profile.component.scss'
 })
