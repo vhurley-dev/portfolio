@@ -1,0 +1,183 @@
+{
+  "name": "Victoria Hurley",
+  "jobTitle": "Software engineer",
+  "strapLine1": "with a ",
+  "strapLine2": "passion",
+  "strapLine3": " for building polished, accessible web applications.",
+  "introHeading1": "The craft of engineering",
+  "introHeading2": "Enterprise at Scale",
+  "intro1": "My journey into software began with a fascination for how complex systems are built from the ground up. Before I was architecting digital interfaces, I was a luthier with a First Class Honours in Music Technology with a focus on guitar making. Whether carving a fretboard or refactoring a reactive Angular component, my approach remains the same: a deep respect for precision, durability, and the user’s experience with the final 'instrument'.",
+  "intro2": "For the past four years, I have been an embedded consultant on the British Airways account , contributing to high-traffic re-platforming projects across major framework evolutions. This includes a recent upgrade from Angular 15 to 19 for the Disruptions team and a migration to Angular 16 and Nest.js for the Seat Map. A key highlight was leading the end-to-end accessibility transformation for the Seat Map. Working independently from audit reports, I performed the complex technical remediation required to achieve full WCAG compliance while delivering essential self-service solutions for passengers.",
+  "experiences": [
+    {
+      "dateFrom": "Mar 2022",
+      "dateTo": "present",
+      "company": "Leighton",
+      "companyUrl": "https://leighton.com",
+      "title": "Software engineer",
+      "description": [
+        "Since joining Leighton, I have been consistently embedded within British Airways’ digital ecosystem. Working in a high-pressure, enterprise environment, I’ve contributed to the modernization of guest-facing services - transitioning legacy systems into high-performance Angular applications. My role has evolved from core frontend development to taking increasing ownership of the full stack, including Nest.js backend services and AWS/Terraform infrastructure. A major focus of my tenure has been ensuring digital inclusivity by leading accessibility remediation projects to meet strict WCAG standards."
+      ],
+      "tech": [
+        "Angular",
+        "AWS",
+        "Nest.js",
+        "TypeScript",
+        "JavaScript",
+        "Jest",
+        "Jasmine",
+        "Pact",
+        "Terraform"
+      ]
+    },
+    {
+      "dateFrom": "Sept 2019",
+      "dateTo": "Feb 2022",
+      "company": "REG Technologies",
+      "companyUrl": "https://reg.uk.com/",
+      "title": "Software engineer",
+      "description": [
+        "At REG, I played a versatile role in the evolution of a complex, subscription-based platform serving the regulated insurance sector. My work shifted with the product's highest-priority needs, ranging from architecting interactive data dashboards for compliance tracking to taking over the International Regulators project from the Principal Engineer. In addition to my engineering responsibilities, I served as the sole designer for the team, utilizing Adobe XD and Illustrator to bridge the gap between regulatory requirements and a seamless user experience. This dual-focus allowed me to drive both technical component reusability and UI/UX consistency across the entire platform."
+      ],
+      "tech": [
+        "Angular",
+        "Azure",
+        "TypeScript",
+        "SCSS",
+        "Bootstrap",
+        "Adobe XD",
+        "Illustrator"
+      ]
+    }
+  ],
+  "technologies": [
+    { "technology": "Angular", "score": "90%" },
+    { "technology": "AWS", "score": "50%" },
+    { "technology": "Azure", "score": "50%" },
+    { "technology": "CSS", "score": "90%" },
+    { "technology": "Express.js", "score": "40%" },
+    { "technology": "Git", "score": "70%" },
+    { "technology": "HTML", "score": "90%" },
+    { "technology": "Jasmine", "score": "60%" },
+    { "technology": "JavaScript", "score": "80%" },
+    { "technology": "Jest", "score": "50%" },
+    { "technology": "JQuery", "score": "60%" },
+    { "technology": "MongoDB", "score": "30%" },
+    { "technology": "Mongoose", "score": "30%" },
+    { "technology": "Nest.js", "score": "30%" },
+    { "technology": "Nest.js", "score": "30%" },
+    { "technology": "Next.js", "score": "70%" },
+    { "technology": "Pact", "score": "30%" },
+    { "technology": "React", "score": "50%" },
+    { "technology": "Terraform", "score": "30%" },
+    { "technology": "TypeScript", "score": "80%" },
+    { "technology": "SCSS", "score": "90%" },
+    { "technology": "XSLT", "score": "80%" }
+  ],
+  "projects": [
+    {
+      "title": "Todo's MEAN app",
+      "description": "A MEAN todo's app where you can add, edit, delete, mark as complete, filter and count your todo list items. Built in Angular using signals with a Node, Express and MongoDB backend.",
+      "img": "./assets/img/todos.png",
+      "projectUrl": "/todos",
+      "tech": ["Angular", "Signals", "Node", "Express", "MongoDB", "Mongoose"]
+    },
+    {
+      "title": "Recipe search",
+      "description": "A little app that uses a third party API to search for and filter recipes by number of ingredients and diet type. View a recipe to see nutrition information or visit the site the information was taken from.",
+      "img": "./assets/img/get-cooking.png",
+      "projectUrl": "/recipes",
+      "tech": ["Angular"]
+    }
+  ],
+  "courses": [
+    {
+      "title": "React - The Complete Guide (incl. Next.js, Redux)",
+      "provider": "Udemy",
+      "dateCompleted": "In progress",
+      "certificateURL": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/"
+    },
+    {
+      "title": "The Complete JavaScript Course 2025",
+      "provider": "Udemy",
+      "dateCompleted": "In progress",
+      "certificateURL": "https://www.udemy.com/course/the-complete-javascript-course/"
+    },
+    {
+      "title": "Local LLMs via Ollama & LM Studio - The Practical Guide",
+      "provider": "Udemy",
+      "dateCompleted": "19th September 2025",
+      "certificateURL": "https://www.udemy.com/course/running-open-llms-locally-practical-guide/?src=sac&kw=Local+LLMs+via+Ollama+%26+LM+Studio+-+The+Practical+Guide"
+    },
+    {
+      "title": "AI Agents and Workflows: The Practical Guide",
+      "provider": "Udemy",
+      "dateCompleted": "12th August 2025",
+      "certificateURL": "./assets/docs/AI-Agents-And-Workflows-Certificate.pdf"
+    },
+    {
+      "title": "Angular and NodeJS: The MEAN stack guide (2024 edition)",
+      "provider": "Udemy",
+      "dateCompleted": "28th October 2024",
+      "certificateURL": "./assets/docs/Angular-NodeJS-MEAN-Stack-Certificate.pdf"
+    },
+    {
+      "title": "AWS Partner Accreditation (Technical)",
+      "provider": "AWS Training and certification",
+      "dateCompleted": "14th February 2024",
+      "certificateURL": "./assets/docs/AWS-Partner-Accreditation-Technical-Certificate.pdf"
+    },
+    {
+      "title": "Continuous Integration and Continuous Delivery with GitLab",
+      "provider": "LinkedIn Learning",
+      "dateCompleted": "27th February 2023",
+      "certificateURL": "./assets/docs/Continuous-Integration-and-Continuous-Delivery-with-GitLab-Certificate.pdf"
+    },
+    {
+      "title": "Learning GitLab",
+      "provider": "LinkedIn Learning",
+      "dateCompleted": "20th February 2023",
+      "certificateURL": "./assets/docs/Learning-Amazon-Web-Services-AWS-for-Developers-Certificate.pdf"
+    },
+    {
+      "title": "Learning Terraform (2020)",
+      "provider": "LinkedIn Learning",
+      "dateCompleted": "10th September 2022",
+      "certificateURL": "./assets/docs/Learning-Terraform-Certificate.pdf"
+    },
+    {
+      "title": "Learning Amazon Web Services (AWS) for Developers",
+      "provider": "LinkedIn Learning",
+      "dateCompleted": "20th September 2022",
+      "certificateURL": "./assets/docs/Learning-Amazon-Web-Services-AWS-for-Developers-Certificate.pdf"
+    },
+    {
+      "title": "Javascript Code Challenges",
+      "provider": "LinkedIn Learning",
+      "dateCompleted": "4th April 2022",
+      "certificateURL": "./assets/docs/JavaScript-Code-Challenges-Certificate.pdf"
+    },
+    {
+      "title": "Javascript Essential Training",
+      "provider": "LinkedIn Learning",
+      "dateCompleted": "29th March 2022",
+      "certificateURL": "./assets/docs/JavaScript-Essential-Training-Certificate.pdf"
+    },
+    {
+      "title": "XML Essential Training (2018)",
+      "provider": "LinkedIn Learning",
+      "dateCompleted": "16th March 2022",
+      "certificateURL": "./assets/docs/XML-Essential-Training-2018-Certificate.pdf"
+    },
+    {
+      "title": "Design Systems and Pattern Libraries",
+      "provider": "NNg",
+      "dateCompleted": "10th November 2021"
+    }
+  ],
+  "buildInfo": {
+    "intro": "A Full-Stack application built with Angular 21 and Node.js. Hosted on GitHub Pages and Render.",
+    "repoText": "View the repo",
+    "repoUrl": "https://github.com/vhurley-dev/portfolio"
+  }
+}
