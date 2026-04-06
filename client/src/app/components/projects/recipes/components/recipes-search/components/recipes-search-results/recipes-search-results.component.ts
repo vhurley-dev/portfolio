@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { IconModule } from '../../../../../../../../../projects/icon/src/public-api';
 import { RecipesService } from '../../../../services/recipes.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-recipes-search-results',
-    imports: [CommonModule, IconModule, RouterLink],
+    imports: [IconModule, RouterLink],
     templateUrl: './recipes-search-results.component.html',
     styleUrl: './recipes-search-results.component.scss'
 })
