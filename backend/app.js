@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const todosRoutes = require("./routes/todos");
+const serverHealthRoutes = require("./routes/serverHealth");
 
 const app = express();
 
@@ -30,6 +31,8 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+app.use("/health", serverHealthRoutes);
 
 app.use("/api/todos", todosRoutes);
 
