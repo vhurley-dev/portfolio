@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { RecipesSearchBarComponent } from './components/recipes-search-bar/recipes-search-bar.component';
 import { RecipesSearchResultsComponent } from './components/recipes-search-results/recipes-search-results.component';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'app-recipes-search',
-    imports: [CommonModule, RecipesSearchBarComponent, RecipesSearchResultsComponent],
+    imports: [RecipesSearchBarComponent, RecipesSearchResultsComponent],
     templateUrl: './recipes-search.component.html',
     styleUrl: './recipes-search.component.scss'
 })

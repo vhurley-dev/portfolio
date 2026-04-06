@@ -1,14 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from '../../../../services/recipes.service';
-import { CommonModule } from '@angular/common';
+
 import { IconModule } from '../../../../../../../../../projects/icon/src/public-api';
 import { NutritionComponent } from './components/nutrition/nutrition.component';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
 
 @Component({
     selector: 'app-recipe-detail',
-    imports: [CommonModule, IconModule, NutritionComponent, IngredientsComponent],
+    imports: [IconModule, NutritionComponent, IngredientsComponent],
     templateUrl: './recipe-detail.component.html',
     styleUrl: './recipe-detail.component.scss'
 })
