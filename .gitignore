@@ -8,8 +8,8 @@
 **/.env.production.local
 
 # Compiled output
-/dist
-/tmp
+**/dist
+**/tmp
 /out-tsc
 /bazel-out
 

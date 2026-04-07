@@ -1,8 +1,7 @@
-
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { IconModule } from '../../../../../../projects/icon/src/public-api';
-import { TechTagComponent } from '../../../global/tech-tag/tech-tag.component';
 import { RouterLink } from '@angular/router';
+import { TechTagComponent } from '../../../global/tech-tag/tech-tag.component';
 import { Project } from '../../interfaces/profile.model';
 
 @Component({
@@ -13,5 +12,5 @@ import { Project } from '../../interfaces/profile.model';
 })
 export class ProjectsComponent {
   imgagesUrl: string = './assets/img/';
-  @Input() projects: Project[];
+  projects = input.required<Project[]>();
 }
