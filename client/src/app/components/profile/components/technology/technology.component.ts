@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Technology } from '../../interfaces/profile.model';
 
 @Component({
-    selector: 'app-technology',
-    imports: [CommonModule],
-    templateUrl: './technology.component.html',
-    styleUrl: './technology.component.scss'
+  selector: 'app-technology',
+  imports: [CommonModule],
+  templateUrl: './technology.component.html',
+  styleUrl: './technology.component.scss',
 })
 export class TechnologyComponent {
-  @Input() technologies: Technology[];
-
+  technologies = input.required<Technology[]>();
 }

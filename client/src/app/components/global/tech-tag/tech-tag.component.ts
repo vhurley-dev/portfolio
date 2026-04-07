@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
-    selector: 'app-tech-tag',
-    imports: [],
-    templateUrl: './tech-tag.component.html',
-    styleUrl: './tech-tag.component.scss'
+  selector: 'app-tech-tag',
+  imports: [],
+  templateUrl: './tech-tag.component.html',
+  styleUrl: './tech-tag.component.scss',
 })
 export class TechTagComponent {
-  @Input() techTag = '';
+  techTag = input.required<string>();
 }
