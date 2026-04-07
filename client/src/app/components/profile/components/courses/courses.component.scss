@@ -1,4 +1,20 @@
 @use "../../../../../assets/scss/colours" as *;
+
+.course-container.border {
+  padding: 2.4rem;
+  margin: -1.6rem -2.4rem 1.6rem -2.4rem;
+  transition: all 0.5s ease;
+  border: 0.1rem solid rgba($white, 0.1);
+  box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  max-height: 53.7rem;
+  transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.is-expanded {
+    max-height: 500rem;
+  }
+}
 .course-item {
   margin-bottom: 2.4rem;
 
@@ -54,5 +70,25 @@
         display: none;
       }
     }
+  }
+}
+
+.show-courses-button {
+  display: block;
+  margin: 0 auto;
+  padding: 0.8rem 1.6rem;
+  background-color: transparent;
+  border: 0.2rem solid $pureWhite;
+  color: $pureWhite;
+  border-radius: 2.4rem;
+  transition: all 0.15s ease;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: rgba($pureWhite, 0.1);
   }
 }

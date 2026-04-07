@@ -1,11 +1,11 @@
 <div class="container">
-    @for (tech of technologies; track tech) {
-        <div class="technology">
-            <h5 class="tech-name">{{tech.technology}}</h5>
-            <div class="tech-scale">
-                <div class="tech-max"></div>
-                <div class="tech-score" [ngStyle]="{'width': tech.score}"></div>
-            </div>
-        </div>
-    }
+  @for (tech of technologies(); track tech.technology) {
+    <div class="technology">
+      <h5 class="tech-name">{{ tech.technology }}</h5>
+      <div class="tech-scale">
+        <div class="tech-max"></div>
+        <div class="tech-score" [ngStyle]="{ width: tech.score }"></div>
+      </div>
+    </div>
+  }
 </div>
