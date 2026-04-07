@@ -1,41 +1,49 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RecipesAPI } from '../APIs/api-keys';
+// import { RecipesAPI } from '../APIs/api-keys';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RecipesService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   data: any;
-  url: RecipesAPI.URL;
-  type = RecipesAPI.TYPE;
-  appId = RecipesAPI.APP_ID;
-  appKey = RecipesAPI.APP_KEY; 
+  // url: RecipesAPI.URL;
+  // type = RecipesAPI.TYPE;
+  // appId = RecipesAPI.APP_ID;
+  // appKey = RecipesAPI.APP_KEY;
 
-  getRecipes(searchTerm: string, filters:any) {
+  getRecipes(searchTerm: string, filters: any) {
     const url = 'https://api.edamam.com/api/recipes/v2?';
-    
+
     let params = new HttpParams()
-      .set("type",this.type)
-      .set("app_id",this.appId)
-      .set("app_key",this.appKey)
-      .set("q",searchTerm)
+      // .set("type",this.type)
+      // .set("app_id",this.appId)
+      // .set("app_key",this.appKey)
+      .set('q', searchTerm);
 
     // set ingredients range param value
     if (filters.ingredientsMin.value && filters.ingredientsMax.value) {
-      params = params.append('ingr', `${filters.ingredientsMin.value}-${filters.ingredientsMax.value}`)
-    } else if (filters.ingredientsMin.value !== "" && filters.ingredientsMax.value === "") {
-      params = params.append('ingr', `${filters.ingredientsMin.value}+`)
-    } else if (filters.ingredientsMin.value === "" && filters.ingredientsMax.value !== "") {
-      params = params.append('ingr', `${filters.ingredientsMax.value}`)
-    } 
+      params = params.append(
+        'ingr',
+        `${filters.ingredientsMin.value}-${filters.ingredientsMax.value}`,
+      );
+    } else if (
+      filters.ingredientsMin.value !== '' &&
+      filters.ingredientsMax.value === ''
+    ) {
+      params = params.append('ingr', `${filters.ingredientsMin.value}+`);
+    } else if (
+      filters.ingredientsMin.value === '' &&
+      filters.ingredientsMax.value !== ''
+    ) {
+      params = params.append('ingr', `${filters.ingredientsMax.value}`);
+    }
     // set diet type param value
-    if(filters.dietType.value) {
+    if (filters.dietType.value) {
       params = params.append('diet', `${filters.dietType.value}`);
     }
-    this.data = this.http.get(url, {params: params});
+    this.data = this.http.get(url, { params: params });
     return this.data;
   }
 
@@ -44,7 +52,7 @@ export class RecipesService {
     sessionStorage.setItem('sessionDataSearchTerm', searchTerm);
   }
   getSessionRecipes() {
-    let sessionObj = JSON.parse(sessionStorage.getItem('sessionData')|| '{}');
+    let sessionObj = JSON.parse(sessionStorage.getItem('sessionData') || '{}');
     return sessionObj;
   }
 
@@ -52,7 +60,7 @@ export class RecipesService {
     return this.http.get(nextUrl);
   }
 
-  getRecipe(recipeUrl:string) {
+  getRecipe(recipeUrl: string) {
     return this.http.get(recipeUrl);
   }
 }
