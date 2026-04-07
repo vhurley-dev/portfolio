@@ -76,18 +76,11 @@
   ],
   "projects": [
     {
-      "title": "Todo's MEAN app",
-      "description": "A MEAN todo's app where you can add, edit, delete, mark as complete, filter and count your todo list items. Built in Angular using signals with a Node, Express and MongoDB backend.",
+      "title": "Reactive MEAN Stack: Signal-Based Task Management",
+      "description": "An exploration of modern Angular reactivity, replacing traditional Change Detection with Signal-based state. This MEAN stack application demonstrates full CRUD capabilities alongside a dedicated Server-Status utility, showcasing cross-stack health checks and responsive data-fetching patterns.",
       "img": "./assets/img/todos.png",
       "projectUrl": "/todos",
       "tech": ["Angular", "Signals", "Node", "Express", "MongoDB", "Mongoose"]
-    },
-    {
-      "title": "Recipe search",
-      "description": "A little app that uses a third party API to search for and filter recipes by number of ingredients and diet type. View a recipe to see nutrition information or visit the site the information was taken from.",
-      "img": "./assets/img/get-cooking.png",
-      "projectUrl": "/recipes",
-      "tech": ["Angular"]
     }
   ],
   "courses": [
