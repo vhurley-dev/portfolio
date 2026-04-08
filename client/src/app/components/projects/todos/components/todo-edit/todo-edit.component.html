@@ -1,9 +1,20 @@
 <div class="edit-task">
-    <div class="edit-input">
-        <input #taskTitle type="text" [value]="updatedTask.title" autofocus (keydown.enter)="onEditTask(taskTitle.value)">
-    </div>
-    <div class="icons">
-        <icon name="ph:check" class="icon icon-green" (click)="onEditTask(taskTitle.value)"></icon>
-        <icon name="ph:x" class="icon icon-red" (click)="cancelEditTask(task)"></icon>
-    </div>
+  <div class="edit-input">
+    <input
+      #taskTitle
+      type="text"
+      [value]="updatedTask.title"
+      autofocus
+      (keydown.enter)="onEditTask(taskTitle.value)"
+      (keydown.escape)="cancelEditTask()"
+    />
+  </div>
+  <div class="icons">
+    <icon
+      name="ph:check"
+      class="icon icon-green"
+      (click)="onEditTask(taskTitle.value)"
+    ></icon>
+    <icon name="ph:x" class="icon icon-red" (click)="cancelEditTask()"></icon>
+  </div>
 </div>

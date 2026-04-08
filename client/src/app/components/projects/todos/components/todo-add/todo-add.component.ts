@@ -1,28 +1,31 @@
-import { Component, Input, WritableSignal,} from '@angular/core';
+import { Component, model } from '@angular/core';
 import { Task } from '../../interfaces/task.model';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TodosService } from '../../todos.service';
 
 @Component({
-    selector: 'app-todo-add',
-    imports: [FormsModule],
-    templateUrl: './todo-add.component.html',
-    styleUrl: './todo-add.component.scss'
+  selector: 'app-todo-add',
+  imports: [FormsModule],
+  templateUrl: './todo-add.component.html',
+  styleUrl: './todo-add.component.scss',
 })
 export class TodoAddComponent {
-  constructor(private http: HttpClient, private todosService: TodosService) {}
+  constructor(
+    private http: HttpClient,
+    private todosService: TodosService,
+  ) {}
   taskTitle: string;
-  @Input() tasksList: WritableSignal<Task[]>;
+  tasksList = model.required<Task[]>();
 
   newTask() {
-    if(this.taskTitle) {
+    if (this.taskTitle) {
       const newTask: Task = {
         id: '',
         completed: false,
         title: this.taskTitle,
-        editMode: false
-      }
+        editMode: false,
+      };
       this.todosService.addTask(newTask);
       this.taskTitle = '';
     }

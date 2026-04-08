@@ -10,8 +10,8 @@
 </div>
 <div class="container">
   @if (isServerReady()) {
-    <app-todo-add [tasksList]="tasks"></app-todo-add>
-    <app-todo-list [tasks]="tasks"></app-todo-list>
+    <app-todo-add [(tasksList)]="tasks"></app-todo-add>
+    <app-todo-list [(tasks)]="tasks"></app-todo-list>
   } @else {
     <app-server-status />
   }
