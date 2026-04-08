@@ -1,11 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  Input,
-  WritableSignal,
-  computed,
-  signal,
-} from '@angular/core';
+import { Component, computed, model, signal } from '@angular/core';
 import { IconModule } from '../../../../../../../projects/icon/src/public-api';
 import { Task, TasksFilter } from '../../interfaces/task.model';
 import { TodosService } from '../../todos.service';
@@ -19,7 +13,7 @@ import { TodoEditComponent } from '../todo-edit/todo-edit.component';
 })
 export class TodoListComponent {
   constructor(private todosService: TodosService) {}
-  @Input() tasks: WritableSignal<Task[]>;
+  tasks = model.required<Task[]>();
   filter = signal(TasksFilter.All);
   filters = TasksFilter;
   filteredTasks = computed(() => {
@@ -66,5 +60,17 @@ export class TodoListComponent {
 
   onEditTask(task: Task) {
     task.editMode = true;
+  }
+
+  handleTaskUpdate(updatedTask: Task) {
+    this.tasks.update((allTasks) =>
+      allTasks.map((t) => (t.id === updatedTask.id ? updatedTask : t)),
+    );
+  }
+
+  handleCancel(taskId: string) {
+    this.tasks.update((allTasks) =>
+      allTasks.map((t) => (t.id === taskId ? { ...t, editMode: false } : t)),
+    );
   }
 }
