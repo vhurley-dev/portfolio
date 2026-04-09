@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SectionEnums } from '../../enums/sections.enum';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { share } from 'rxjs';
+import { CommonModule, KeyValue } from '@angular/common'; // Add KeyValue
+import { RouterLink } from '@angular/router';
+import { ScrollService } from '../../../../services/scroll.service';
 
 @Component({
   selector: 'app-navigation',
@@ -11,14 +11,17 @@ import { share } from 'rxjs';
   styleUrl: './navigation.component.scss',
 })
 export class NavigationComponent {
-  constructor(public route: ActivatedRoute) {}
-  activeFragment = this.route.fragment.pipe(share());
+  scrollService = inject(ScrollService);
   sections: typeof SectionEnums = SectionEnums;
-  navItems: string[] = [
-    'about',
-    'experience',
-    'projects',
-    'recent qualifications',
-    'technology',
-  ];
+  activeSection = this.scrollService.activeSection;
+
+  unsorted = (
+    a: KeyValue<string, string>,
+    b: KeyValue<string, string>,
+  ): number => 0;
+
+  isSectionActive(sectionValue: string): boolean {
+    const active = this.activeSection();
+    return active.toLowerCase() === sectionValue.toLowerCase();
+  }
 }

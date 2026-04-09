@@ -7,7 +7,7 @@
   "introHeading1": "The craft of engineering",
   "introHeading2": "Enterprise at Scale",
   "intro1": "My journey into software began with a fascination for how complex systems are built from the ground up. Before I was architecting digital interfaces, I was a luthier with a First Class Honours in Music Technology with a focus on guitar making. Whether carving a fretboard or refactoring a reactive Angular component, my approach remains the same: a deep respect for precision, durability, and the user’s experience with the final 'instrument'.",
-  "intro2": "For the past four years, I have been an embedded consultant on the British Airways account , contributing to high-traffic re-platforming projects across major framework evolutions. This includes a recent upgrade from Angular 15 to 19 for the Disruptions team and a migration to Angular 16 and Nest.js for the Seat Map. A key highlight was leading the end-to-end accessibility transformation for the Seat Map. Working independently from audit reports, I performed the complex technical remediation required to achieve full WCAG compliance while delivering essential self-service solutions for passengers.",
+  "intro2": "For the past four years, I have been an embedded consultant on the British Airways account , contributing to high-traffic re-platforming projects across major framework evolutions. This includes a recent upgrade from Angular 15 to 19 for the Disruptions team and a transition to Angular 16 and Nest.js for the Seat Map. A key highlight was leading the end-to-end accessibility transformation for the Seat Map. Working independently from audit reports, I performed the complex technical remediation required to achieve full WCAG compliance while delivering essential self-service solutions for passengers.",
   "experiences": [
     {
       "dateFrom": "Mar 2022",
@@ -16,7 +16,7 @@
       "companyUrl": "https://leighton.com",
       "title": "Software engineer",
       "description": [
-        "Since joining Leighton, I have been consistently embedded within British Airways’ digital ecosystem. Working in a high-pressure, enterprise environment, I’ve contributed to the modernization of guest-facing services - transitioning legacy systems into high-performance Angular applications. My role has evolved from core frontend development to taking increasing ownership of the full stack, including Nest.js backend services and AWS/Terraform infrastructure. A major focus of my tenure has been ensuring digital inclusivity by leading accessibility remediation projects to meet strict WCAG standards."
+        "Since joining Leighton, I have been consistently embedded within British Airways’ digital ecosystem. Working in a high-pressure, enterprise environment, I’ve contributed to the modernisation of guest-facing services - transitioning legacy systems into high-performance Angular applications. While my core focus remains building world-class frontend experiences, I have expanded my impact through close collaboration across the full stack, contributing to Nest.js backend services and AWS/Terraform infrastructure. A major focus of my tenure has been ensuring digital inclusivity by leading accessibility remediation projects to meet strict WCAG standards."
       ],
       "tech": [
         "Angular",
@@ -78,7 +78,7 @@
     {
       "title": "Reactive MEAN Stack: Signal-Based Task Management",
       "description": "An exploration of modern Angular reactivity, replacing traditional Change Detection with Signal-based state. This MEAN stack application demonstrates full CRUD capabilities alongside a dedicated Server-Status utility, showcasing cross-stack health checks and responsive data-fetching patterns.",
-      "img": "./assets/img/todos.png",
+      "img": "./assets/img/todos.webp",
       "projectUrl": "/todos",
       "tech": ["Angular", "Signals", "Node", "Express", "MongoDB", "Mongoose"]
     }
