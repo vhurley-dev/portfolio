@@ -86,8 +86,7 @@
   font-weight: 300;
   letter-spacing: 0.1rem;
 
-  &:hover,
-  &:focus {
+  &:hover {
     cursor: pointer;
     background-color: rgba($pureWhite, 0.1);
   }

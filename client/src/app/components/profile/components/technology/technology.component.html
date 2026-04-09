@@ -1,5 +1,5 @@
 <div class="container">
-  @for (tech of technologies(); track tech.technology) {
+  @for (tech of technologies(); track $index) {
     <div class="technology">
       <h5 class="tech-name">{{ tech.technology }}</h5>
       <div class="tech-scale">

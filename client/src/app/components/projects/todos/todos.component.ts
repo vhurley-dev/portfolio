@@ -21,29 +21,21 @@ import { ServerStatusComponent } from '../../global/server-status/server-status.
 export class TodosComponent {
   private serverStatusService = inject(ServerStatusService);
   isServerReady = this.serverStatusService.isReady;
+
   constructor(
     private _location: Location,
     private todosService: TodosService,
   ) {
-    // Add a log here to see if the component is even starting the watch
-    console.log('TodoComponent initialized, watching server signal...');
-
     effect(() => {
       const ready = this.isServerReady();
-      console.log('Signal changed! Current value:', ready);
 
       if (ready) {
-        console.log('Server is READY. Fetching todos...');
         this.todosService.getTasks();
       }
     });
   }
 
   tasks = this.todosService.getUpdatedTasksListener();
-
-  ngOnInit() {
-    // this.todosService.getTasks();
-  }
 
   backClick() {
     this._location.back();

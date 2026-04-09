@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { TechnologyComponent } from './components/technology/technology.component';
@@ -9,32 +9,47 @@ import { Profile } from './interfaces/profile.model';
 import { SectionEnums } from './enums/sections.enum';
 import { BuildInfoComponent } from './components/build-info/build-info.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
-    selector: 'app-profile',
-    imports: [NavigationComponent, ExperienceComponent, TechnologyComponent, ProjectsComponent, CoursesComponent, BuildInfoComponent],
-    templateUrl: './profile.component.html',
-    styleUrl: './profile.component.scss'
+  selector: 'app-profile',
+  imports: [
+    NavigationComponent,
+    ExperienceComponent,
+    TechnologyComponent,
+    ProjectsComponent,
+    CoursesComponent,
+    BuildInfoComponent,
+  ],
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.scss',
 })
 export class ProfileComponent {
   profileService = inject(ProfileService);
-  profile: Profile;
+  profile = signal<Profile | null>(null);
+  scrollService = inject(ScrollService);
   section: typeof SectionEnums = SectionEnums;
-  top:any;
-  left:any;
-  expand=false;
+  expand = false;
 
   constructor() {
     this.profileService.getProfile().subscribe((res: Profile) => {
-      this.profile = {...res};
+      this.profile.set({ ...res });
+
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const sectionIds = Object.values(SectionEnums);
+          this.scrollService.setupObserver(sectionIds);
+
+          const fragment = window.location.hash.replace('#', '');
+          if (fragment) {
+            document
+              .getElementById(fragment)
+              ?.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            this.scrollService.activeSection.set(SectionEnums.ABOUT);
+          }
+        }, 100);
+      });
     });
   }
-
-  @HostListener('document:mousemove', ['$event'])
-  onMousemove($event: any) {
-    this.top=($event.pageY - 10)+ "px";
-    this.left= ($event.pageX - 10)+ "px";
- }
-
 }
-
