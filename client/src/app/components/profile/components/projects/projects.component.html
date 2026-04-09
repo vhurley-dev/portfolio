@@ -12,7 +12,7 @@
           </a>
           <p>{{ project.description }}</p>
           <div class="technology">
-            @for (tech of project.tech; track tech) {
+            @for (tech of project.tech; track $index) {
               <app-tech-tag [techTag]="tech"></app-tech-tag>
             }
           </div>

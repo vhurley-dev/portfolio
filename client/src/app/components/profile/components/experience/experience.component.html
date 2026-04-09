@@ -1,5 +1,5 @@
 <div class="outer-container">
-  @for (experience of experiences(); track experience.title) {
+  @for (experience of experiences(); track $index) {
     <div class="container">
       <div class="left">
         <div class="date">
@@ -19,7 +19,7 @@
         </a>
         <p class="description">{{ experience.description }}</p>
         <div class="technology">
-          @for (tech of experience.tech; track tech) {
+          @for (tech of experience.tech; track $index) {
             <app-tech-tag [techTag]="tech"></app-tech-tag>
           }
         </div>
