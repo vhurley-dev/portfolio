@@ -1,0 +1,30 @@
+<main>
+  <header class="lab-header">
+    <div class="nav-back">
+      <a aria-label="Go back to homepage" routerLink="/"
+        ><icon name="ph:arrow-left" class="icon-green" size="24"></icon
+      ></a>
+    </div>
+    <div class="page-title">
+      <h1>Component Lab</h1>
+      <p>Exploring accessible, headless design patterns in Angular 21</p>
+    </div>
+  </header>
+
+  <div class="lab-container">
+    <h2>Accessible tabs</h2>
+    <p class="section-intro">
+      <span class="bold">The Challenge:</span> Tabs are a staple of modern UI,
+      yet they represent a significant accessibility challenge that goes far
+      beyond simple visibility toggles. A robust implementation must synchronise
+      complex keyboard interactions (such as arrow-key navigation) with hidden
+      ARIA relationships to ensure the interface remains intuitive for users
+      relying on assistive technologies. <br /><br />
+      <span class="bold">The Solution:</span> This implementation uses Angular
+      Aria to provide a "headless" logic layer. It ensures full WCAG compliance,
+      including automatic focus management and correct ARIA roles, while
+      allowing for completely custom styling via SCSS.
+    </p>
+    <app-lab-tabs [tabs]="tabs()"></app-lab-tabs>
+  </div>
+</main>

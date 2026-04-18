@@ -1,0 +1,27 @@
+<div ngTabs class="tabs-widget">
+  <ul ngTabList [(selectedTab)]="selectedTab" class="tab-list">
+    @for (tab of tabs(); track tab.id) {
+      <li
+        ngTab
+        [value]="tab.id"
+        class="tab-item"
+        [class.is-active]="selectedTab() === tab.id"
+      >
+        {{ tab.title }}
+      </li>
+    }
+  </ul>
+
+  <div class="tab-panels">
+    @for (tab of tabs(); track tab.id) {
+      <div ngTabPanel [value]="tab.id" class="panel">
+        <ng-template ngTabContent>
+          <div class="panel-content">
+            <h3>{{ tab.title }}</h3>
+            <p>{{ tab.description }}</p>
+          </div>
+        </ng-template>
+      </div>
+    }
+  </div>
+</div>

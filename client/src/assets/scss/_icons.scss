@@ -1,5 +1,11 @@
+@use "./colours" as *;
+
 :root {
-    --icon-size: 2.4rem;
-    --icon-svg-size: 2.4rem;
-    --icon-placeholder-bg: #fff;
+  --icon-size: 2.4rem;
+  --icon-svg-size: 2.4rem;
+  --icon-placeholder-bg: #fff;
+}
+
+.icon-green {
+  color: $green;
 }
