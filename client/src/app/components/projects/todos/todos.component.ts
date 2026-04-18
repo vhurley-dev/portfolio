@@ -1,5 +1,5 @@
 import { Component, computed, effect, inject, input } from '@angular/core';
-import { Location } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { IconModule } from '../../../../../projects/icon/src/public-api';
@@ -10,6 +10,7 @@ import { ServerStatusComponent } from '../../global/server-status/server-status.
 @Component({
   selector: 'app-todos',
   imports: [
+    RouterLink,
     TodoAddComponent,
     TodoListComponent,
     IconModule,
@@ -30,10 +31,7 @@ export class TodosComponent {
   );
   isDisabled = computed(() => !this.isServerReady() || this.isServerError());
 
-  constructor(
-    private _location: Location,
-    private todosService: TodosService,
-  ) {
+  constructor(private todosService: TodosService) {
     effect(() => {
       const ready = this.isServerReady();
 
@@ -44,8 +42,4 @@ export class TodosComponent {
   }
 
   tasks = this.todosService.getUpdatedTasksListener();
-
-  backClick() {
-    this._location.back();
-  }
 }

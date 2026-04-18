@@ -1,0 +1,62 @@
+@use "../../../../../../assets/scss/colours.scss" as *;
+.tabs-widget {
+  max-width: 70rem;
+  background: $pureWhite;
+  border-radius: 1.2rem;
+  box-shadow: 0 1rem 3rem rgba($darkBlue, 0.08);
+  border: 1px solid $white;
+  overflow: hidden;
+  margin-top: 4rem;
+
+  .tab-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: $offWhite;
+    border-bottom: 1px solid $white;
+
+    .tab-item {
+      padding: 1.2rem 2.4rem;
+      font-size: 1.4rem;
+      color: rgba($darkBlue, 0.6);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 3px solid transparent;
+      position: relative;
+
+      &:hover {
+        color: $darkGreen;
+        background: rgba($pureWhite, 0.5);
+      }
+
+      &.is-active {
+        color: $darkBlue;
+        font-weight: 600;
+        border-bottom-color: $green;
+        background: $pureWhite;
+        margin-bottom: -1px;
+      }
+    }
+  }
+
+  .tab-panels {
+    padding: 3.2rem;
+    min-height: 20rem;
+
+    .panel-content {
+      h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba($darkBlue, 0.6);
+        margin-bottom: 1.2rem;
+      }
+      p {
+        color: rgba($darkBlue, 0.8);
+        font-size: 1.5rem;
+        line-height: 1.6;
+      }
+    }
+  }
+}

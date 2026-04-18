@@ -1,0 +1,53 @@
+@use "./../../../../assets/scss/colours" as *;
+
+.lab-header {
+  background-color: $darkBlue;
+  margin-bottom: 3rem;
+  padding: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .page-title {
+    text-align: right;
+  }
+  h1 {
+    font-size: 2.5rem;
+    color: $lightGrey;
+    margin-bottom: 0;
+  }
+  p {
+    color: $lightGrey;
+    font-weight: 300;
+  }
+}
+
+.lab-container {
+  max-width: 70rem;
+  margin: 4rem auto;
+
+  h2 {
+    margin-bottom: 2.4rem;
+    font-size: 2.4rem;
+    color: $darkBlue;
+    letter-spacing: -0.02em;
+  }
+
+  .section-intro {
+    max-width: 70rem;
+    line-height: 1.7;
+    color: rgba($darkBlue, 0.9);
+    border-left: 0.4rem solid $green;
+    padding: 0.8rem 2rem;
+    background: rgba($green, 0.05);
+    border-radius: 0 0.4rem 0.4rem 0;
+
+    span.bold {
+      font-size: 1.6rem;
+      color: $darkBlue;
+      font-weight: 700;
+      display: inline-block;
+      margin-right: 0.4rem;
+    }
+  }
+}
