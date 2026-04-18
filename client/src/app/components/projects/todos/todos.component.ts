@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, computed, effect, inject, input } from '@angular/core';
 import { Location } from '@angular/common';
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -20,7 +20,15 @@ import { ServerStatusComponent } from '../../global/server-status/server-status.
 })
 export class TodosComponent {
   private serverStatusService = inject(ServerStatusService);
+  isLoading = input<boolean>(true);
   isServerReady = this.serverStatusService.isReady;
+  isServerError = this.serverStatusService.isError;
+  isDataLoading = this.todosService.isLoadingData;
+  showSkeleton = computed(
+    () =>
+      (!this.isServerReady() || this.isDataLoading()) && !this.isServerError(),
+  );
+  isDisabled = computed(() => !this.isServerReady() || this.isServerError());
 
   constructor(
     private _location: Location,
