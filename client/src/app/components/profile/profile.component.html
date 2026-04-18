@@ -35,7 +35,9 @@
           <h3>{{ section.TECHNOLOGY }}</h3>
           <app-technology [technologies]="p.technologies"></app-technology>
         </div>
-        <app-build-info [buildInfo]="p.buildInfo"></app-build-info>
+        <div class="section">
+          <app-build-info [buildInfo]="p.buildInfo"></app-build-info>
+        </div>
       </div>
     </div>
   </div>

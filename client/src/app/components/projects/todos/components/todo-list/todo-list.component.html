@@ -34,69 +34,97 @@
     </div>
   </div>
   <div class="task-list-container">
-    @if (filteredTasks().length > 0) {
-      <ul class="task-list">
-        @for (task of filteredTasks(); track task.id) {
-          <li class="task">
-            <app-todo-edit
-              [task]="task"
-              (taskUpdated)="handleTaskUpdate($event)"
-              (cancel)="handleCancel(task.id)"
-              [ngClass]="task.editMode ? 'show' : 'hide'"
-            />
-            @if (task.editMode === false) {
-              <div class="task-desc">
-                <div
-                  (click)="onCompleteTask(task.id)"
-                  class="checkbox-container"
-                >
-                  <input type="checkbox" [checked]="task.completed" />
-                  <icon
-                    name="ph:circle"
-                    class="icon"
-                    [ngClass]="task.completed ? 'hide' : 'show'"
-                  ></icon>
-                  <icon
-                    name="ph:check-circle"
-                    class="icon icon-green"
-                    [ngClass]="task.completed ? 'show' : 'hide'"
-                  ></icon>
-                </div>
-                <div class="task-title">
-                  <span [class.line-through]="task.completed">{{
-                    task.title
-                  }}</span>
-                </div>
-              </div>
-              <div class="icons">
-                <icon
-                  name="ph:trash"
-                  class="icon icon-red"
-                  (click)="onDeleteTask(task.id)"
-                ></icon>
-                @if (!task.completed) {
-                  <icon
-                    name="ph:pencil-simple"
-                    class="icon icon-blue"
-                    (click)="onEditTask(task)"
-                  ></icon>
-                }
-              </div>
-            }
-          </li>
+    @if (isLoading()) {
+      <div class="skeleton-list">
+        @for (i of [1, 2, 3, 4]; track i) {
+          <div class="skeleton-item" key="{i}">
+            <div class="skeleton-checkbox"></div>
+            <div class="skeleton-text"></div>
+          </div>
         }
-      </ul>
-    } @else {
-      <p class="">
-        No
-        <span>
-          @if (filter() === filters.Completed) {
-            completed
-          } @else if (filter() === filters.Outstanding) {
-            outstanding
-          }</span
-        >tasks
-      </p>
+      </div>
+    }@else if (isServerError()) {
+      Unable to fetch tasks
+    }@else {
+      @if (filteredTasks().length > 0) {
+        <ul class="task-list">
+          @for (task of filteredTasks(); track task.id) {
+            <li class="task">
+              <app-todo-edit
+                [task]="task"
+                (taskUpdated)="handleTaskUpdate($event)"
+                (cancel)="handleCancel(task.id)"
+                [ngClass]="task.editMode ? 'show' : 'hide'"
+              />
+              @if (task.editMode === false) {
+                <div class="task-desc">
+                  <div
+                    (click)="onCompleteTask(task.id)"
+                    class="checkbox-container"
+                  >
+                    <input
+                      type="checkbox"
+                      [checked]="task.completed"
+                      [aria-label]="
+                        task.completed
+                          ? 'Mark ' + task.title + ' as outstanding'
+                          : 'Mark ' + task.title + ' as complete'
+                      "
+                    />
+                    <icon
+                      name="ph:circle"
+                      class="icon"
+                      aria-hidden="true"
+                      [ngClass]="task.completed ? 'hide' : 'show'"
+                    ></icon>
+                    <icon
+                      name="ph:check-circle"
+                      class="icon icon-green"
+                      aria-hidden="true"
+                      [ngClass]="task.completed ? 'show' : 'hide'"
+                    ></icon>
+                  </div>
+                  <div class="task-title">
+                    @if (task.completed) {
+                      <del class="line-through">
+                        <span class="sr-only">Completed: </span>
+                        {{ task.title }}
+                      </del>
+                    } @else {
+                      <span>{{ task.title }}</span>
+                    }
+                  </div>
+                </div>
+                <div class="icons">
+                  <icon
+                    name="ph:trash"
+                    class="icon icon-red"
+                    (click)="onDeleteTask(task.id)"
+                  ></icon>
+                  @if (!task.completed) {
+                    <icon
+                      name="ph:pencil-simple"
+                      class="icon icon-blue"
+                      (click)="onEditTask(task)"
+                    ></icon>
+                  }
+                </div>
+              }
+            </li>
+          }
+        </ul>
+      } @else {
+        <p class="">
+          No
+          <span>
+            @if (filter() === filters.Completed) {
+              completed
+            } @else if (filter() === filters.Outstanding) {
+              outstanding
+            }</span
+          >tasks
+        </p>
+      }
     }
   </div>
 </div>

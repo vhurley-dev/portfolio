@@ -1,4 +1,8 @@
-<div class="status-container" [class.is-ready]="isReady()">
+<div
+  class="status-container"
+  [class.is-ready]="isReady()"
+  [class.has-error]="isError()"
+>
   <div class="status-indicator">
     <span class="pulse-dot"></span>
   </div>
@@ -6,6 +10,8 @@
   <span class="status-text">
     @if (isReady()) {
       Backend server is online
+    } @else if (isError()) {
+      Server is taking too long to respond. Please refresh or try again later.
     } @else {
       Waking up server... (Deployed on Render Free Tier so it can take a little
       while)

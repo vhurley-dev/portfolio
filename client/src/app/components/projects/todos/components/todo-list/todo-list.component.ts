@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, model, signal } from '@angular/core';
+import { Component, computed, input, model, signal } from '@angular/core';
 import { IconModule } from '../../../../../../../projects/icon/src/public-api';
 import { Task, TasksFilter } from '../../interfaces/task.model';
 import { TodosService } from '../../todos.service';
@@ -13,6 +13,8 @@ import { TodoEditComponent } from '../todo-edit/todo-edit.component';
 })
 export class TodoListComponent {
   constructor(private todosService: TodosService) {}
+  isLoading = input<boolean>(true);
+  isServerError = input<boolean>(false);
   tasks = model.required<Task[]>();
   filter = signal(TasksFilter.All);
   filters = TasksFilter;
