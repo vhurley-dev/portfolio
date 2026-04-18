@@ -1,5 +1,22 @@
 @use "./../../../../assets/scss/colours" as *;
 
+:host {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+:host.hidden {
+  opacity: 0;
+  transform: translate(-50%, 20px);
+  pointer-events: none;
+}
+
 .status-container {
   display: inline-flex;
   align-items: center;
@@ -31,6 +48,13 @@
   background-color: $green;
   animation: none;
   box-shadow: 0 0 8px $green;
+}
+
+.has-error .pulse-dot {
+  background-color: $pink;
+  border-color: $pink;
+  animation: none;
+  box-shadow: 0 0 8px $pink;
 }
 
 @keyframes pulse {

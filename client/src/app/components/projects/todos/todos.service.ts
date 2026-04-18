@@ -11,10 +11,12 @@ const BACKEND_URL = environment.apiUrl + ApiPaths.TODOS;
 export class TodosService {
   private tasks: Task[] = [];
   private tasksUpdated = signal<Task[]>([]);
+  public isLoadingData = signal<boolean>(true);
 
   constructor(private http: HttpClient) {}
 
   getTasks() {
+    this.isLoadingData.set(true);
     this.http
       .get<{ message: string; tasks: any }>(BACKEND_URL)
       .pipe(
@@ -41,6 +43,7 @@ export class TodosService {
       .subscribe((transformedTasksData) => {
         this.tasks = transformedTasksData.tasks;
         this.tasksUpdated.set(this.tasks);
+        this.isLoadingData.set(false);
       });
   }
 

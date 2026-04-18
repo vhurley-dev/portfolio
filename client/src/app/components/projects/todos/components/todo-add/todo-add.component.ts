@@ -1,6 +1,5 @@
-import { Component, model } from '@angular/core';
+import { Component, input, model, signal } from '@angular/core';
 import { Task } from '../../interfaces/task.model';
-import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TodosService } from '../../todos.service';
 
@@ -11,23 +10,21 @@ import { TodosService } from '../../todos.service';
   styleUrl: './todo-add.component.scss',
 })
 export class TodoAddComponent {
-  constructor(
-    private http: HttpClient,
-    private todosService: TodosService,
-  ) {}
-  taskTitle: string;
+  constructor(private todosService: TodosService) {}
+  isDisabled = input<boolean>(true);
+  taskTitle = signal<string>('');
   tasksList = model.required<Task[]>();
 
   newTask() {
-    if (this.taskTitle) {
+    if (this.taskTitle && !this.isDisabled()) {
       const newTask: Task = {
         id: '',
         completed: false,
-        title: this.taskTitle,
+        title: this.taskTitle(),
         editMode: false,
       };
       this.todosService.addTask(newTask);
-      this.taskTitle = '';
+      this.taskTitle.set('');
     }
   }
 }

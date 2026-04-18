@@ -1,5 +1,17 @@
-
 <div class="add-task clearfix">
-    <input #titleInput [(ngModel)]='taskTitle' (keydown.enter)="newTask()" placeholder="What do you need to do?" autofocus/>
-    <button (click)="newTask()">Add</button>
+  <input
+    [disabled]="isDisabled()"
+    [ngModel]="taskTitle()"
+    (ngModelChange)="taskTitle.set($event)"
+    (keydown.enter)="newTask()"
+    [placeholder]="isDisabled() ? '' : 'What do you need to do?'"
+    autofocus
+  />
+  <button
+    [disabled]="isDisabled() || !taskTitle().trim()"
+    [class.disabled]="isDisabled() || !taskTitle().trim()"
+    (click)="newTask()"
+  >
+    Add
+  </button>
 </div>

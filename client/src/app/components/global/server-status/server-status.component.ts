@@ -1,40 +1,32 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, effect } from '@angular/core';
 import { ServerStatusService } from './server-status.service';
-import { catchError, of, retry } from 'rxjs';
-import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-server-status',
-  imports: [],
   templateUrl: './server-status.component.html',
   styleUrl: './server-status.component.scss',
+  host: {
+    '[class.hidden]': 'isHidden()',
+  },
 })
 export class ServerStatusComponent implements OnInit {
-  private http = inject(HttpClient);
-  private healthService = inject(ServerStatusService);
-
-  isReady = this.healthService.isReady;
-
-  ngOnInit() {
-    if (!this.isReady()) {
-      this.pingServer();
-    }
+  constructor() {
+    effect(() => {
+      if (this.isReady()) {
+        setTimeout(() => {
+          this.isHidden.set(true);
+        }, 3000);
+      }
+    });
   }
 
-  pingServer() {
-    const API_URL = environment.apiHealthUrl;
+  private statusService = inject(ServerStatusService);
 
-    this.http
-      .get(API_URL)
-      .pipe(
-        retry({ delay: 2000 }),
-        catchError(() => of(false)),
-      )
-      .subscribe((response) => {
-        if (response) {
-          this.healthService.setReady(true);
-        }
-      });
+  isReady = this.statusService.isReady;
+  isError = this.statusService.isError;
+  isHidden = signal(false);
+
+  ngOnInit() {
+    this.statusService.checkServerStatus();
   }
 }
