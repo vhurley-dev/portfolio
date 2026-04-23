@@ -29,7 +29,11 @@
   }
 
   @if (isOpen() && options().length > 0) {
-    <ul id="options-list" role="listbox">
+    <ul
+      id="options-list"
+      role="listbox"
+      (mouseleave)="activeOptionIndex.set(-1)"
+    >
       @for (opt of options(); track opt.id; let i = $index) {
         <li
           [id]="'opt-' + i"
