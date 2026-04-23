@@ -1,0 +1,52 @@
+<div class="combobox-wrapper">
+  <label for="country-search" class="combobox-label"> Select Country </label>
+
+  <input
+    [formControl]="searchControl"
+    id="country-search"
+    type="text"
+    placeholder="Search country..."
+    (keydown)="onKeyDown($event)"
+    (focus)="isOpen.set(true)"
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-autocomplete="list"
+    [attr.aria-expanded]="isOpen()"
+    [attr.aria-controls]="'options-list'"
+    [attr.aria-activedescendant]="
+      activeOptionIndex() >= 0 ? 'opt-' + activeOptionIndex() : null
+    "
+  />
+
+  @if (isLoading()) {
+    <div class="loader">...</div>
+  }
+
+  @if (isOpen() && options().length === 0 && !isLoading()) {
+    <div class="no-results">
+      No countries found matching "{{ searchControl.value }}"
+    </div>
+  }
+
+  @if (isOpen() && options().length > 0) {
+    <ul
+      id="options-list"
+      role="listbox"
+      (mouseleave)="activeOptionIndex.set(-1)"
+    >
+      @for (opt of options(); track opt.id; let i = $index) {
+        <li
+          [id]="'opt-' + i"
+          role="option"
+          [attr.aria-selected]="i === activeOptionIndex()"
+          [class.active]="i === activeOptionIndex()"
+          (mousedown)="selectOption(opt)"
+          (mouseenter)="activeOptionIndex.set(i)"
+        >
+          <span class="label">{{ opt.label }}</span>
+          <span class="description">{{ opt.description }}</span>
+        </li>
+      }
+    </ul>
+  }
+</div>
