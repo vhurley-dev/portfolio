@@ -21,12 +21,13 @@
       font-size: 1.4rem;
       color: rgba($darkBlue, 0.6);
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      border-bottom: 3px solid transparent;
+      border: 3px solid transparent;
       position: relative;
 
       &:hover {
         color: $darkGreen;
         background: rgba($pureWhite, 0.5);
+        cursor: pointer;
       }
 
       &.is-active {
@@ -35,6 +36,11 @@
         border-bottom-color: $green;
         background: $pureWhite;
         margin-bottom: -1px;
+
+        &:hover {
+          background: $pureWhite;
+          cursor: default;
+        }
       }
     }
   }
