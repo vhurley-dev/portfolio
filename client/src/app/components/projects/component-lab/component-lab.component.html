@@ -1,30 +1,81 @@
-<main>
-  <header class="lab-header">
-    <div class="nav-back">
-      <a aria-label="Go back to homepage" routerLink="/"
-        ><icon name="ph:arrow-left" class="icon-green" size="24"></icon
-      ></a>
-    </div>
-    <div class="page-title">
-      <h1>Component Lab</h1>
-      <p>Exploring accessible, headless design patterns in Angular 21</p>
-    </div>
-  </header>
+<header class="lab-header">
+  <div class="nav-back">
+    <a aria-label="Go back to homepage" routerLink="/"
+      ><icon name="ph:arrow-left" class="icon-green" size="24"></icon
+    ></a>
+  </div>
+  <div class="page-title">
+    <h1>Component Lab</h1>
+    <p>Exploring accessible, headless design patterns in Angular 21</p>
+  </div>
+</header>
 
+<main>
   <div class="lab-container">
-    <h2>Accessible tabs</h2>
-    <p class="section-intro">
-      <span class="bold">The Challenge:</span> Tabs are a staple of modern UI,
-      yet they represent a significant accessibility challenge that goes far
-      beyond simple visibility toggles. A robust implementation must synchronise
-      complex keyboard interactions (such as arrow-key navigation) with hidden
-      ARIA relationships to ensure the interface remains intuitive for users
-      relying on assistive technologies. <br /><br />
-      <span class="bold">The Solution:</span> This implementation uses Angular
-      Aria to provide a "headless" logic layer. It ensures full WCAG compliance,
-      including automatic focus management and correct ARIA roles, while
-      allowing for completely custom styling via SCSS.
+    <p class="page-description">
+      Welcome to the Component Lab, an interactive playground where we explore
+      high-performance, accessible, and headless design patterns in Angular 21.
+      <br /><br />This project serves as a testing ground for innovative UI
+      components that prioritise both user experience and accessibility.
     </p>
-    <app-lab-tabs [tabs]="tabs()"></app-lab-tabs>
+    <div class="lab-item">
+      <h2>Accessible tabs</h2>
+      <p class="section-intro">
+        <span class="bold">The Challenge:</span> Tabs are a staple of modern UI,
+        yet they represent a significant accessibility challenge that goes far
+        beyond simple visibility toggles. A robust implementation must
+        synchronise complex keyboard interactions (such as arrow-key navigation)
+        with hidden ARIA relationships to ensure the interface remains intuitive
+        for users relying on assistive technologies. <br /><br />
+        <span class="bold">The Solution:</span> This implementation uses Angular
+        Aria to provide a "headless" logic layer. It ensures full WCAG
+        compliance, including automatic focus management and correct ARIA roles,
+        while allowing for completely custom styling via SCSS.
+      </p>
+      <app-lab-tabs [tabs]="tabs()"></app-lab-tabs>
+    </div>
+    <div class="lab-item">
+      <h2>Accessible combo box</h2>
+      <p class="section-intro">
+        <span class="bold">The Challenge:</span> A Combobox is one of the most
+        complex components to make fully accessible. It requires a delicate
+        balance of managing "live" focus - where the user’s cursor stays in an
+        input field while their keyboard focus navigates a dynamic list - all
+        while ensuring screen readers announce real-time filtering results and
+        selection states without losing context. <br /><br />
+        <span class="bold">The Solution:</span> This implementation utilises
+        Angular Signals for fine-grained reactivity and RxJS to handle
+        asynchronous mock-API country data. By leveraging the
+        aria-activedescendant pattern, the component maintains a seamless
+        keyboard experience, while a dedicated aria-live region provides
+        immediate auditory feedback on search results. The result is a
+        high-performance, WCAG-compliant search interface that handles large
+        datasets with professional-grade focus and scroll management.
+      </p>
+      <app-lab-combo-box></app-lab-combo-box>
+      <div class="dev-notes">
+        <h3>Developer Notes</h3>
+        <ul>
+          <li>
+            <span class="bold">Asynchronous Filtering: </span>Simulated 300ms
+            latency to demonstrate "Loading" state handling.
+          </li>
+          <li>
+            <span class="bold">Aria-Live Integration: </span>Announces "X
+            results found" to assistive technologies as the user types.
+          </li>
+          <li>
+            <span class="bold">Smart Scroll Management: </span>Custom effect
+            logic ensures the active keyboard selection is always scrolled into
+            view within the dropdown.
+          </li>
+          <li>
+            <span class="bold">Hybrid State: </span>Combines Reactive Forms for
+            input tracking with Signals for UI state (open/closed, active
+            index).
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </main>

@@ -1,5 +1,10 @@
 @use "./../../../../assets/scss/colours" as *;
 
+main {
+  padding: 0 1.6rem;
+  margin-bottom: 40rem;
+}
+
 .lab-header {
   background-color: $darkBlue;
   margin-bottom: 3rem;
@@ -26,6 +31,14 @@
   max-width: 70rem;
   margin: 4rem auto;
 
+  .page-description {
+    margin-bottom: 8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 2.6rem;
+    color: $darkBlue;
+  }
+
   h2 {
     margin-bottom: 2.4rem;
     font-size: 2.4rem;
@@ -33,21 +46,47 @@
     letter-spacing: -0.02em;
   }
 
-  .section-intro {
+  .lab-item {
+    margin-bottom: 4rem;
+
+    .section-intro {
+      max-width: 70rem;
+      line-height: 1.7;
+      color: rgba($darkBlue, 0.9);
+      border-left: 0.4rem solid $green;
+      padding: 0.8rem 2rem;
+      background: rgba($green, 0.05);
+      border-radius: 0 0.4rem 0.4rem 0;
+      margin-bottom: 4rem;
+    }
+  }
+  .dev-notes {
     max-width: 70rem;
     line-height: 1.7;
     color: rgba($darkBlue, 0.9);
-    border-left: 0.4rem solid $green;
+    border-left: 0.4rem solid $brightBlue;
     padding: 0.8rem 2rem;
-    background: rgba($green, 0.05);
+    background: rgba($brightBlue, 0.05);
     border-radius: 0 0.4rem 0.4rem 0;
+    margin-bottom: 4rem;
 
-    span.bold {
-      font-size: 1.6rem;
-      color: $darkBlue;
-      font-weight: 700;
-      display: inline-block;
-      margin-right: 0.4rem;
+    ul {
+      list-style: none;
+      padding: 0;
+      color: rgba($darkBlue, 0.8);
+      li {
+        margin-bottom: 0.8rem;
+        font-size: 1.6rem;
+        line-height: 1.6;
+      }
     }
   }
+}
+
+span.bold {
+  font-size: 1.6rem;
+  color: $darkBlue;
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 0.4rem;
 }

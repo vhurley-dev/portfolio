@@ -1,0 +1,88 @@
+@use "../../../../../../assets/scss/colours.scss" as *;
+
+.combobox-wrapper {
+  margin-bottom: 8rem;
+}
+
+.combobox-label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  color: $darkBlue;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid $grey;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  color: $darkBlue;
+
+  &::placeholder {
+    color: rgba($darkBlue, 0.7);
+    font-size: 1.6rem;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $green;
+    box-shadow: 0 0 0 3px rgba($green, 0.2);
+  }
+}
+
+#options-list {
+  list-style: none;
+  max-width: 70rem;
+  padding: 0;
+  margin: 4px 0 0 0;
+  position: absolute;
+  width: 100%;
+  max-height: 280px;
+  overflow-y: auto;
+  background: $pureWhite;
+  border: 1px solid $lightGrey;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+
+  li {
+    padding: 10px 14px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    &.active {
+      background-color: $darkGreen;
+      color: $pureWhite;
+
+      .label {
+        color: $pureWhite;
+      }
+
+      .description {
+        color: rgba($pureWhite, 0.8);
+      }
+    }
+
+    .label {
+      font-weight: 500;
+      font-size: 1.6rem;
+      color: $darkBlue;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      color: rgba($darkBlue, 0.7);
+      text-transform: uppercase;
+    }
+  }
+}
+
+.no-results {
+  margin-top: 1.6rem;
+  color: $pink;
+  font-size: 1.6rem;
+}

@@ -1,44 +1,46 @@
 @if (profile(); as p) {
-  <div class="outer-container">
-    <div class="inner-container">
-      <div class="left">
-        <h1>{{ p.name }}</h1>
-        <h2>{{ p.jobTitle }}</h2>
-        <h4>
-          <span>{{ p.strapLine1 }}</span
-          ><span class="highlight">{{ p.strapLine2 }}</span
-          ><span>{{ p.strapLine3 }}</span>
-        </h4>
-        <app-navigation></app-navigation>
-      </div>
-      <div class="right">
-        <div id="{{ section.ABOUT }}" class="section">
-          <h3 class="main-heading">{{ section.ABOUT }}</h3>
-          <h5>{{ p.introHeading1 }}</h5>
-          <p class="p-large">{{ p.intro1 }}</p>
-          <h5>{{ p.introHeading2 }}</h5>
-          <p class="p-large">{{ p.intro2 }}</p>
+  <main>
+    <div class="outer-container">
+      <div class="inner-container">
+        <div class="left">
+          <h1>{{ p.name }}</h1>
+          <h2>{{ p.jobTitle }}</h2>
+          <h4>
+            <span>{{ p.strapLine1 }}</span
+            ><span class="highlight">{{ p.strapLine2 }}</span
+            ><span>{{ p.strapLine3 }}</span>
+          </h4>
+          <app-navigation></app-navigation>
         </div>
-        <div id="{{ section.EXPERIENCE }}" class="section">
-          <h3>{{ section.EXPERIENCE }}</h3>
-          <app-experience [experiences]="p.experiences"></app-experience>
-        </div>
-        <div id="{{ section.PROJECTS }}" class="section">
-          <h3>{{ section.PROJECTS }}</h3>
-          <app-projects [projects]="p.projects"></app-projects>
-        </div>
-        <div id="{{ section.COURSES }}" class="section">
-          <h3>{{ section.COURSES }}</h3>
-          <app-courses [courses]="p.courses"></app-courses>
-        </div>
-        <div id="{{ section.TECHNOLOGY }}" class="section">
-          <h3>{{ section.TECHNOLOGY }}</h3>
-          <app-technology [technologies]="p.technologies"></app-technology>
-        </div>
-        <div class="section">
-          <app-build-info [buildInfo]="p.buildInfo"></app-build-info>
+        <div class="right">
+          <div id="{{ section.ABOUT }}" class="section">
+            <h3 class="main-heading">{{ section.ABOUT }}</h3>
+            <h5>{{ p.introHeading1 }}</h5>
+            <p class="p-large">{{ p.intro1 }}</p>
+            <h5>{{ p.introHeading2 }}</h5>
+            <p class="p-large">{{ p.intro2 }}</p>
+          </div>
+          <div id="{{ section.EXPERIENCE }}" class="section">
+            <h3>{{ section.EXPERIENCE }}</h3>
+            <app-experience [experiences]="p.experiences"></app-experience>
+          </div>
+          <div id="{{ section.PROJECTS }}" class="section">
+            <h3>{{ section.PROJECTS }}</h3>
+            <app-projects [projects]="p.projects"></app-projects>
+          </div>
+          <div id="{{ section.COURSES }}" class="section">
+            <h3>{{ section.COURSES }}</h3>
+            <app-courses [courses]="p.courses"></app-courses>
+          </div>
+          <div id="{{ section.TECHNOLOGY }}" class="section">
+            <h3>{{ section.TECHNOLOGY }}</h3>
+            <app-technology [technologies]="p.technologies"></app-technology>
+          </div>
+          <div class="section">
+            <app-build-info [buildInfo]="p.buildInfo"></app-build-info>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 }
