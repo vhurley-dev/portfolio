@@ -42,23 +42,20 @@ export class LabComboBoxComponent {
     });
   }
 
-  // 1. Create an observable from the input changes
   private results$ = this.searchControl.valueChanges.pipe(
-    startWith(''), // Triggers the initial 'all countries' load
-    debounceTime(150), // Shorter debounce for a snappier feel
+    startWith(''),
+    debounceTime(150),
     distinctUntilChanged(),
     tap(() => this.isLoading.set(true)),
     switchMap((query) => this.countryService.getCountries(query || '')),
     tap(() => {
       this.isLoading.set(false);
-      this.activeOptionIndex.set(-1); // Reset highlight when list changes
+      this.activeOptionIndex.set(-1);
     }),
   );
 
-  // 2. Convert it to a Signal for the template
   options = toSignal(this.results$, { initialValue: [] });
 
-  // 3. UI State for keyboard navigation
   activeOptionIndex = signal(-1);
 
   onKeyDown(event: KeyboardEvent) {
@@ -101,7 +98,6 @@ export class LabComboBoxComponent {
 
   @HostListener('focusout', ['$event'])
   onFocusOut(event: FocusEvent) {
-    // Check if the element receiving focus is outside the component
     const linkedElement = event.relatedTarget as HTMLElement;
     if (!this.el.nativeElement.contains(linkedElement)) {
       this.isOpen.set(false);

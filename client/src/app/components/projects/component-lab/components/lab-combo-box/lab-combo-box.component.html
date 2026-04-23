@@ -36,7 +36,7 @@
           role="option"
           [attr.aria-selected]="i === activeOptionIndex()"
           [class.active]="i === activeOptionIndex()"
-          (click)="selectOption(opt)"
+          (mousedown)="selectOption(opt)"
           (mouseenter)="activeOptionIndex.set(i)"
         >
           <span class="label">{{ opt.label }}</span>
