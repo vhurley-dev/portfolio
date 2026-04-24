@@ -1,0 +1,57 @@
+@use "../../../../../assets/scss/colours" as *;
+
+.social-icons {
+  display: flex;
+  margin-top: 2.4rem;
+  a {
+    padding: 0.4rem;
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+
+  .social-icon {
+    position: relative;
+    width: 4.4rem;
+    height: 4.4rem;
+    padding: 0.8rem 0.8rem 0.8rem 0;
+
+    .icon-glyph {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($grey, 0.5);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .icon-label {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+
+      font-size: 1rem;
+      color: $green;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    &:hover {
+      .icon-glyph {
+        background-color: $green;
+      }
+      .icon-label {
+        opacity: 1;
+        transform: translateX(-50%) translateY(4px);
+      }
+    }
+  }
+}

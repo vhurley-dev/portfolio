@@ -1,0 +1,18 @@
+<div class="social-icons">
+  @for (social of socials(); track social.name) {
+    <a
+      [href]="social.url"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+    >
+      <div class="social-icon">
+        <span
+          class="icon-glyph"
+          [style.mask-image]="'url(' + social.icon + ')'"
+        ></span>
+        <p class="icon-label">{{ social.name }}</p>
+      </div>
+    </a>
+  }
+</div>

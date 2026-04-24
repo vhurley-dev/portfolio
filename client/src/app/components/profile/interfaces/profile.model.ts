@@ -9,11 +9,18 @@ export interface Profile {
   intro1: string;
   intro2: string;
   intros: string[];
+  socials: Social[];
   experiences: Experience[];
   technologies: Technology[];
   projects: Project[];
   courses: Course[];
   buildInfo: BuildInfo;
+}
+
+export interface Social {
+  name: string;
+  url: string;
+  icon: string;
 }
 
 export interface Experience {
