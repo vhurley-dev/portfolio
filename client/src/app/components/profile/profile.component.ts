@@ -10,6 +10,7 @@ import { SectionEnums } from './enums/sections.enum';
 import { BuildInfoComponent } from './components/build-info/build-info.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { ScrollService } from '../../services/scroll.service';
+import { SocialsComponent } from './components/socials/socials.component';
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +21,7 @@ import { ScrollService } from '../../services/scroll.service';
     ProjectsComponent,
     CoursesComponent,
     BuildInfoComponent,
+    SocialsComponent,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',

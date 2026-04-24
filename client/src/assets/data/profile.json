@@ -8,6 +8,23 @@
   "introHeading2": "Enterprise at Scale",
   "intro1": "My journey into software began with a fascination for how complex systems are built from the ground up. Before I was architecting digital interfaces, I was a luthier with a First Class Honours in Music Technology with a focus on guitar making. Whether carving a fretboard or refactoring a reactive Angular component, my approach remains the same: a deep respect for precision, durability, and the user’s experience with the final 'instrument'.",
   "intro2": "For the past four years, I have been an embedded consultant on the British Airways account , contributing to high-traffic re-platforming projects across major framework evolutions. This includes a recent upgrade from Angular 15 to 19 for the Disruptions team and a transition to Angular 16 and Nest.js for the Seat Map. A key highlight was leading the end-to-end accessibility transformation for the Seat Map. Working independently from audit reports, I performed the complex technical remediation required to achieve full WCAG compliance while delivering essential self-service solutions for passengers.",
+  "socials": [
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/victoria-hurley-dev//",
+      "icon": "assets/icons/linkedin.svg"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/vhurley-dev/portfolio",
+      "icon": "assets/icons/github.svg"
+    },
+    {
+      "name": "Medium",
+      "url": "https://medium.com/@vhurley.dev",
+      "icon": "assets/icons/medium.svg"
+    }
+  ],
   "experiences": [
     {
       "dateFrom": "Mar 2022",
