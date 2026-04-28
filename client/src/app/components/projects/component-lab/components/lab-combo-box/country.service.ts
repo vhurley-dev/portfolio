@@ -10,6 +10,8 @@ export class CountryService {
     { id: 'AR', label: 'Argentina', description: 'South America' },
     { id: 'AU', label: 'Australia', description: 'Oceania' },
     { id: 'AT', label: 'Austria', description: 'Europe' },
+    { id: 'AT', label: 'Österreich', description: 'Europe' },
+    { id: 'AX', label: 'Åland ', description: 'Europe' },
     { id: 'BR', label: 'Brazil', description: 'South America' },
     { id: 'CA', label: 'Canada', description: 'North America' },
     { id: 'CN', label: 'China', description: 'Asia' },

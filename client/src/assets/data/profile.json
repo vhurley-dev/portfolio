@@ -94,8 +94,8 @@
   "projects": [
     {
       "title": "Component Lab: Accessible Headless UI",
-      "description": "A deep-dive into enterprise-grade component design. This project showcases the implementation of 'headless' UI patterns—separating complex accessibility logic from visual styling. Featuring WCAG-compliant components built with the new Angular Aria library, including focus-trapped modals and screen-reader-optimized comboboxes.",
-      "img": "./assets/img/todos.webp",
+      "description": "A deep-dive into enterprise-grade component design. This project showcases the implementation of 'headless' UI patterns—separating complex accessibility logic from visual styling. Featuring WCAG-compliant components built with the new Angular Aria library, including focus-trapped modals and screen-reader-optimised comboboxes.",
+      "img": "./assets/img/component-lab.png",
       "projectUrl": "/component-lab",
       "tech": ["Angular", "Signals", "TypeScript", "WCAG", "Angular Aria"]
     },
