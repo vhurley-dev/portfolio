@@ -37,7 +37,7 @@ root/
 
 - Run npm install followed by npm start.
 
-- The server will run at http://localhost:3000.
+- The server will run at http://localhost:3001.
 
 2. Frontend (UI)
 
