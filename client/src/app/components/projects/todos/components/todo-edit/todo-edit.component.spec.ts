@@ -8,16 +8,16 @@ describe('TodoEditComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TodoEditComponent]
-    })
-    .compileComponents();
+      imports: [TodoEditComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TodoEditComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.componentRef.setInput('task', {});
     expect(component).toBeTruthy();
+    fixture.detectChanges();
   });
 });

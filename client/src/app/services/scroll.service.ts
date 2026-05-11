@@ -7,6 +7,11 @@ export class ScrollService {
 
   private observer?: IntersectionObserver;
 
+  reset() {
+    this.observer?.disconnect();
+    this.activeSection.set(SectionEnums.ABOUT);
+  }
+
   setupObserver(elementIds: string[]) {
     this.observer?.disconnect();
 
