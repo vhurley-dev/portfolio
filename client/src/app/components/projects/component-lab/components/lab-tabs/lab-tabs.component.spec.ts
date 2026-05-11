@@ -8,16 +8,16 @@ describe('LabTabsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LabTabsComponent]
-    })
-    .compileComponents();
+      imports: [LabTabsComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LabTabsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.componentRef.setInput('tabs', []);
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

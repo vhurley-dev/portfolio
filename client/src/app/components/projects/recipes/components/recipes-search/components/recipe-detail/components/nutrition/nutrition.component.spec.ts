@@ -8,16 +8,25 @@ describe('NutritionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NutritionComponent]
-    })
-    .compileComponents();
+      imports: [NutritionComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NutritionComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    const mockNutrition = {
+      yield: 1,
+      macros: {
+        ENERC_KCAL: { quantity: 500 },
+        PROCNT: { quantity: 20 },
+        CHOCDF: { quantity: 50 },
+        FAT: { quantity: 10 },
+      },
+    };
+    component.nutrition = mockNutrition;
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

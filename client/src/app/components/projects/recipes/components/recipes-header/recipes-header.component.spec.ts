@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecipesHeaderComponent } from './recipes-header.component';
+import { provideRouter } from '@angular/router';
 
 describe('RecipesHeaderComponent', () => {
   let component: RecipesHeaderComponent;
@@ -8,9 +9,9 @@ describe('RecipesHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RecipesHeaderComponent]
-    })
-    .compileComponents();
+      imports: [RecipesHeaderComponent],
+      providers: [provideRouter([])],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RecipesHeaderComponent);
     component = fixture.componentInstance;
