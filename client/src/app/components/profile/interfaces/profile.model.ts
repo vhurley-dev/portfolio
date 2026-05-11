@@ -8,7 +8,6 @@ export interface Profile {
   introHeading2: string;
   intro1: string;
   intro2: string;
-  intros: string[];
   socials: Social[];
   experiences: Experience[];
   technologies: Technology[];

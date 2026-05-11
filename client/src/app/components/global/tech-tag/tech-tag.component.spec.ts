@@ -13,10 +13,12 @@ describe('TechTagComponent', () => {
 
     fixture = TestBed.createComponent(TechTagComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.componentRef.setInput('techTag', '');
+    fixture.detectChanges();
     expect(component).toBeTruthy();
+    fixture.detectChanges();
   });
 });
