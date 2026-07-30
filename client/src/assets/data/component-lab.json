@@ -1,0 +1,67 @@
+{
+  "lab-sections": [
+    {
+      "title": "Accessible Combo Box",
+      "challenge": "A Combobox is one of the most complex components to make fully accessible. It requires a delicate balance of managing 'live' focus - where the user's cursor stays in an input field while their keyboard focus navigates a dynamic list - all while ensuring screen readers announce real-time filtering results and selection states without losing context.",
+      "solution": "This implementation utilises Angular Signals for fine-grained reactivity and RxJS to handle asynchronous mock-API country data. By leveraging the aria-activedescendant pattern, the component maintains a seamless keyboard experience, while a dedicated aria-live region provides immediate auditory feedback on search results. The result is a high-performance, WCAG-compliant search interface that handles large datasets with professional-grade focus and scroll management.",
+      "developerNotes": [
+        {
+          "title": "Asynchronous Filtering",
+          "note": "Simulated 300ms latency to demonstrate 'Loading' state handling."
+        },
+        {
+          "title": "Aria-Live Integration",
+          "note": "Announces 'X results found' to assistive technologies as the user types."
+        },
+        {
+          "title": "Smart Scroll Management",
+          "note": "Custom effect logic ensures the active keyboard selection is always scrolled into view within the dropdown."
+        },
+        {
+          "title": "Hybrid State",
+          "note": "Combines Reactive Forms for input tracking with Signals for UI state (open/closed, active index)."
+        }
+      ],
+      "componentName": "app-lab-combo-box",
+      "articles": [
+        {
+          "title": "Building a High-Performance Combobox in Angular 21: Part 1 - The Data Foundation",
+          "url": "https://medium.com/@vhurley.dev/building-a-high-performance-combobox-in-angular-21-part-1-the-data-foundation-4a9534db18c5"
+        },
+        {
+          "title": "Building a High-Performance Combobox in Angular 21: Part 2 - The Logic Engine",
+          "url": "https://medium.com/@vhurley.dev/building-a-high-performance-combobox-in-angular-21-part-2-the-logic-engine-e8e17df62721"
+        },
+        {
+          "title": "Building a High-Performance Combobox in Angular 21: Part 3 - The Interaction Layer",
+          "url": "https://medium.com/@vhurley.dev/building-a-high-performance-combobox-in-angular-21-part-3-the-interaction-layer-a23e65c31b0c"
+        },
+        {
+          "title": "Building a High-Performance Combobox in Angular 21: Part 4 - Automatic Scrolling & Accessibility",
+          "url": "https://medium.com/@vhurley.dev/building-a-high-performance-combobox-in-angular-21-part-4-automatic-scrolling-accessibility-3134a058c78c"
+        }
+      ]
+    },
+    {
+      "title": "Accessible Tabs (Headless)",
+      "challenge": "Tabs are a staple of modern UI, yet they represent a significant accessibility challenge that goes far beyond simple visibility toggles. A robust implementation must synchronise complex keyboard interactions (such as arrow-key navigation) with hidden ARIA relationships to ensure the interface remains intuitive for users relying on assistive technologies.",
+      "solution": "This implementation uses Angular Aria to provide a 'headless' logic layer. It ensures full WCAG compliance, including automatic focus management and correct ARIA roles, while allowing for completely custom styling via SCSS.",
+      "developerNotes": [],
+      "componentName": "app-lab-tabs",
+      "articles": [
+        {
+          "title": "Three Ways to Build Accessible Tabs in Angular - and Why One of Them Changes Everything",
+          "url": "https://medium.com/@vhurley.dev/three-ways-to-build-accessible-tabs-in-angular-and-why-one-of-them-changes-everything-a16e80681ca8"
+        },
+        {
+          "title": "Accessible Tabs in Angular Part 1: What Really Happens When You Switch Tabs?",
+          "url": "https://medium.com/@vhurley.dev/accessible-tabs-in-angular-part-1-what-really-happens-when-you-switch-tabs-8da8ef6362a6"
+        },
+        {
+          "title": "Accessible Tabs in Angular Part 2: What Really Happens When You Switch Tabs?",
+          "url": "https://medium.com/@vhurley.dev/accessible-tabs-in-angular-part-2-what-really-happens-when-you-switch-tabs-a63bfb50d400"
+        }
+      ]
+    }
+  ]
+}
