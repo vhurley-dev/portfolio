@@ -1,0 +1,154 @@
+@use "../../../../../../assets/scss/colours.scss" as *;
+
+.lab-item {
+  margin-bottom: 8rem;
+  padding: 0 2.4rem;
+
+  .row {
+    display: flex;
+    gap: 2.4rem;
+
+    @media screen and (max-width: 1150px) {
+      flex-direction: column;
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+  }
+
+  .col-left {
+    flex: 1;
+
+    .section-title {
+      text-transform: uppercase;
+      font-size: 2.4rem;
+      color: $green;
+      letter-spacing: 0;
+    }
+
+    .component-title {
+      text-transform: uppercase;
+      font-size: 3.2rem;
+      color: $darkBlue;
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  .col-right {
+    max-width: 50rem;
+
+    @media screen and (max-width: 1150px) {
+      max-width: none;
+      margin: 0 auto;
+    }
+
+    .related-articles {
+      border: 0.1rem solid rgba($darkBlue, 0.2);
+      border-radius: 0.8rem;
+      margin: 4rem 0;
+
+      .heading {
+        background-color: $lightGrey;
+        border-radius: 0.8rem 0.8rem 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1.6rem;
+        padding: 1.6rem;
+
+        h4 {
+          font-size: 1.6rem;
+          color: $darkBlue;
+          margin-bottom: 0;
+          font-weight: 600;
+        }
+      }
+
+      h3 {
+        margin-bottom: 1.6rem;
+        font-size: 2rem;
+        color: $green;
+      }
+    }
+    a {
+      text-decoration: none !important;
+    }
+
+    .article-link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.6rem;
+      margin-bottom: 0.8rem;
+      border: 0.1rem solid rgba($darkBlue, 0.2);
+      padding: 1.6rem;
+      border-radius: 0.8rem;
+      margin: 1.6rem;
+      background-color: transparent;
+      transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+      .medium-icon {
+        width: 4rem;
+        min-width: 4rem;
+        height: 4rem;
+        background-color: $darkBlue;
+        border-radius: 0.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s ease;
+      }
+
+      .article-title {
+        font-size: 1.6rem;
+        line-height: 1.3;
+        color: $darkBlue;
+        text-decoration: none !important;
+        transition: color 0.2s ease;
+      }
+
+      .arrow-icon {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        border-color: $green;
+        transform: translateY(-0.2rem);
+        box-shadow: 0 0.4rem 1.2rem rgba($green, 0.15);
+
+        .medium-icon {
+          background-color: $green;
+        }
+
+        .article-title {
+          color: $green;
+        }
+
+        .arrow-icon {
+          transform: translateX(0.4rem);
+        }
+      }
+    }
+  }
+
+  .section-divider {
+    width: 10rem;
+    height: 0.2rem;
+    margin: 6rem auto 0;
+    background-color: $green;
+  }
+}
+
+span.bold {
+  font-size: 1.6rem;
+  color: $darkBlue;
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 0.4rem;
+}
