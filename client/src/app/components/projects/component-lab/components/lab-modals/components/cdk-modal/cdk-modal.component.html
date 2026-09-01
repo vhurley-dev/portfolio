@@ -1,0 +1,29 @@
+<div class="modal-card">
+  <div class="modal-header">
+    <h2 id="cdk-modal-title">CDK Headless Dialog</h2>
+    <button
+      type="button"
+      class="btn-darkBlue"
+      aria-label="Close modal"
+      (click)="close()"
+    >
+      ✕
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <p id="cdk-modal-desc">
+      This modal is powered by modern Angular Headless CDK Dialog.
+    </p>
+
+    <label for="cdk-username">Username</label>
+    <input id="cdk-username" type="text" [value]="username" cdkFocusInitial />
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn-pink" (click)="close()">Cancel</button>
+    <button type="button" class="btn-green" (click)="save()">
+      Save Changes
+    </button>
+  </div>
+</div>
