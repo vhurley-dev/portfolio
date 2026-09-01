@@ -7,6 +7,7 @@ import { LabSection, LabTab } from './interfaces/component.model';
 import { LabComboBoxComponent } from './components/lab-combo-box/lab-combo-box.component';
 import { LabSectionComponent } from './components/lab-section/lab-section.component';
 import componentLabData from '../../../../assets/data/component-lab.json';
+import { LabModalComponent } from './components/lab-modals/lab-modal.component';
 
 @Component({
   selector: 'app-component-lab',
@@ -16,6 +17,7 @@ import componentLabData from '../../../../assets/data/component-lab.json';
     LabTabsComponent,
     LabComboBoxComponent,
     LabSectionComponent,
+    LabModalComponent,
   ],
   templateUrl: './component-lab.component.html',
   styleUrl: './component-lab.component.scss',
