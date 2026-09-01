@@ -1,41 +1,49 @@
 <div class="lab-item">
   <div class="row">
-  <div class="col-left">
-    <h2 class="section-title">Section {{ index() }}</h2>
-    <h2 class="component-title">{{ title() }}</h2>
-    <ng-content></ng-content>
-    <p class="section-intro">
-      <span class="bold">The Challenge:</span> {{ challenge() }} <br /><br />
-      <span class="bold">The Solution:</span> {{ solution() }}
-    </p>
-  </div>
-  <div class="col-right">
-    @if (articles().length) {
-      <div class="related-articles">
-        <div class="heading">
-          <div class="medium-icon">
-            <icon name="ph:medium-logo" class="icon-dark" size="32"></icon>
-          </div>
-          <h4>Medium Article series ({{ articles().length }} parts)</h4>
-        </div>
-        @for (article of articles(); track article.title) {
-          <a [href]="article.url" target="_blank" rel="noopener noreferrer">
-            <div class="article-link">
-              <div class="medium-icon">
-                <icon name="ph:medium-logo" class="icon-white" size="24"></icon>
-              </div>
-              <div class="article-title">
-                {{ article.title }}
-              </div>
-              <div class="arrow-icon">
-                <icon name="ph:arrow-right" class="icon-green" size="24"></icon>
-              </div>
+    <div class="col-left">
+      <h2 class="section-title">Section {{ index() }}</h2>
+      <h2 class="component-title">{{ title() }}</h2>
+      <ng-content></ng-content>
+      <p class="section-intro">
+        <span class="bold">The Challenge:</span> {{ challenge() }} <br /><br />
+        <span class="bold">The Solution:</span> {{ solution() }}
+      </p>
+    </div>
+    <div class="col-right">
+      @if (articles().length) {
+        <div class="related-articles">
+          <div class="heading">
+            <div class="medium-icon">
+              <icon name="ph:medium-logo" class="icon-dark" size="32"></icon>
             </div>
-          </a>
-        }
-      </div>
-    }
-  </div>
+            <h3>Medium Article series ({{ articles().length }} parts)</h3>
+          </div>
+          @for (article of articles(); track article.title) {
+            <a [href]="article.url" target="_blank" rel="noopener noreferrer">
+              <div class="article-link">
+                <div class="medium-icon">
+                  <icon
+                    name="ph:medium-logo"
+                    class="icon-white"
+                    size="24"
+                  ></icon>
+                </div>
+                <div class="article-title">
+                  {{ article.title }}
+                </div>
+                <div class="arrow-icon">
+                  <icon
+                    name="ph:arrow-right"
+                    class="icon-dark-green"
+                    size="24"
+                  ></icon>
+                </div>
+              </div>
+            </a>
+          }
+        </div>
+      }
+    </div>
   </div>
   @if (!isLast()) {
     <div class="section-divider"></div>

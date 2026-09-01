@@ -2,7 +2,12 @@
   @for (project of projects(); track project.title) {
     <div class="project-outer">
       <div class="project">
-        <img src="{{ project.img }}" alt="" [routerLink]="project.projectUrl" />
+        <img
+          role="button"
+          src="{{ project.img }}"
+          alt="screenshot of {{ project.title }}"
+          [routerLink]="project.projectUrl"
+        />
         <div class="description">
           <a [routerLink]="project.projectUrl">
             <h5>
