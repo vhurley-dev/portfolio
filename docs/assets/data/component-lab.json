@@ -62,6 +62,19 @@
           "url": "https://medium.com/@vhurley.dev/accessible-tabs-in-angular-part-2-what-really-happens-when-you-switch-tabs-a63bfb50d400"
         }
       ]
+    },
+    {
+      "title": "Accessible Modal (Headless)",
+      "challenge": "Modals are a common UI pattern, but they present unique accessibility challenges. They require a delicate balance of focus trapping, background silencing, and intuitive dismissal flows. When a dialog opens, screen reader users must not be able to navigate to the background content, focus must land immediately inside the modal, and pressing Escape must close it safely while returning focus to the exact element that triggered it.",
+      "solution": "This implementation uses the Angular CDK Dialog module for its robust, headless overlay foundation. By utilising the cdkFocusInitial directive, the component places the focus to the primary input field upon opening. Clean semantic markup, explicit button labeling and custom SCSS styling combine to provide a fully WCAG-compliant experience.",
+      "developerNotes": [],
+      "componentName": "app-lab-modal",
+      "articles": [
+        {
+          "title": "Three Ways I Built Accessible Modals in Angular (And the Gotchas Along the Way)",
+          "url": "https://medium.com/@vhurley.dev/three-ways-i-built-accessible-modals-in-angular-and-the-gotchas-along-the-way-03595139a574"
+        }
+      ]
     }
   ]
 }
