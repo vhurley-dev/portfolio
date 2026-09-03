@@ -121,6 +121,12 @@
       "certificateURL": "https://www.udemy.com/course/the-complete-javascript-course/"
     },
     {
+      "title": "Claude Code 101",
+      "provider": "Anthropic",
+      "dateCompleted": "2nd September 2026",
+      "certificateURL": "https://academy.claude.com/badges/e8277b39-4c32-4432-9fc1-47db72bad75f"
+    },
+    {
       "title": "Local LLMs via Ollama & LM Studio - The Practical Guide",
       "provider": "Udemy",
       "dateCompleted": "19th September 2025",
