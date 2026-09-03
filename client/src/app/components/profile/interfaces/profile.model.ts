@@ -47,7 +47,12 @@ export interface Project {
 
 export interface Course {
   title: string;
-  provider: string;
+  provider:
+    | 'Udemy'
+    | 'LinkedIn Learning'
+    | 'Anthropic'
+    | 'AWS Training and certification'
+    | 'NNg';
   dateCompleted: string;
   certificateURL: string;
 }

@@ -8,15 +8,48 @@
   box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
   border-radius: 0.8rem;
   overflow: hidden;
-  max-height: 53.7rem;
+  max-height: 56rem;
   transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 
   &.is-expanded {
     max-height: 500rem;
   }
 }
+
+.course-logo {
+  width: 3.6rem;
+  height: 3.6rem;
+  min-width: 3.6rem;
+  min-height: 3.6rem;
+  margin: auto 0.8rem auto 0;
+  opacity: 0.4;
+
+  &.anthropic {
+    background: url("../../../../../assets/icons/course-providers/anthropic.svg")
+      no-repeat center center;
+  }
+  &.aws {
+    background: url("../../../../../assets/icons/course-providers/aws.svg")
+      no-repeat center center;
+  }
+  &.linkedin {
+    background: url("../../../../../assets/icons/course-providers/linkedin.svg")
+      no-repeat center center;
+  }
+  &.nng {
+    background: url("../../../../../assets/icons/course-providers/nng.svg")
+      no-repeat center center;
+  }
+  &.udemy {
+    background: url("../../../../../assets/icons/course-providers/udemy.svg")
+      no-repeat center center;
+  }
+}
+
 .course-item {
   margin-bottom: 2.4rem;
+  display: flex;
+  flex-direction: row;
 
   a {
     color: $white;
