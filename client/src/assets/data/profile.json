@@ -121,6 +121,12 @@
       "certificateURL": "https://www.udemy.com/course/the-complete-javascript-course/"
     },
     {
+      "title": "Claude Code in Action",
+      "provider": "Anthropic",
+      "dateCompleted": "3rd September 2026",
+      "certificateURL": "https://academy.claude.com/badges/e4f71d90-458f-4431-b45e-82761c406215"
+    },
+    {
       "title": "Claude Code 101",
       "provider": "Anthropic",
       "dateCompleted": "2nd September 2026",
