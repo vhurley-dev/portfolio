@@ -1,26 +1,26 @@
-@if (errorMessage) {
-  <p class="error">{{ errorMessage }}</p>
-}
-@if (loading) {
-  <div class="loading-state">
-    <p>Loading massive payload from MongoDB...</p>
-  </div>
-} @else if (images && images.length > 0) {
-  <div class="grid">
-    @for (img of images; track img._id) {
-      <!-- <div class="card">
-
-        <img [src]="img.url" [alt]="img.title" />
-        <div class="card-info">
-          <h3>{{ img.title }}</h3>
-          <p class="camera">
-            {{ img.metadata?.cameraModel || "Unknown Camera" }}
-          </p>
-          <span class="views">{{ img.views }} views</span>
+@if (galleryData(); as data) {
+  @if (data.images && data.images.length > 0) {
+    <div class="grid">
+      @for (img of data.images; track img._id) {
+        <div class="card">
+          <img [src]="img.url" [alt]="img.title" loading="lazy" />
+          <div class="card-info">
+            <h3>{{ img.title }}</h3>
+            <p class="camera">
+              {{ img.metadata?.cameraModel || "Unknown Camera" }}
+            </p>
+            <span class="views">{{ img.views }} views</span>
+          </div>
         </div>
-      </div> -->
-    }
-  </div>
+      }
+    </div>
+  } @else {
+    <div class="no-images">
+      <p>No images found.</p>
+    </div>
+  }
 } @else {
-  <p class="no-images">No images found.</p>
+  <div class="loading-container">
+    <p>Loading optimised assets from Cloudflare R2...</p>
+  </div>
 }
