@@ -1,0 +1,46 @@
+<header class="gallery-header">
+  <div class="nav-back">
+    <a aria-label="Go back to homepage" routerLink="/"
+      ><icon name="ph:arrow-left" class="icon-green" size="24"></icon
+    ></a>
+  </div>
+  <div class="page-title">
+    @if (showOptimisedGallery) {
+      <h1><span class="green">Optimised</span> Gallery</h1>
+      <p>
+        Rendering batched documents with pagination, virtualisation and lazy
+        loading.
+      </p>
+    } @else {
+      <h1><span class="pink">Bad</span> Gallery</h1>
+      <p>
+        Rendering 400 heavy documents with no pagination, virtualisation, or
+        lazy loading.
+      </p>
+    }
+  </div>
+</header>
+
+<div class="gallery-container">
+  <div class="toggle-container">
+    <button
+      type="button"
+      class="toggle-switch"
+      [class.active]="showOptimisedGallery"
+      (click)="onToggleGallery()"
+      [attr.aria-checked]="showOptimisedGallery"
+      role="switch"
+    >
+      <span class="toggle-handle"></span>
+    </button>
+    <span class="toggle-label" (click)="onToggleGallery()"
+      >Optimise Gallery</span
+    >
+  </div>
+
+  @if (showOptimisedGallery) {
+    <app-gallery-optimised />
+  } @else {
+    <app-gallery-unoptimised />
+  }
+</div>

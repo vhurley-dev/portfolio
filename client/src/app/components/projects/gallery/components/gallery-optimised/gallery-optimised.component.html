@@ -1,0 +1,26 @@
+@if (errorMessage) {
+  <p class="error">{{ errorMessage }}</p>
+}
+@if (loading) {
+  <div class="loading-state">
+    <p>Loading massive payload from MongoDB...</p>
+  </div>
+} @else if (images && images.length > 0) {
+  <div class="grid">
+    @for (img of images; track img._id) {
+      <!-- <div class="card">
+
+        <img [src]="img.url" [alt]="img.title" />
+        <div class="card-info">
+          <h3>{{ img.title }}</h3>
+          <p class="camera">
+            {{ img.metadata?.cameraModel || "Unknown Camera" }}
+          </p>
+          <span class="views">{{ img.views }} views</span>
+        </div>
+      </div> -->
+    }
+  </div>
+} @else {
+  <p class="no-images">No images found.</p>
+}
