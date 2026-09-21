@@ -1,0 +1,25 @@
+@if (loading) {
+  <div class="loading-state">
+    <p>Loading massive payload from MongoDB...</p>
+  </div>
+}
+
+@if (errorMessage) {
+  <p class="error">{{ errorMessage }}</p>
+}
+
+<div class="grid">
+  @for (img of images; track img._id) {
+    <div class="card">
+      <!-- ANTI-PATTERN: No loading="lazy", pulling raw high-res picsum images -->
+      <img [src]="img.url" [alt]="img.title" />
+      <div class="card-info">
+        <h3>{{ img.title }}</h3>
+        <p class="camera">
+          {{ img.metadata?.cameraModel || "Unknown Camera" }}
+        </p>
+        <span class="views">{{ img.views }} views</span>
+      </div>
+    </div>
+  }
+</div>
