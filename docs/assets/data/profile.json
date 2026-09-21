@@ -94,8 +94,8 @@
   "projects": [
     {
       "title": "High Performance Gallery: Angular 21 + Node.js",
-      "description": "A deep-dive into performant image gallery design. This project showcases the implementation of performance optimisation techniques.",
-      "img": "./assets/img/component-lab.png",
+      "description": "A deep-dive into performant image gallery design. This project showcases a bottom-up architectural transformation, rebuilding a sluggish 97.7 MB payload disaster into a lightning-fast experience with a 96+ Lighthouse score. Features database optimization with indexed queries, a custom Node.js/Sharp image processing pipeline, Angular Signals, and an optimized infinite scroll data delivery strategy for seamless asset loading.",
+      "img": "./assets/img/gallery.webp",
       "projectUrl": "/gallery",
       "tech": [
         "Angular",
