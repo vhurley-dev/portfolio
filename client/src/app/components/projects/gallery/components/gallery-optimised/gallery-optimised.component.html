@@ -1,8 +1,7 @@
-@if (!loading()) {
-  <!-- The CDK Virtual Scroll Viewport manages DOM recycling -->
-  <cdk-virtual-scroll-viewport [itemSize]="450" class="virtual-viewport">
-    <div class="grid">
-      <div *cdkVirtualFor="let img of images()" class="card">
+<div class="gallery-container">
+  <div class="grid">
+    @for (img of images(); track img._id) {
+      <div class="card">
         <img [src]="img.url" [alt]="img.title" loading="lazy" />
         <div class="card-info">
           <h3>{{ img.title }}</h3>
@@ -12,10 +11,15 @@
           <span class="views">{{ img.views }} views</span>
         </div>
       </div>
-    </div>
-  </cdk-virtual-scroll-viewport>
-} @else {
-  <div class="loading-container">
-    <p>Loading full dataset for virtualized rendering...</p>
+    }
   </div>
-}
+
+  <!-- Intersection Observer Sentinel Target -->
+  <div #sentinel class="scroll-sentinel">
+    @if (loading()) {
+      <div class="loading-indicator">
+        <p>Loading more captures from Cloudflare R2...</p>
+      </div>
+    }
+  </div>
+</div>
