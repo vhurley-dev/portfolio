@@ -1,13 +1,15 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   OnInit,
+  ViewChild,
   inject,
   signal,
 } from '@angular/core';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { GalleryService } from '../../gallery.service';
-import { catchError, of } from 'rxjs';
+import { catchError, finalize, of } from 'rxjs';
 
 @Component({
   selector: 'app-gallery-optimised',
@@ -19,26 +21,68 @@ import { catchError, of } from 'rxjs';
 export class GalleryOptimisedComponent implements OnInit {
   private galleryService = inject(GalleryService);
 
-  // Hold the full dataset in memory; the CDK viewport handles DOM recycling
+  // State signals for infinite scroll accumulation
   readonly images = signal<any[]>([]);
-  readonly loading = signal(true);
+  readonly currentPage = signal(1);
+  readonly totalPages = signal(1);
+  readonly loading = signal(false);
+
+  @ViewChild('sentinel', { static: true }) sentinel!: ElementRef;
 
   ngOnInit(): void {
-    // Request a large enough batch upfront (e.g., 500) to cover the entire dataset
+    this.loadMoreImages();
+    this.setupIntersectionObserver();
+  }
+
+  loadMoreImages() {
+    // Guard: Don't fetch if already loading or we've reached the end
+    if (
+      this.loading() ||
+      (this.currentPage() > this.totalPages() && this.totalPages() > 1)
+    ) {
+      return;
+    }
+
+    this.loading.set(true);
+
     this.galleryService
-      .getOptimisedGallery(1, 500)
+      .getOptimisedGallery(this.currentPage(), 12)
       .pipe(
+        finalize(() => this.loading.set(false)),
         catchError((error) => {
-          console.error('Error fetching data for virtualization:', error);
+          console.error('Error fetching infinite batch:', error);
           return of({
             images: [],
-            pagination: { totalImages: 0, currentPage: 1, totalPages: 1 },
+            pagination: {
+              totalImages: 0,
+              currentPage: this.currentPage(),
+              totalPages: 1,
+            },
           });
         }),
       )
       .subscribe((response) => {
-        this.images.set(response.images);
-        this.loading.set(false);
+        // Accumulate the new images onto the existing array signal
+        this.images.update((current) => [...current, ...response.images]);
+        this.totalPages.set(response.pagination.totalPages);
+
+        // Increment page for the next scroll trigger
+        this.currentPage.update((p) => p + 1);
       });
+  }
+
+  setupIntersectionObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.loadMoreImages();
+          }
+        });
+      },
+      { rootMargin: '200px' },
+    ); // Trigger 200px before the sentinel hits the bottom
+
+    observer.observe(this.sentinel.nativeElement);
   }
 }
