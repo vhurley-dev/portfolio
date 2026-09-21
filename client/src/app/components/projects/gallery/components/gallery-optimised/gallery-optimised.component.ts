@@ -1,18 +1,17 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   OnInit,
-  ViewChild,
   inject,
   signal,
 } from '@angular/core';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { GalleryService } from '../../gallery.service';
-import { catchError, finalize, of } from 'rxjs';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-gallery-optimised',
-  imports: [],
+  imports: [ScrollingModule],
   templateUrl: './gallery-optimised.component.html',
   styleUrl: '../../gallery.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,68 +19,26 @@ import { catchError, finalize, of } from 'rxjs';
 export class GalleryOptimisedComponent implements OnInit {
   private galleryService = inject(GalleryService);
 
-  // State signals for infinite scroll accumulation
+  // Hold the full dataset in memory; the CDK viewport handles DOM recycling
   readonly images = signal<any[]>([]);
-  readonly currentPage = signal(1);
-  readonly totalPages = signal(1);
-  readonly loading = signal(false);
-
-  @ViewChild('sentinel', { static: true }) sentinel!: ElementRef;
+  readonly loading = signal(true);
 
   ngOnInit(): void {
-    this.loadMoreImages();
-    this.setupIntersectionObserver();
-  }
-
-  loadMoreImages() {
-    // Guard: Don't fetch if already loading or we've reached the end
-    if (
-      this.loading() ||
-      (this.currentPage() > this.totalPages() && this.totalPages() > 1)
-    ) {
-      return;
-    }
-
-    this.loading.set(true);
-
+    // Request a large enough batch upfront (e.g., 500) to cover the entire dataset
     this.galleryService
-      .getOptimisedGallery(this.currentPage(), 12)
+      .getOptimisedGallery(1, 500)
       .pipe(
-        finalize(() => this.loading.set(false)),
         catchError((error) => {
-          console.error('Error fetching infinite batch:', error);
+          console.error('Error fetching data for virtualization:', error);
           return of({
             images: [],
-            pagination: {
-              totalImages: 0,
-              currentPage: this.currentPage(),
-              totalPages: 1,
-            },
+            pagination: { totalImages: 0, currentPage: 1, totalPages: 1 },
           });
         }),
       )
       .subscribe((response) => {
-        // Accumulate the new images onto the existing array signal
-        this.images.update((current) => [...current, ...response.images]);
-        this.totalPages.set(response.pagination.totalPages);
-
-        // Increment page for the next scroll trigger
-        this.currentPage.update((p) => p + 1);
+        this.images.set(response.images);
+        this.loading.set(false);
       });
-  }
-
-  setupIntersectionObserver() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.loadMoreImages();
-          }
-        });
-      },
-      { rootMargin: '200px' },
-    ); // Trigger 200px before the sentinel hits the bottom
-
-    observer.observe(this.sentinel.nativeElement);
   }
 }

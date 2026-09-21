@@ -151,3 +151,9 @@
     margin-left: 1.6rem;
   }
 }
+
+.virtual-viewport {
+  height: calc(100vh - 20rem);
+  display: block;
+  width: 100%;
+}
