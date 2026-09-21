@@ -7,12 +7,13 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { GalleryService } from '../../gallery.service';
 import { catchError, finalize, of } from 'rxjs';
 
 @Component({
   selector: 'app-gallery-optimised',
-  imports: [],
+  imports: [ScrollingModule],
   templateUrl: './gallery-optimised.component.html',
   styleUrl: '../../gallery.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
