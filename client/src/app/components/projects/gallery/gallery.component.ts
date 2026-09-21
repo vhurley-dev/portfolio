@@ -17,7 +17,7 @@ import { GalleryOptimisedComponent } from './components/gallery-optimised/galler
   styleUrl: './gallery.component.scss',
 })
 export class GalleryComponent {
-  showOptimisedGallery: boolean = false;
+  showOptimisedGallery: boolean = true;
 
   onToggleGallery() {
     this.showOptimisedGallery = !this.showOptimisedGallery;
