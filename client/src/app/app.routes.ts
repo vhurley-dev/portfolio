@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TodosComponent } from './components/projects/todos/todos.component';
 import { ComponentLabComponent } from './components/projects/component-lab/component-lab.component';
+import { GalleryComponent } from './components/projects/gallery/gallery.component';
 
 export const routes: Routes = [
   {
@@ -9,6 +10,15 @@ export const routes: Routes = [
     pathMatch: 'full',
     component: ProfileComponent,
     title: 'Portfolio App',
+  },
+  {
+    path: 'gallery',
+    component: GalleryComponent,
+    title: 'Portfolio App | Gallery',
+    data: {
+      description:
+        'A deep-dive into performant image gallery design. This project showcases the implementation of performance optimisation techniques.',
+    },
   },
   {
     path: 'component-lab',

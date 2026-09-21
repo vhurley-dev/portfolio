@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const todosRoutes = require("./routes/todos");
 const serverHealthRoutes = require("./routes/serverHealth");
+const galleryRoutes = require("./routes/gallery");
 
 const app = express();
 
@@ -35,5 +36,7 @@ app.use((req, res, next) => {
 app.use("/health", serverHealthRoutes);
 
 app.use("/api/todos", todosRoutes);
+
+app.use("/api/gallery", galleryRoutes);
 
 module.exports = app;

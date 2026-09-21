@@ -1,0 +1,143 @@
+@use "./../../../../assets/scss/colours" as *;
+
+.gallery-header {
+  background-color: $darkBlue;
+  padding: 2.4rem;
+  display: flex;
+
+  .page-title {
+    text-align: center;
+    width: 100%;
+    letter-spacing: 8%;
+    h1 {
+      text-transform: uppercase;
+      font-size: 3.2rem;
+      color: $lightGrey;
+      margin-bottom: 0;
+      .green {
+        color: $green;
+        font-size: inherit;
+        font-family: inherit;
+      }
+      .pink {
+        color: $pink;
+        font-size: inherit;
+        font-family: inherit;
+      }
+    }
+    p {
+      color: $lightGrey;
+      font-weight: 300;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1.6rem;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 2.4rem;
+
+  .toggle-switch {
+    position: relative;
+    width: 5rem;
+    height: 2.6rem;
+    background-color: $grey;
+    border-radius: 1.3rem;
+    border: none;
+    padding: 0;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+
+  .toggle-switch.active {
+    background-color: $green;
+  }
+
+  .toggle-handle {
+    position: absolute;
+    top: 0.3rem;
+    left: 0.3rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: $pureWhite;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+  }
+
+  .toggle-switch.active .toggle-handle {
+    transform: translateX(2.4rem);
+  }
+
+  .toggle-label {
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+}
+
+.gallery-container {
+  padding: 2rem;
+
+  .error {
+    color: $pink;
+    font-weight: bold;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.4rem;
+}
+
+.card {
+  background: $pureWhite;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  /* ANTI-PATTERN: Heavy box-shadows cause layout/paint overhead */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-info {
+    padding: 1.6rem;
+
+    h3 {
+      font-size: 1.2rem;
+      margin: 0 0 0.8rem 0;
+      color: $darkBlue;
+    }
+
+    .camera {
+      font-size: 1.2rem;
+      color: $grey;
+      margin: 0 0 0.8rem 0;
+    }
+
+    .views {
+      font-size: 1.2rem;
+      background: $lightGrey;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.4rem;
+      color: $darkBlue;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  }
+}
