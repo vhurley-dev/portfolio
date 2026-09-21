@@ -38,7 +38,6 @@
   justify-content: end;
   align-items: center;
   gap: 1.6rem;
-  cursor: pointer;
   user-select: none;
   margin-bottom: 2.4rem;
 
@@ -137,11 +136,18 @@
       color: $darkBlue;
     }
   }
+}
 
-  &:hover {
-    transform: translateY(-4px);
-    /* ANTI-PATTERN: Heavy box-shadows cause layout/paint overhead */
-    /* OPTIMISED: Lightweight styling with no heavy paint / blur costs */
-    // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.4rem;
+
+  .page-btn-prev {
+    margin-right: 1.6rem;
+  }
+  .page-btn-next {
+    margin-left: 1.6rem;
   }
 }
