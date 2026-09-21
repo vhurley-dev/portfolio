@@ -1,63 +1,87 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
   inject,
   signal,
 } from '@angular/core';
 import { GalleryService } from '../../gallery.service';
-import { toSignal, toObservable } from '@angular/core/rxjs-interop';
-import { catchError, of, switchMap } from 'rxjs';
+import { catchError, finalize, of } from 'rxjs';
 
 @Component({
   selector: 'app-gallery-optimised',
   imports: [],
   templateUrl: './gallery-optimised.component.html',
   styleUrl: '../../gallery.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush, // <-- OPTIMIZATION: Disables default global dirty-checking
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GalleryOptimisedComponent {
+export class GalleryOptimisedComponent implements OnInit {
   private galleryService = inject(GalleryService);
 
-  // Track the current page reactively via a Signal
+  // State signals for infinite scroll accumulation
+  readonly images = signal<any[]>([]);
   readonly currentPage = signal(1);
-  readonly pageSize = 12;
+  readonly totalPages = signal(1);
+  readonly loading = signal(false);
 
-  // Automatically re-fetch whenever the currentPage signal updates
-  readonly galleryData = toSignal(
-    toObservable(this.currentPage).pipe(
-      switchMap((page) =>
-        this.galleryService.getOptimisedGallery(page, this.pageSize).pipe(
-          catchError((error) => {
-            console.error('Error fetching optimised images:', error);
-            return of({
-              images: [],
-              pagination: { totalImages: 0, currentPage: page, totalPages: 1 },
-            });
-          }),
-        ),
-      ),
-    ),
-    {
-      initialValue: {
-        images: [],
-        pagination: { totalImages: 0, currentPage: 1, totalPages: 1 },
-      },
-    },
-  );
+  @ViewChild('sentinel', { static: true }) sentinel!: ElementRef;
 
-  // Pagination Actions
-  nextPage() {
-    const data = this.galleryData();
-    if (data && this.currentPage() < data.pagination.totalPages) {
-      this.currentPage.update((p) => p + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll back to top on page change
-    }
+  ngOnInit(): void {
+    this.loadMoreImages();
+    this.setupIntersectionObserver();
   }
 
-  prevPage() {
-    if (this.currentPage() > 1) {
-      this.currentPage.update((p) => p - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  loadMoreImages() {
+    // Guard: Don't fetch if already loading or we've reached the end
+    if (
+      this.loading() ||
+      (this.currentPage() > this.totalPages() && this.totalPages() > 1)
+    ) {
+      return;
     }
+
+    this.loading.set(true);
+
+    this.galleryService
+      .getOptimisedGallery(this.currentPage(), 12)
+      .pipe(
+        finalize(() => this.loading.set(false)),
+        catchError((error) => {
+          console.error('Error fetching infinite batch:', error);
+          return of({
+            images: [],
+            pagination: {
+              totalImages: 0,
+              currentPage: this.currentPage(),
+              totalPages: 1,
+            },
+          });
+        }),
+      )
+      .subscribe((response) => {
+        // Accumulate the new images onto the existing array signal
+        this.images.update((current) => [...current, ...response.images]);
+        this.totalPages.set(response.pagination.totalPages);
+
+        // Increment page for the next scroll trigger
+        this.currentPage.update((p) => p + 1);
+      });
+  }
+
+  setupIntersectionObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.loadMoreImages();
+          }
+        });
+      },
+      { rootMargin: '200px' },
+    ); // Trigger 200px before the sentinel hits the bottom
+
+    observer.observe(this.sentinel.nativeElement);
   }
 }

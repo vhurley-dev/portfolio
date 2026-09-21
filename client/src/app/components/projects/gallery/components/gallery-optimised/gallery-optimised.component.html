@@ -1,50 +1,25 @@
-@if (galleryData(); as data) {
-  @if (data.images && data.images.length > 0) {
-    <div class="grid">
-      @for (img of data.images; track img._id) {
-        <div class="card">
-          <img [src]="img.url" [alt]="img.title" loading="lazy" />
-          <div class="card-info">
-            <h3>{{ img.title }}</h3>
-            <p class="camera">
-              {{ img.metadata?.cameraModel || "Unknown Camera" }}
-            </p>
-            <span class="views">{{ img.views }} views</span>
-          </div>
+<div class="gallery-container">
+  <div class="grid">
+    @for (img of images(); track img._id) {
+      <div class="card">
+        <img [src]="img.url" [alt]="img.title" loading="lazy" />
+        <div class="card-info">
+          <h3>{{ img.title }}</h3>
+          <p class="camera">
+            {{ img.metadata?.cameraModel || "Unknown Camera" }}
+          </p>
+          <span class="views">{{ img.views }} views</span>
         </div>
-      }
-    </div>
-
-    <!-- Classic Pagination Controls Bar -->
-    <div class="pagination-container">
-      <button
-        class="btn btn-darkBlue page-btn-prev"
-        (click)="prevPage()"
-        [disabled]="data.pagination.currentPage === 1"
-      >
-        &larr; Previous
-      </button>
-
-      <span class="page-indicator">
-        Page <strong>{{ data.pagination.currentPage }}</strong> of
-        <strong>{{ data.pagination.totalPages }}</strong>
-      </span>
-
-      <button
-        class="btn btn-darkBlue page-btn-next"
-        (click)="nextPage()"
-        [disabled]="data.pagination.currentPage === data.pagination.totalPages"
-      >
-        Next &rarr;
-      </button>
-    </div>
-  } @else {
-    <div class="no-images">
-      <p>No images found.</p>
-    </div>
-  }
-} @else {
-  <div class="loading-container">
-    <p>Loading optimised assets from Cloudflare R2...</p>
+      </div>
+    }
   </div>
-}
+
+  <!-- Intersection Observer Sentinel Target -->
+  <div #sentinel class="scroll-sentinel">
+    @if (loading()) {
+      <div class="loading-indicator">
+        <p>Loading more captures from Cloudflare R2...</p>
+      </div>
+    }
+  </div>
+</div>
