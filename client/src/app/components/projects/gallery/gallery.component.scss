@@ -100,7 +100,9 @@
   border-radius: 1.6rem;
   overflow: hidden;
   /* ANTI-PATTERN: Heavy box-shadows cause layout/paint overhead */
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  /* OPTIMISED: Lightweight styling with no heavy paint / blur costs */
+  // box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  border: 1px solid $grey;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -138,6 +140,8 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    /* ANTI-PATTERN: Heavy box-shadows cause layout/paint overhead */
+    /* OPTIMISED: Lightweight styling with no heavy paint / blur costs */
+    // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
   }
 }
