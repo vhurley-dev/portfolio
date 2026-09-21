@@ -1,7 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { GalleryService } from '../../gallery.service';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { catchError, of } from 'rxjs';
+import { toSignal, toObservable } from '@angular/core/rxjs-interop';
+import { catchError, of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-gallery-optimised',
@@ -12,48 +17,47 @@ import { catchError, of } from 'rxjs';
 })
 export class GalleryOptimisedComponent {
   private galleryService = inject(GalleryService);
-  images: any[] = [];
-  // loading: boolean = true;
-  // errorMessage: string = '';
-  pagination: { totalImages: number; currentPage: number; totalPages: number };
 
-  // ngOnInit(): void {
-  //   this.galleryService.getOptimisedGallery(1, 12).subscribe({
-  //     next: (response) => {
-  //       this.images = response.images;
-  //       this.pagination = response.pagination;
-  //       this.loading = false;
-  //     },
-  //     error: (error) => {
-  //       console.error('Error fetching optimised images:', error);
-  //       this.errorMessage = 'Failed to load optimised images.';
-  //       this.loading = false;
-  //     },
-  //   });
-  // }
+  // Track the current page reactively via a Signal
+  readonly currentPage = signal(1);
+  readonly pageSize = 12;
 
-  // Converts the HTTP Observable into a read-only Signal
+  // Automatically re-fetch whenever the currentPage signal updates
   readonly galleryData = toSignal(
-    this.galleryService.getOptimisedGallery(1, 12).pipe(
-      catchError((error) => {
-        console.error('Error fetching optimised images:', error);
-        // Fallback structure matching your PaginatedGalleryResponse
-        return of({
-          images: [],
-          pagination: { totalImages: 0, currentPage: 1, totalPages: 1 },
-        });
-      }),
+    toObservable(this.currentPage).pipe(
+      switchMap((page) =>
+        this.galleryService.getOptimisedGallery(page, this.pageSize).pipe(
+          catchError((error) => {
+            console.error('Error fetching optimised images:', error);
+            return of({
+              images: [],
+              pagination: { totalImages: 0, currentPage: page, totalPages: 1 },
+            });
+          }),
+        ),
+      ),
     ),
+    {
+      initialValue: {
+        images: [],
+        pagination: { totalImages: 0, currentPage: 1, totalPages: 1 },
+      },
+    },
   );
 
-  // Transforming the HTTP observable directly into a read-only signal
-  // readonly galleryData = toSignal(
-  //   this.galleryService.getOptimisedGallery(1, 12),
-  //   {
-  //     initialValue: {
-  //       images: [],
-  //       pagination: { totalImages: 0, currentPage: 1, totalPages: 1 },
-  //     },
-  //   },
-  // );
+  // Pagination Actions
+  nextPage() {
+    const data = this.galleryData();
+    if (data && this.currentPage() < data.pagination.totalPages) {
+      this.currentPage.update((p) => p + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll back to top on page change
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage() > 1) {
+      this.currentPage.update((p) => p - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
 }

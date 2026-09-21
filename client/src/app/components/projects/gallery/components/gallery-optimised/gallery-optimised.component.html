@@ -14,6 +14,30 @@
         </div>
       }
     </div>
+
+    <!-- Classic Pagination Controls Bar -->
+    <div class="pagination-container">
+      <button
+        class="btn btn-darkBlue page-btn-prev"
+        (click)="prevPage()"
+        [disabled]="data.pagination.currentPage === 1"
+      >
+        &larr; Previous
+      </button>
+
+      <span class="page-indicator">
+        Page <strong>{{ data.pagination.currentPage }}</strong> of
+        <strong>{{ data.pagination.totalPages }}</strong>
+      </span>
+
+      <button
+        class="btn btn-darkBlue page-btn-next"
+        (click)="nextPage()"
+        [disabled]="data.pagination.currentPage === data.pagination.totalPages"
+      >
+        Next &rarr;
+      </button>
+    </div>
   } @else {
     <div class="no-images">
       <p>No images found.</p>
