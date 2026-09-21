@@ -8,8 +8,7 @@
 } @else if (images && images.length > 0) {
   <div class="grid">
     @for (img of images; track img._id) {
-      <!-- <div class="card">
-
+      <div class="card">
         <img [src]="img.url" [alt]="img.title" />
         <div class="card-info">
           <h3>{{ img.title }}</h3>
@@ -18,7 +17,7 @@
           </p>
           <span class="views">{{ img.views }} views</span>
         </div>
-      </div> -->
+      </div>
     }
   </div>
 } @else {
