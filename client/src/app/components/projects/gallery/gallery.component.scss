@@ -33,6 +33,12 @@
   }
 }
 
+.gallery-container,
+.toggle-container {
+  max-width: 160rem;
+  margin: 0 auto;
+}
+
 .toggle-container {
   display: flex;
   justify-content: end;
@@ -51,10 +57,16 @@
     padding: 0;
     transition: background-color 0.2s ease;
     cursor: pointer;
-  }
 
-  .toggle-switch.active {
-    background-color: $green;
+    &.active {
+      background-color: $green;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      background-color: $grey;
+    }
   }
 
   .toggle-handle {
@@ -82,6 +94,29 @@
 .gallery-container {
   padding: 2rem;
 
+  .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.4rem;
+
+    .left {
+      width: 100%;
+    }
+    .right {
+      max-width: 48rem;
+      min-width: 40rem;
+    }
+    @media only screen and (max-width: 850px) {
+      flex-direction: column-reverse;
+
+      .right {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+      }
+    }
+  }
+
   .error {
     color: $pink;
     font-weight: bold;
@@ -98,9 +133,6 @@
   background: $pureWhite;
   border-radius: 1.6rem;
   overflow: hidden;
-  /* ANTI-PATTERN: Heavy box-shadows cause layout/paint overhead */
-  /* OPTIMISED: Lightweight styling with no heavy paint / blur costs */
-  // box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
   border: 1px solid $grey;
   transition:
     transform 0.2s ease,
@@ -135,5 +167,48 @@
       border-radius: 0.4rem;
       color: $darkBlue;
     }
+  }
+}
+
+// Skeleton styles for loading state
+@keyframes shimmer {
+  0% {
+    background-position: -450px 0;
+  }
+  100% {
+    background-position: 450px 0;
+  }
+}
+.card.skeleton {
+  background: $lightGrey;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    $lightGrey 25%,
+    lighten($lightGrey, 5%) 50%,
+    $lightGrey 75%
+  );
+  animation: shimmer 2s infinite linear;
+  border: 1px transparent solid;
+
+  .image-skeleton {
+    width: 100%;
+    height: 25rem;
+  }
+
+  .card-info {
+    background: $pureWhite;
+  }
+  h3,
+  p,
+  span {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: $lightGrey;
+    color: transparent !important;
+    border-radius: 0.4rem;
   }
 }

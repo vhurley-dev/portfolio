@@ -1,0 +1,27 @@
+{
+  "allArticles": [
+    {
+      "project": "gallery",
+      "publishedArticles": [
+        {
+          "title": "Improving the Performace of an Image Gallery Part 1: Building a Poor Gallery (Unoptimised Baseline)",
+          "url": "https://medium.com/@vhurley.dev/improving-the-performance-of-an-image-gallery-part-1-building-a-poor-gallery-unoptimised-ebb63370b4fa"
+        }
+      ],
+      "draftArticles": [
+        {
+          "title": "Improving the Performace of an Image Gallery Part 2: How to Hunt Down Performance Bottlenecks with Chrome DevTools"
+        },
+        {
+          "title": "Improving the Performace of an Image Gallery Part 3: Optimising the Database and Backend"
+        },
+        {
+          "title": "Improving the Performace of an Image Gallery Part 4: Optimising the Frontend"
+        },
+        {
+          "title": "Improving the Performace of an Image Gallery Part 5: Pagination, Infinite Scroll, and Virtualization"
+        }
+      ]
+    }
+  ]
+}

@@ -10,10 +10,11 @@ import {
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { GalleryService } from '../../gallery.service';
 import { catchError, finalize, of } from 'rxjs';
+import { GallerySkeletonComponent } from '../gallery-skeleton/gallery-skeleton.component';
 
 @Component({
   selector: 'app-gallery-optimised',
-  imports: [ScrollingModule],
+  imports: [ScrollingModule, GallerySkeletonComponent],
   templateUrl: './gallery-optimised.component.html',
   styleUrl: '../../gallery.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
