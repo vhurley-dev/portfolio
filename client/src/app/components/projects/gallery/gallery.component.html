@@ -22,6 +22,7 @@
 </header>
 
 <div class="gallery-container">
+  <app-server-status />
   <div class="toggle-container">
     <button
       type="button"
@@ -30,6 +31,7 @@
       (click)="onToggleGallery()"
       [attr.aria-checked]="showOptimisedGallery"
       role="switch"
+      [disabled]="isDisabled()"
     >
       <span class="toggle-handle"></span>
     </button>
@@ -37,10 +39,29 @@
       >Optimised Gallery</span
     >
   </div>
-
-  @if (showOptimisedGallery) {
-    <app-gallery-optimised />
-  } @else {
-    <app-gallery-unoptimised />
-  }
+  <div class="content">
+    <div class="left">
+      @if (isLoading()) {
+        <app-gallery-skeleton />
+      } @else {
+        @if (isServerReady()) {
+          @if (showOptimisedGallery) {
+            <app-gallery-optimised />
+          } @else {
+            <app-gallery-unoptimised />
+          }
+        } @else {
+          <div class="error-message">
+            <p>
+              The server is currently unavailable. Please try again later or
+              check your network connection.
+            </p>
+          </div>
+        }
+      }
+    </div>
+    <div class="right">
+      <app-article-sidebar [articles]="galleryArticles()" />
+    </div>
+  </div>
 </div>

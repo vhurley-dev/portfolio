@@ -1,0 +1,103 @@
+@use "./../../../../assets/scss/colours" as *;
+
+.related-articles {
+  border: 0.1rem solid rgba($darkBlue, 0.2);
+  border-radius: 0.8rem;
+  position: sticky;
+  top: 2.4rem;
+
+  .heading {
+    background-color: $lightGrey;
+    border-radius: 0.8rem 0.8rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.6rem;
+    padding: 1.6rem;
+
+    h3 {
+      font-size: 1.6rem;
+      color: $darkBlue;
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+  }
+
+  h3 {
+    margin-bottom: 1.6rem;
+    font-size: 2rem;
+    color: $darkGreen;
+  }
+}
+a {
+  text-decoration: none !important;
+}
+
+.content {
+  padding: 1.6rem;
+}
+.article {
+  &.link,
+  &.draft {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.6rem;
+    margin-bottom: 0.8rem;
+    border: 0.1rem solid rgba($darkBlue, 0.2);
+    padding: 1.6rem;
+    border-radius: 0.8rem;
+    margin: 1.6rem 0;
+    background-color: transparent;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    .medium-icon {
+      width: 4rem;
+      min-width: 4rem;
+      height: 4rem;
+      background-color: $darkBlue;
+      border-radius: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .article-title {
+      font-size: 1.6rem;
+      line-height: 1.3;
+      color: $darkBlue;
+      text-decoration: none !important;
+      transition: color 0.2s ease;
+    }
+
+    .arrow-icon {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      transition: transform 0.2s ease;
+    }
+
+    &.link:hover {
+      border-color: $darkGreen;
+      transform: translateY(-0.2rem);
+      box-shadow: 0 0.4rem 1.2rem rgba($darkGreen, 0.15);
+
+      .medium-icon {
+        background-color: $darkGreen;
+      }
+
+      .article-title {
+        color: $darkGreen;
+      }
+
+      .arrow-icon {
+        transform: translateX(0.4rem);
+      }
+    }
+  }
+}

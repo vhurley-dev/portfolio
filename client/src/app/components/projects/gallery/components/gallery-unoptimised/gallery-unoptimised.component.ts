@@ -3,10 +3,11 @@ import { Component, inject } from '@angular/core';
 import { environment } from '../../../../../../environments/environment';
 import { ApiPaths } from '../../../../../enums/api-paths';
 import { GalleryService } from '../../gallery.service';
+import { GallerySkeletonComponent } from '../gallery-skeleton/gallery-skeleton.component';
 
 @Component({
   selector: 'app-gallery-unoptimised',
-  imports: [],
+  imports: [GallerySkeletonComponent],
   templateUrl: './gallery-unoptimised.component.html',
   styleUrl: '../../gallery.component.scss',
 })
