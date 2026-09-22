@@ -1,0 +1,42 @@
+<div class="related-articles">
+  <div class="heading">
+    <div class="medium-icon">
+      <icon name="ph:medium-logo" class="icon-dark" size="32"></icon>
+    </div>
+    <h3>Medium Article series ({{ totalCount() }} parts)</h3>
+  </div>
+  <div class="content">
+    @for (article of articles().publishedArticles; track article.title) {
+      <a [href]="article.url" target="_blank" rel="noopener noreferrer">
+        <div class="article link">
+          <div class="medium-icon">
+            <icon name="ph:medium-logo" class="icon-white" size="24"></icon>
+          </div>
+          <div class="article-title">
+            {{ article.title }}
+          </div>
+          <div class="arrow-icon">
+            <icon
+              name="ph:arrow-right"
+              class="icon-dark-green"
+              size="24"
+            ></icon>
+          </div>
+        </div>
+      </a>
+    }
+    @if (articles().draftArticles.length > 0) {
+      <h5>Coming Soon</h5>
+      @for (article of articles().draftArticles; track article.title) {
+        <div class="article draft">
+          <div class="medium-icon">
+            <icon name="ph:medium-logo" class="icon-white" size="24"></icon>
+          </div>
+          <div class="article-title">
+            {{ article.title }}
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>

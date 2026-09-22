@@ -1,25 +1,21 @@
-<div class="gallery-container">
-  <div class="grid">
-    @for (img of images(); track img._id) {
-      <div class="card">
-        <img [src]="img.url" [alt]="img.title" loading="lazy" />
-        <div class="card-info">
-          <h3>{{ img.title }}</h3>
-          <p class="camera">
-            {{ img.metadata?.cameraModel || "Unknown Camera" }}
-          </p>
-          <span class="views">{{ img.views }} views</span>
-        </div>
+<div class="grid">
+  @for (img of images(); track img._id) {
+    <div class="card">
+      <img [src]="img.url" [alt]="img.title" loading="lazy" />
+      <div class="card-info">
+        <h3>{{ img.title }}</h3>
+        <p class="camera">
+          {{ img.metadata?.cameraModel || "Unknown Camera" }}
+        </p>
+        <span class="views">{{ img.views }} views</span>
       </div>
-    }
-  </div>
+    </div>
+  }
+</div>
 
-  <!-- Intersection Observer Sentinel Target -->
-  <div #sentinel class="scroll-sentinel">
-    @if (loading()) {
-      <div class="loading-indicator">
-        <p>Loading more captures from Cloudflare R2...</p>
-      </div>
-    }
-  </div>
+<!-- Intersection Observer Sentinel Target -->
+<div #sentinel class="scroll-sentinel">
+  @if (loading()) {
+    <app-gallery-skeleton />
+  }
 </div>
