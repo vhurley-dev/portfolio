@@ -5,6 +5,8 @@
   border-radius: 0.8rem;
   position: sticky;
   top: 2.4rem;
+  max-height: calc(100vh - 4.8rem);
+  overflow-y: auto;
 
   .heading {
     background-color: $lightGrey;
@@ -65,6 +67,11 @@ a {
       align-items: center;
       justify-content: center;
       transition: background-color 0.2s ease;
+
+      @media only screen and (max-width: 500px) {
+        display: none;
+        visibility: hidden;
+      }
     }
 
     .article-title {
