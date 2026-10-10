@@ -3,7 +3,7 @@ export const TAB_DATA = [
     id: 'headless',
     title: 'Headless UI',
     description:
-      'The "Headless" approach separates logic from presentation. Angular Aria provides the behavioral "brain" (keyboard support, ARIA attributes), while my custom SCSS provides the "beauty."',
+      'The "Headless" approach separates logic from presentation. Angular Aria provides the behavioural "brain" (keyboard support, ARIA attributes), while my custom SCSS provides the "beauty."',
   },
   {
     id: 'a11y',

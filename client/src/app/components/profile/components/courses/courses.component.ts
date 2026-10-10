@@ -1,4 +1,11 @@
-import { Component, computed, input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  ElementRef,
+  input,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { Course } from '../../interfaces/profile.model';
 import { IconModule } from '../../../../../../projects/icon/src/public-api';
 
@@ -15,6 +22,7 @@ export class CoursesComponent {
     const list = this.courses();
     return this.showAll() ? list : list.slice(0, 6);
   });
+  private container = viewChild.required<ElementRef<HTMLElement>>('container');
 
   courseIcon(provider: string) {
     switch (provider.toLowerCase()) {
@@ -32,8 +40,18 @@ export class CoursesComponent {
         return 'default';
     }
   }
-
   toggleShowAll() {
-    this.showAll.set(!this.showAll());
+    const collapsing = this.showAll();
+    this.showAll.update((value) => !value);
+
+    if (collapsing) {
+      const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches;
+      this.container().nativeElement.scrollIntoView({
+        behavior: reduceMotion ? 'auto' : 'smooth',
+        block: 'start',
+      });
+    }
   }
 }

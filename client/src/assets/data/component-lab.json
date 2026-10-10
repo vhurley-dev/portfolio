@@ -66,7 +66,7 @@
     {
       "title": "Accessible Modal (Headless)",
       "challenge": "Modals are a common UI pattern, but they present unique accessibility challenges. They require a delicate balance of focus trapping, background silencing, and intuitive dismissal flows. When a dialog opens, screen reader users must not be able to navigate to the background content, focus must land immediately inside the modal, and pressing Escape must close it safely while returning focus to the exact element that triggered it.",
-      "solution": "This implementation uses the Angular CDK Dialog module for its robust, headless overlay foundation. By utilising the cdkFocusInitial directive, the component places the focus to the primary input field upon opening. Clean semantic markup, explicit button labeling and custom SCSS styling combine to provide a fully WCAG-compliant experience.",
+      "solution": "This implementation uses the Angular CDK Dialog module for its robust, headless overlay foundation. By utilising the cdkFocusInitial directive, the component places the focus to the primary input field upon opening. Clean semantic markup, explicit button labelling and custom SCSS styling combine to provide a fully WCAG-compliant experience.",
       "developerNotes": [],
       "componentName": "app-lab-modal",
       "articles": [
