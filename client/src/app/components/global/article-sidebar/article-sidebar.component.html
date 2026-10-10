@@ -3,7 +3,10 @@
     <div class="medium-icon">
       <icon name="ph:medium-logo" class="icon-dark" size="32"></icon>
     </div>
-    <h3>Medium Article series ({{ totalCount() }} parts)</h3>
+    <h3>
+      Medium Article series ({{ totalCount() }}
+      {{ totalCount() === 1 ? "part" : "parts" }})
+    </h3>
   </div>
   <div class="content">
     @for (article of articles().publishedArticles; track article.title) {

@@ -1,11 +1,12 @@
 <div
   class="course-container"
+  #container
   [class.border]="courses().length > 6"
   [class.is-expanded]="showAll()"
 >
   <div class="course-list-wrapper">
     @for (course of visibleCourses(); track course.title) {
-      <div class="course-item">
+      <div class="course-item" animate.enter="course-enter">
         <div class="course-logo {{ courseIcon(course.provider) }}"></div>
         <div class="course-details-wrapper">
           @if (course.certificateURL) {
@@ -25,10 +26,15 @@
         </div>
       </div>
     }
-    @if (courses().length > 6) {
-      <button class="show-courses-button" (click)="toggleShowAll()">
-        {{ showAll() ? "Show Less" : "Show All" }}
-      </button>
-    }
   </div>
+  @if (courses().length > 6) {
+    <button
+      class="show-courses-button"
+      (click)="toggleShowAll()"
+      [attr.aria-expanded]="showAll()"
+      aria-controls="course-list"
+    >
+      {{ showAll() ? "Show Less" : "Show All" }}
+    </button>
+  }
 </div>
