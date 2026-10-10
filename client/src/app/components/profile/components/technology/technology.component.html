@@ -1,11 +1,16 @@
-<div class="container">
-  @for (tech of technologies(); track $index) {
-    <div class="technology">
-      <h5 class="tech-name">{{ tech.technology }}</h5>
-      <div class="tech-scale">
-        <div class="tech-max"></div>
-        <div class="tech-score" [ngStyle]="{ width: tech.score }"></div>
-      </div>
-    </div>
-  }
-</div>
+@for (group of technologies(); track group.category) {
+  <div class="tech-group">
+    <h5 class="tech-group-title">{{ group.category }}</h5>
+    <ul class="container">
+      @for (tech of group.technologies; track tech.technology) {
+        <li class="technology">
+          <span class="tech-name">{{ tech.technology }}</span>
+          <div class="tech-scale" aria-hidden="true">
+            <div class="tech-max"></div>
+            <div class="tech-score" [style.width]="tech.score"></div>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+}

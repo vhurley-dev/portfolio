@@ -10,7 +10,7 @@ export interface Profile {
   intro2: string;
   socials: Social[];
   experiences: Experience[];
-  technologies: Technology[];
+  technologies: TechnologyGroup[];
   projects: Project[];
   courses: Course[];
   buildInfo: BuildInfo;
@@ -30,6 +30,11 @@ export interface Experience {
   title: string;
   description: string[];
   tech: string[];
+}
+
+export interface TechnologyGroup {
+  category: string;
+  technologies: Technology[];
 }
 
 export interface Technology {
