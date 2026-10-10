@@ -1,11 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const dns = require("dns");
 const mongoose = require("mongoose");
 const todosRoutes = require("./routes/todos");
 const serverHealthRoutes = require("./routes/serverHealth");
 const galleryRoutes = require("./routes/gallery");
 
 const app = express();
+
+// Force Node to use Google/Cloudflare DNS for SRV lookups
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 mongoose
   .connect(process.env.MONGODB_URI)

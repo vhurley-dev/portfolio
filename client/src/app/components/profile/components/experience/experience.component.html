@@ -17,7 +17,9 @@
           <h5>{{ experience.company }}</h5>
           <icon name="ph:arrow-up-right" size="18"></icon>
         </a>
-        <p class="description">{{ experience.description }}</p>
+        @for (desc of experience.description; track $index) {
+          <p class="description">{{ desc }}</p>
+        }
         <div class="technology">
           @for (tech of experience.tech; track $index) {
             <app-tech-tag [techTag]="tech"></app-tech-tag>

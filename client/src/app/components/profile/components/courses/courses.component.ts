@@ -26,7 +26,7 @@ export class CoursesComponent {
         return 'anthropic';
       case 'aws training and certification':
         return 'aws';
-      case 'nng':
+      case 'nn/g':
         return 'nng';
       default:
         return 'default';
