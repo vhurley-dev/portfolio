@@ -16,7 +16,10 @@
             <div class="medium-icon">
               <icon name="ph:medium-logo" class="icon-dark" size="32"></icon>
             </div>
-            <h3>Medium Article series ({{ articles().length }} parts)</h3>
+            <h3>
+              Medium Article series ({{ articles().length }}
+              {{ articles().length === 1 ? "part" : "parts" }})
+            </h3>
           </div>
           @for (article of articles(); track article.title) {
             <a [href]="article.url" target="_blank" rel="noopener noreferrer">

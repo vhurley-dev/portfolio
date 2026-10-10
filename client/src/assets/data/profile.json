@@ -5,9 +5,9 @@
   "strapLine2": "passion",
   "strapLine3": " for building polished, accessible web applications.",
   "introHeading1": "The craft of engineering",
-  "introHeading2": "Enterprise at Scale",
-  "intro1": "My journey into software began with a fascination for how complex systems are built from the ground up. Before I was architecting digital interfaces, I was a luthier with a First Class Honours degree in Music Technology with a focus on guitar making. Whether carving a fretboard or refactoring a reactive Angular component, my approach remains the same: a deep respect for precision, durability, and the user’s experience with the final 'instrument'.",
-  "intro2": "For over four years, I've been embedded on the British Airways account, moving across five product teams, from an AWS IoT proof of concept to the Seat Map and Disruptions flows. Along the way, I've become the engineer teams rely on for accessibility and for getting new developers up to speed, with hands-on backend work in NestJS, AWS and Terraform on the Seat Map and Ready to Travel projects. Outside work, I'm building full-stack applications of my own, including an AI-powered gardening platform, as I move towards full-stack roles.",
+  "introHeading2": "Enterprise at scale",
+  "intro1": "My journey into software began with a fascination for how complex systems are built from the ground up. Before I was architecting digital interfaces, I was a luthier with a First Class Honours degree in Music Technology with a focus on guitar making. Whether carving a fretboard or refactoring a reactive Angular component, my approach remains the same: a deep respect for precision, durability and the user’s experience with the final 'instrument'.",
+  "intro2": "I’ve spent over seven years building enterprise Angular applications. After starting out on a regulated insurance platform at REG Technologies, I’ve spent the last four years embedded on the British Airways account, moving across five product teams, from a Ready to Travel proof of concept on AWS to the Seat Map and Disruptions flows. Along the way, I’ve become the engineer teams rely on for accessibility and for getting new developers up to speed, with hands-on backend work in NestJS, AWS and Terraform on the Seat Map and Ready to Travel projects. Outside of my work, I’m building full-stack applications of my own, including an AI-powered gardening platform, as I move towards full-stack roles.",
   "socials": [
     {
       "name": "LinkedIn",
@@ -38,7 +38,7 @@
         "Sole engineer on the Seat Map accessibility project, working independently from audit reports to achieve WCAG compliance across the legacy pages.",
         "Led the redesign of the legacy seat itinerary page, planning the flow of work across a three-engineer team so large changes to shared files could ship safely with limited test environments.",
         "Disruptions (Angular 15–20): adapted the disruption flow to run inside the BA mobile app, integrated the help team's new chatbot across teams, and built the frontend for a new stopover and connections feature, solving gaps in the backend data with frontend logic.",
-        "Ready to Travel (AWS IoT proof of concept): set up the Angular architecture as the team's most experienced Angular engineer, mocking data ahead of the backend, then moved onto AWS and Terraform backend work.",
+        "Ready to Travel (AWS proof of concept): set up the Angular architecture as the team’s most experienced Angular engineer, mocking data ahead of the backend, then moved onto AWS backend and Terraform infrastructure-as-code work.",
         "Ancillaries: helped deliver a brand-new cabin upgrade feature on legacy pages through to completion, including designing and building the page’s messaging component to match the newer design system."
       ],
       "tech": [
@@ -137,8 +137,8 @@
   "projects": [
     {
       "title": "High Performance Gallery: Angular 21 + Node.js",
-      "description": "A deep-dive into performant image gallery design. This project showcases a bottom-up architectural transformation, rebuilding a sluggish 97.7 MB payload disaster into a lightning-fast experience with a 96+ Lighthouse score. Features database optimization with indexed queries, a custom Node.js/Sharp image processing pipeline, Angular Signals, and an optimized infinite scroll data delivery strategy for seamless asset loading.",
-      "img": "./assets/img/gallery.webp",
+      "description": "Rebuilt a deliberately unoptimised image gallery from a 97.7 MB payload to a 96+ Lighthouse score, profiling each bottleneck along the way. Changes include indexed MongoDB queries, a Node.js/Sharp image-processing pipeline, Angular Signals and paginated infinite scroll.",
+      "img": "./assets/img/gallery.png",
       "projectUrl": "/gallery",
       "tech": [
         "Angular",
@@ -152,15 +152,15 @@
     },
     {
       "title": "Component Lab: Accessible Headless UI",
-      "description": "A deep-dive into enterprise-grade component design. This project showcases the implementation of 'headless' UI patterns—separating complex accessibility logic from visual styling. Featuring WCAG-compliant components built with the new Angular Aria library, including focus-trapped modals and screen-reader-optimised comboboxes.",
+      "description": "Accessible components built with headless patterns, separating behaviour from styling. Includes a combobox using aria-activedescendant with live-region announcements, keyboard-navigable tabs built on Angular Aria, and a CDK dialog that traps focus and returns it on close.",
       "img": "./assets/img/component-lab.png",
       "projectUrl": "/component-lab",
       "tech": ["Angular", "Signals", "TypeScript", "WCAG", "Angular Aria"]
     },
     {
       "title": "Reactive MEAN Stack: Signal-Based Task Management",
-      "description": "An exploration of modern Angular reactivity, replacing traditional Change Detection with Signal-based state. This MEAN stack application demonstrates full CRUD capabilities alongside a dedicated Server-Status utility, showcasing cross-stack health checks and responsive data-fetching patterns.",
-      "img": "./assets/img/todos.webp",
+      "description": "A full-stack task manager exploring Signal-based state management in Angular. Includes full CRUD over an Express and MongoDB API, plus a server-status utility that runs health checks across the stack.",
+      "img": "./assets/img/todos.png",
       "projectUrl": "/todos",
       "tech": [
         "Angular",
