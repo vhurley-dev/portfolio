@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { Technology } from '../../interfaces/profile.model';
+import { TechnologyGroup } from '../../interfaces/profile.model';
 
 @Component({
   selector: 'app-technology',
@@ -9,5 +9,5 @@ import { Technology } from '../../interfaces/profile.model';
   styleUrl: './technology.component.scss',
 })
 export class TechnologyComponent {
-  technologies = input.required<Technology[]>();
+  technologies = input.required<TechnologyGroup[]>();
 }

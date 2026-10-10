@@ -1,8 +1,22 @@
 @use "./../../../../../assets/scss/colours" as *;
+
 .container {
   display: flex;
   flex-wrap: wrap;
+  padding: 0rem;
 }
+
+.tech-group {
+  margin-bottom: 2.4rem;
+}
+
+h5.tech-group-title {
+  color: $grey;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
 .technology {
   display: flex;
   justify-content: flex-start;
@@ -27,9 +41,9 @@
 }
 .tech-name {
   margin-right: 1.6rem;
-  width: 8.2rem;
-  max-width: 8.2rem;
-  min-width: 8.2rem;
+  width: 8.6rem;
+  max-width: 8.6rem;
+  min-width: 8.6rem;
 }
 .tech-scale {
   flex: 1;
