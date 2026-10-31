@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RecipesService } from '../../../../services/recipes.service';
 
 import { IconModule } from '../../../../../../../../../projects/icon/src/lib/icon/icon.module';
@@ -8,6 +8,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
     selector: 'app-recipes-search-bar',
     imports: [IconModule, ReactiveFormsModule, FormsModule],
     templateUrl: './recipes-search-bar.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './recipes-search-bar.component.scss'
 })
 export class RecipesSearchBarComponent {

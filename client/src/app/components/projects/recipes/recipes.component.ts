@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RecipesHeaderComponent } from './components/recipes-header/recipes-header.component';
 import { RouterModule, RouterOutlet, provideRouter } from '@angular/router';
 
@@ -6,6 +6,7 @@ import { RouterModule, RouterOutlet, provideRouter } from '@angular/router';
     selector: 'app-recipes',
     imports: [RecipesHeaderComponent, RouterOutlet, RouterModule],
     templateUrl: './recipes.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './recipes.component.scss'
 })
 export class RecipesComponent {

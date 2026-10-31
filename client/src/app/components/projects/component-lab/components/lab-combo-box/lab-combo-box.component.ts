@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, signal } from '@angular/core';
+import { Component, HostListener, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import {
   debounceTime,
@@ -16,6 +16,7 @@ import { ElementRef, effect, viewChild } from '@angular/core';
   selector: 'app-lab-combo-box',
   imports: [ReactiveFormsModule],
   templateUrl: './lab-combo-box.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './lab-combo-box.component.scss',
 })
 export class LabComboBoxComponent {

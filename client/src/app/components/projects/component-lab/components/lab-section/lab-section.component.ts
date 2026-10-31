@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { DeveloperNote } from '../../interfaces/component.model';
 import { IconModule } from '../../../../../../../projects/icon/src/public-api';
 
@@ -6,6 +6,7 @@ import { IconModule } from '../../../../../../../projects/icon/src/public-api';
   selector: 'app-lab-section',
   imports: [IconModule],
   templateUrl: './lab-section.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './lab-section.component.scss',
 })
 export class LabSectionComponent {

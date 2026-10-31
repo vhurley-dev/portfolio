@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ChangeDetectionStrategy } from '@angular/core';
 import { RecipesSearchBarComponent } from './components/recipes-search-bar/recipes-search-bar.component';
 import { RecipesSearchResultsComponent } from './components/recipes-search-results/recipes-search-results.component';
 
@@ -7,6 +7,7 @@ import { RecipesSearchResultsComponent } from './components/recipes-search-resul
     selector: 'app-recipes-search',
     imports: [RecipesSearchBarComponent, RecipesSearchResultsComponent],
     templateUrl: './recipes-search.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './recipes-search.component.scss'
 })
 export class RecipesSearchComponent {

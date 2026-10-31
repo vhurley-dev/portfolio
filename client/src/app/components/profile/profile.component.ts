@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, inject, signal, InjectionToken } from '@angular/core';
+import { Component, inject, signal, InjectionToken, ChangeDetectionStrategy } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { TechnologyComponent } from './components/technology/technology.component';
@@ -30,6 +30,7 @@ export const WINDOW = new InjectionToken<Window>('Window', {
     SocialsComponent,
   ],
   templateUrl: './profile.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './profile.component.scss',
 })
 export class ProfileComponent {

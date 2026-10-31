@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TechTagComponent } from '../../../global/tech-tag/tech-tag.component';
 import { Experience } from '../../interfaces/profile.model';
 import { IconModule } from '../../../../../../projects/icon/src/public-api';
@@ -7,6 +7,7 @@ import { IconModule } from '../../../../../../projects/icon/src/public-api';
   selector: 'app-experience',
   imports: [TechTagComponent, IconModule],
   templateUrl: './experience.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './experience.component.scss',
 })
 export class ExperienceComponent {

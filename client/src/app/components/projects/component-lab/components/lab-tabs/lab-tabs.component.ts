@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { Tabs, TabList, Tab, TabPanel, TabContent } from '@angular/aria/tabs';
 import { LabTab } from '../../interfaces/component.model';
 
@@ -6,6 +6,7 @@ import { LabTab } from '../../interfaces/component.model';
   selector: 'app-lab-tabs',
   imports: [Tabs, TabList, Tab, TabPanel, TabContent],
   templateUrl: './lab-tabs.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './lab-tabs.component.scss',
 })
 export class LabTabsComponent {
