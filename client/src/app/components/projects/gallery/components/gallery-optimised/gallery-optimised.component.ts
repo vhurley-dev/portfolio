@@ -27,6 +27,7 @@ export class GalleryOptimisedComponent implements OnInit {
   readonly currentPage = signal(1);
   readonly totalPages = signal(1);
   readonly loading = signal(false);
+  errorMessage: string = '';
 
   @ViewChild('sentinel', { static: true }) sentinel!: ElementRef;
 
@@ -52,6 +53,7 @@ export class GalleryOptimisedComponent implements OnInit {
         finalize(() => this.loading.set(false)),
         catchError((error) => {
           console.error('Error fetching infinite batch:', error);
+          this.errorMessage = 'Failed to load images. Please try again later.';
           return of({
             images: [],
             pagination: {
