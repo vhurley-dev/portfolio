@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "./../../../../../../assets/scss/colours" as *;
 * {
   font-family: "Poppins", "Open-sans";
@@ -143,7 +144,7 @@ input[type="checkbox"] {
       background: linear-gradient(
         90deg,
         $lightGrey 25%,
-        lighten($lightGrey, 5%) 50%,
+        color.adjust($lightGrey, $lightness: 5%) 50%,
         $lightGrey 75%
       );
       background-size: 900px 100%;
