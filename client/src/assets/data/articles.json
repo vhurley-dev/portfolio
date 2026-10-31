@@ -10,12 +10,13 @@
         {
           "title": "Improving the Performace of an Image Gallery Part 2: How to Hunt Down Performance Bottlenecks with Chrome DevTools",
           "url": "https://medium.com/@vhurley.dev/improving-the-performance-of-an-image-gallery-part-2-how-to-hunt-down-performance-bottlenecks-with-a79d359134db"
+        },
+        {
+          "title": "Improving the Performace of an Image Gallery Part 3: Optimising the Database and Backend",
+          "url": "https://medium.com/@vhurley.dev/improving-the-performance-of-an-image-gallery-part-3-optimising-the-database-and-the-backend-4fc6db9d0fc6"
         }
       ],
       "draftArticles": [
-        {
-          "title": "Improving the Performace of an Image Gallery Part 3: Optimising the Database and Backend"
-        },
         {
           "title": "Improving the Performace of an Image Gallery Part 4: Optimising the Frontend"
         },
