@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from '../../../../services/recipes.service';
 
@@ -10,6 +10,7 @@ import { IngredientsComponent } from './components/ingredients/ingredients.compo
     selector: 'app-recipe-detail',
     imports: [IconModule, NutritionComponent, IngredientsComponent],
     templateUrl: './recipe-detail.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './recipe-detail.component.scss'
 })
 export class RecipeDetailComponent implements OnInit {

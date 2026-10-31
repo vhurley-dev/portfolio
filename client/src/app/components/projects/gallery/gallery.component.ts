@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { IconModule } from '../../../../../projects/icon/src/public-api';
 import { RouterLink } from '@angular/router';
 import { GalleryUnoptimisedComponent } from './components/gallery-unoptimised/gallery-unoptimised.component';
@@ -23,6 +23,7 @@ import { ProjectArticles } from '../../global/article-sidebar/interfaces/article
     ArticleSidebarComponent,
   ],
   templateUrl: './gallery.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './gallery.component.scss',
 })
 export class GalleryComponent {

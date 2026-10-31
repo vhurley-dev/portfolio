@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { environment } from '../../../../../../environments/environment';
 import { ApiPaths } from '../../../../../enums/api-paths';
 import { GalleryService } from '../../gallery.service';
@@ -9,6 +9,7 @@ import { GallerySkeletonComponent } from '../gallery-skeleton/gallery-skeleton.c
   selector: 'app-gallery-unoptimised',
   imports: [GallerySkeletonComponent],
   templateUrl: './gallery-unoptimised.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: '../../gallery.component.scss',
 })
 export class GalleryUnoptimisedComponent {

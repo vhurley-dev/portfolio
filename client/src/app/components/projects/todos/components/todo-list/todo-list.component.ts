@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, input, model, signal } from '@angular/core';
+import { Component, computed, input, model, signal, ChangeDetectionStrategy } from '@angular/core';
 import { IconModule } from '../../../../../../../projects/icon/src/public-api';
 import { Task, TasksFilter } from '../../interfaces/task.model';
 import { TodosService } from '../../todos.service';
@@ -9,6 +9,7 @@ import { TodoEditComponent } from '../todo-edit/todo-edit.component';
   selector: 'app-todo-list',
   imports: [CommonModule, IconModule, TodoEditComponent],
   templateUrl: './todo-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './todo-list.component.scss',
 })
 export class TodoListComponent {

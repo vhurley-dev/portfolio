@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IconModule } from '../../../../../projects/icon/src/public-api';
 import { LabTabsComponent } from './components/lab-tabs/lab-tabs.component';
@@ -20,6 +20,7 @@ import { LabModalComponent } from './components/lab-modals/lab-modal.component';
     LabModalComponent,
   ],
   templateUrl: './component-lab.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './component-lab.component.scss',
 })
 export class ComponentLabComponent {

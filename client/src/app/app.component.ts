@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { map } from 'rxjs';
@@ -9,6 +9,7 @@ import { filter } from 'rxjs/operators';
   selector: 'app-root',
   imports: [RouterOutlet, HttpClientModule],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
@@ -38,7 +39,7 @@ export class AppComponent {
           this.meta.updateTag({
             name: 'description',
             content:
-              'Angular development lab showcasing Angular 21 features and accessible UI patterns.',
+              'Angular development lab showcasing Angular 22 features and accessible UI patterns.',
           });
         }
       });

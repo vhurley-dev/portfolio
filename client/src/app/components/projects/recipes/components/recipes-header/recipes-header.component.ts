@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Location } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { IconModule } from '../../../../../../../projects/icon/src/lib/icon/icon.module';
@@ -7,6 +7,7 @@ import { IconModule } from '../../../../../../../projects/icon/src/lib/icon/icon
     selector: 'app-recipes-header',
     imports: [IconModule, RouterLink],
     templateUrl: './recipes-header.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './recipes-header.component.scss'
 })
 export class RecipesHeaderComponent {

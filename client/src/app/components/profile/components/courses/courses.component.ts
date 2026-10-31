@@ -5,6 +5,7 @@ import {
   input,
   signal,
   viewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { Course } from '../../interfaces/profile.model';
 import { IconModule } from '../../../../../../projects/icon/src/public-api';
@@ -13,6 +14,7 @@ import { IconModule } from '../../../../../../projects/icon/src/public-api';
   selector: 'app-courses',
   imports: [IconModule],
   templateUrl: './courses.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './courses.component.scss',
 })
 export class CoursesComponent {

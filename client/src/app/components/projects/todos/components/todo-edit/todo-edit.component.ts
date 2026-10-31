@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Task } from '../../interfaces/task.model';
 import { IconModule } from '../../../../../../../projects/icon/src/public-api';
@@ -8,6 +8,7 @@ import { TodosService } from '../../todos.service';
   selector: 'app-todo-edit',
   imports: [FormsModule, IconModule],
   templateUrl: './todo-edit.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './todo-edit.component.scss',
 })
 export class TodoEditComponent {

@@ -1,11 +1,12 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { A11yModule } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-cdk-modal',
   imports: [A11yModule],
   templateUrl: './cdk-modal.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './cdk-modal.component.scss',
 })
 export class CdkModalComponent {

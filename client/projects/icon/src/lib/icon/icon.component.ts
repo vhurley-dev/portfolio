@@ -4,7 +4,8 @@ import {
   Input,
   numberAttribute,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { loadIcon } from 'iconify-icon';
 
@@ -17,6 +18,7 @@ import { loadIcon } from 'iconify-icon';
         'class': 'icon',
         '[class.is-loaded]': 'loaded'
     },
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class IconComponent implements OnChanges {
