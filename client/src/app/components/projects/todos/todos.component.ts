@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, input } from '@angular/core';
+import { Component, computed, effect, inject, input, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -17,6 +17,7 @@ import { ServerStatusComponent } from '../../global/server-status/server-status.
     ServerStatusComponent,
   ],
   templateUrl: './todos.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './todos.component.scss',
 })
 export class TodosComponent {

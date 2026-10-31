@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { IconModule } from '../../../../../../../../../projects/icon/src/public-api';
 import { RecipesService } from '../../../../services/recipes.service';
@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
     selector: 'app-recipes-search-results',
     imports: [IconModule, RouterLink],
     templateUrl: './recipes-search-results.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './recipes-search-results.component.scss'
 })
 export class RecipesSearchResultsComponent {

@@ -1,4 +1,4 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, inject, output, ChangeDetectionStrategy } from '@angular/core';
 import { Dialog } from '@angular/cdk/dialog';
 import { CdkModalComponent } from './components/cdk-modal/cdk-modal.component';
 
@@ -7,6 +7,7 @@ import { CdkModalComponent } from './components/cdk-modal/cdk-modal.component';
   standalone: true,
   imports: [],
   templateUrl: './lab-modal.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './lab-modal.component.scss',
 })
 export class LabModalComponent {

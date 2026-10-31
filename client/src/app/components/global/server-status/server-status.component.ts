@@ -1,10 +1,11 @@
-import { Component, inject, OnInit, signal, effect } from '@angular/core';
+import { Component, inject, OnInit, signal, effect, ChangeDetectionStrategy } from '@angular/core';
 import { ServerStatusService } from './server-status.service';
 
 @Component({
   selector: 'app-server-status',
   templateUrl: './server-status.component.html',
   styleUrl: './server-status.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     '[class.hidden]': 'isHidden()',
   },

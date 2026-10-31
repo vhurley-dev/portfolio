@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { SectionEnums } from '../../enums/sections.enum';
 import { CommonModule, KeyValue } from '@angular/common'; // Add KeyValue
 import { RouterLink } from '@angular/router';
@@ -8,6 +8,7 @@ import { ScrollService } from '../../../../services/scroll.service';
   selector: 'app-navigation',
   imports: [CommonModule, RouterLink],
   templateUrl: './navigation.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './navigation.component.scss',
 })
 export class NavigationComponent {

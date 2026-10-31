@@ -136,7 +136,7 @@
   ],
   "projects": [
     {
-      "title": "High Performance Gallery: Angular 21 + Node.js",
+      "title": "High Performance Gallery: Angular + Node.js",
       "description": "Rebuilt a deliberately unoptimised image gallery from a 97.7 MB payload to a 96+ Lighthouse score, profiling each bottleneck along the way. Changes include indexed MongoDB queries, a Node.js/Sharp image-processing pipeline, Angular Signals and paginated infinite scroll.",
       "img": "./assets/img/gallery.png",
       "projectUrl": "/gallery",
@@ -265,7 +265,7 @@
     }
   ],
   "buildInfo": {
-    "intro": "A Full-Stack application built with Angular 21 and Node.js. Hosted on GitHub Pages and Render.",
+    "intro": "A Full-Stack application built with Angular 22 and Node.js. Hosted on GitHub Pages and Render.",
     "repoText": "View the repo",
     "repoUrl": "https://github.com/vhurley-dev/portfolio"
   }

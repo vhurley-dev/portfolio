@@ -1,4 +1,4 @@
-import { Component, input, model, signal } from '@angular/core';
+import { Component, input, model, signal, ChangeDetectionStrategy } from '@angular/core';
 import { Task } from '../../interfaces/task.model';
 import { FormsModule } from '@angular/forms';
 import { TodosService } from '../../todos.service';
@@ -7,6 +7,7 @@ import { TodosService } from '../../todos.service';
   selector: 'app-todo-add',
   imports: [FormsModule],
   templateUrl: './todo-add.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './todo-add.component.scss',
 })
 export class TodoAddComponent {
