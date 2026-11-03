@@ -38,12 +38,5 @@ export const routes: Routes = [
         'A task management interface featuring real-time state synchronisation and server health monitoring.',
     },
   },
-  {
-    path: 'recipes',
-    loadChildren: () =>
-      import('./components/projects/recipes/recipes.routes').then(
-        (feature) => feature.recipeRoutes,
-      ),
-  },
   { path: '**', redirectTo: '' },
 ];
