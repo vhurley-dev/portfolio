@@ -14,12 +14,13 @@
         {
           "title": "Improving the Performace of an Image Gallery Part 3: Optimising the Database and Backend",
           "url": "https://medium.com/@vhurley.dev/improving-the-performance-of-an-image-gallery-part-3-optimising-the-database-and-the-backend-4fc6db9d0fc6"
+        },
+        {
+          "title": "Improving the Performace of an Image Gallery Part 4: Optimising the Frontend",
+          "url": "https://medium.com/@vhurley.dev/improving-the-performance-of-an-image-gallery-part-4-optimising-the-frontend-41384011aa6b"
         }
       ],
       "draftArticles": [
-        {
-          "title": "Improving the Performace of an Image Gallery Part 4: Optimising the Frontend"
-        },
         {
           "title": "Improving the Performace of an Image Gallery Part 5: Pagination, Infinite Scroll, and Virtualization"
         }
